@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Button from 'react-bootstrap/Button';
+
 
 function Example() {
     return (
@@ -10,6 +12,7 @@ function Example() {
                         <div className="card-header">Example Component</div>
 
                         <div className="card-body">I'm an example component!</div>
+                        <Button onClick={()=>setShow(False)}>test</Button>
                     </div>
                 </div>
             </div>

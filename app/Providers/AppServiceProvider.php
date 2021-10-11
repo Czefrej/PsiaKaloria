@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use DateTime;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('App\Interfaces\BaselinkerRepositoryInterface', 'App\Utils\BaselinkerRepository');
     }
 
     /**
@@ -23,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Blade::directive('estDeliveryDate',function($expression){
+            return "<?php echo e(getEstimatedDelivery($expression)); ?>";
+        });
     }
 }

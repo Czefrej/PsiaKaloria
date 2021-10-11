@@ -40,4 +40,33 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function orders(){
+        return $this->hasMany("App\Models\Order");
+    }
+
+    public function savedAddresses(){
+        return $this->hasMany("App\Models\SavedAddress");
+    }
+
+    public static function createTemporary($login,$email){
+        if($login == null){
+            $login = "TEMP-".substr(md5($email),-7);
+        }
+
+        $user = new User();
+        $user->email = $email;
+        $user->name = $login;
+        $user->save();
+
+        return $user;
+    }
+
+    public static function existsWithID($email){
+        $user = User::where('email', $email)->first();
+
+        if($user != null){
+            return $user;
+        }else return false;
+    }
 }

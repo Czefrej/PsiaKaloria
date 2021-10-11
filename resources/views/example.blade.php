@@ -7,6 +7,7 @@
     </head>
     <body>
         <div id="example"></div>
+        @estDeliveryDate(true)
         <script src="{{mix('js/app.js')}}"></script>
     </body>
 </html>

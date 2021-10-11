@@ -18,4 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::resource('/order', \App\Http\Controllers\OrderController::class)
+    ->middleware("isajax");
+
+
+Route::get('/link/{bl_order_id}/{secret}/','App\Http\Controllers\BaselinkerController@link')->whereNumber("bl_order_id")->whereAlphaNumeric("secret");
 

@@ -19,9 +19,7 @@ class CreateSavedAddressesTable extends Migration
 
             $table->boolean('company_purchase');
 
-            $table->string('name');
-            $table->string('surname');
-            $table->string('phone');
+            $table->string('fullname');
             $table->string('company')->nullable();
             $table->string('tax_id')->nullable();
             $table->string('address');
@@ -29,14 +27,20 @@ class CreateSavedAddressesTable extends Migration
             $table->string('city');
             $table->string('country');
 
-            $table->string('delivery_name');
-            $table->string('delivery_surname');
+            $table->string('delivery_fullname');
             $table->string('delivery_phone');
             $table->string('delivery_company')->nullable();
             $table->string('delivery_address');
             $table->string('delivery_postal_code');
             $table->string('delivery_city');
             $table->string('delivery_country');
+
+            $table->string("delivery_point_id")->nullable();
+            $table->string("delivery_point_name")->nullable();
+            $table->string("delivery_point_address")->nullable();
+            $table->string("delivery_point_postal_code")->nullable();
+            $table->string("delivery_point_city")->nullable();
+
             $table->timestamps();
 
 

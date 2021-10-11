@@ -20,7 +20,7 @@ class ProductsTableSeeder extends Seeder
         DB::table('products')->insert([
             'name'=>'Baton AS Premium z wołowiną - 90% mięsa - Zestaw 10 x 1000g',
             'ean'=>'5904238002704',
-            'code'=>'as_premium_wol',
+            'sku'=>'as_premium_wol',
             'description'=>'Lorem ipsum',
             'category'=>'sausage',
             'image'=>'/uploads/as_premium_wol.jpg',
@@ -36,7 +36,7 @@ class ProductsTableSeeder extends Seeder
         DB::table('products')->insert([
             'name'=>'Baton AS Premium z drobiem i wołowiną - 90% mięsa - Zestaw 10 x 1000g',
             'ean'=>'5904238002728',
-            'code'=>'as_premium_drob',
+            'sku'=>'as_premium_drob',
             'description'=>'Lorem ipsum',
             'category'=>'sausage',
             'image'=>'/uploads/as_premium_drob.jpg',
@@ -52,7 +52,7 @@ class ProductsTableSeeder extends Seeder
         DB::table('products')->insert([
             'name'=>'Baton AS Premium z wieprzowiną i wołowiną - 90% mięsa - Zestaw 10 x 1000g',
             'ean'=>'5904238002711',
-            'code'=>'as_premium_wieprz',
+            'sku'=>'as_premium_wieprz',
             'description'=>'Lorem ipsum',
             'category'=>'sausage',
             'image'=>'/uploads/as_premium_wieprz.jpg',
@@ -70,7 +70,7 @@ class ProductsTableSeeder extends Seeder
         DB::table('products')->insert([
             'name'=>'Baton AS Deluxe z jagnięciną - 85% mięsa - Zestaw 10 x 1000g',
             'ean'=>'5904238002742',
-            'code'=>'as_deluxe_jag',
+            'sku'=>'as_deluxe_jag',
             'description'=>'Lorem ipsum',
             'category'=>'sausage',
             'image'=>'/uploads/as_deluxe_jag.jpg',
@@ -86,7 +86,7 @@ class ProductsTableSeeder extends Seeder
         DB::table('products')->insert([
             'name'=>'Baton AS Deluxe z jagnięciną i wołowiną - 85% mięsa - Zestaw 10 x 1000g',
             'ean'=>'5904238002759',
-            'code'=>'as_deluxe_jag_wol',
+            'sku'=>'as_deluxe_jag_wol',
             'description'=>'Lorem ipsum',
             'category'=>'sausage',
             'image'=>'/uploads/as_deluxe_jag_wol.jpg',
@@ -102,7 +102,7 @@ class ProductsTableSeeder extends Seeder
         DB::table('products')->insert([
             'name'=>'Baton AS Deluxe z indykiem - 85% mięsa - Zestaw 10 x 1000g',
             'ean'=>'5904238002735',
-            'code'=>'as_deluxe_indyk',
+            'sku'=>'as_deluxe_indyk',
             'description'=>'Lorem ipsum',
             'category'=>'sausage',
             'image'=>'/uploads/as_deluxe_indyk.jpg',
@@ -120,7 +120,7 @@ class ProductsTableSeeder extends Seeder
         DB::table('products')->insert([
             'name'=>'AS - Mrożone Mięso Wołowo-Drobiowe Z Kością - Dieta BARF - 10kg',
             'ean'=>'5904238002766',
-            'code'=>'as_barf_drob_wol',
+            'sku'=>'as_barf_drob_wol',
             'description'=>'Lorem ipsum',
             'category'=>'frozen_food',
             'image'=>'/uploads/as_barf_drob_wol.jpg',
@@ -136,7 +136,7 @@ class ProductsTableSeeder extends Seeder
         DB::table('products')->insert([
             'name'=>'AS - Mrożone Mięso Wołowe - Dieta BARF - 10 kg',
             'ean'=>'5904238002773',
-            'code'=>'as_barf_wol',
+            'sku'=>'as_barf_wol',
             'description'=>'Lorem ipsum',
             'category'=>'frozen_food',
             'image'=>'/uploads/as_barf_wol.jpg',

@@ -14,10 +14,9 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id();
+            $table->string('sku')->unique()->index();
             $table->string('name');
             $table->string('ean')->unique();
-            $table->string('code')->unique();
             $table->longText('description');
             $table->enum('category',['frozen_food','sausage','pate']);
             $table->string('image');
