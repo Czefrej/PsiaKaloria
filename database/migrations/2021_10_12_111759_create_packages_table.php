@@ -19,10 +19,12 @@ class CreatePackagesTable extends Migration
             $table->string('tracking_number');
             $table->enum('courier',['paczkomaty','dpd','inpostkurier']);
             $table->enum('status',['could_not_resolve','unknown','created','shipped','not_delivered','out_for_delivery','delivered','return','aviso','in_pickup_point','lost','canceled','on_the_way']);
-
+            $table->unsignedBigInteger('rel_package_id')->nullable();
             $table->timestamps();
 
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
+            $table->foreign('rel_package_id')->references('id')->on('packages')->onDelete('cascade');
+
         });
     }
 

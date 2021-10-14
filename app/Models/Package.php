@@ -23,16 +23,33 @@ class Package extends Model
         return $this->belongsTo("App\Models\Order");
     }
 
-    public static function add(Order $order,$tracking_number,$courier_type){
+    public function history(){
+        return $this->hasMany("App\Models\PackageStatusHistory");
+    }
+
+    public function child_package(){
+        return $this->hasOne("App\Models\Package","rel_package_id");
+    }
+
+    public function parent_package(){
+        return $this->belongsTo("App\Models\Package","rel_package_id");
+    }
+
+    public static function add(Order $order,$tracking_number,$courier_type,Package $rel_package = null){
         $package = new Package();
         $package->tracking_number = $tracking_number;
         $package->courier = $courier_type;
         $package->status = "created";
-        $order->packages()->save($package);
+
+        if($rel_package != null)
+            $package->parent_package()->associate($rel_package);
+
+        $package->order()->associate($order);
         $package->save();
 
         return $package;
     }
+
 
     public static function exists(Order $order, $tracking_number){
         $package = Package::where('order_id',$order->id)->where('tracking_number',$tracking_number)->first();
@@ -60,7 +77,7 @@ class Package extends Model
         $packages = $this->order->packages;
 
         foreach ($packages as $package){
-            if($package->status != $target_status)
+            if($package->status != $target_status && $package->parent_package == null)
                 return false;
         }
         return true;
