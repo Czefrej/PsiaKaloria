@@ -125,6 +125,12 @@ return [
                 "color" => "#f2eee9",
                 "system_status" => "paid"
             ]
+        ],
+        "status_reversed"=>[
+            "sent" => 42841,
+            "returned" => 42855,
+            "delivered" => 42848,
+            "in_pickup_point"=>42847,
         ]
     ]
 ];

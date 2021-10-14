@@ -16,6 +16,9 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind('App\Interfaces\BaselinkerRepositoryInterface', 'App\Utils\BaselinkerRepository');
+        $this->app->bind('App\Interfaces\InPostRepositoryInterface', 'App\Utils\InPostRepository');
+        $this->app->bind('App\Interfaces\DPDRepositoryInterface', 'App\Utils\DPDRepository');
+
     }
 
     /**

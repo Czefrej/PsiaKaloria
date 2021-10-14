@@ -7,6 +7,7 @@ use App\Models\DeliveryMethod;
 use App\Models\DeliveryPaymentAvailability;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\Package;
 use App\Models\PaymentMethod;
 use App\Models\Product;
 use App\Models\SavedAddress;
@@ -75,8 +76,35 @@ class BaselinkerController extends Controller
             $order = Order::updateWithID($bl_order->order_id,$user,$savedAddress,$dp_availability,Config::get("mappings.baselinker.status.$bl_order->order_status_id.system_status")?: "unknown",0,$bl_order->order_page,$bl_order_due,$bl_order->payment_done,Config::get("mappings.baselinker.source.$bl_order->order_source_id")?: "personal");
         }
 
-        dd($bl_order);
+        $packages = $this->getPackages($bl_order_id)->packages;
 
+        foreach ($packages as $package){
+            if(Package::exists($order,$package->courier_package_nr) === false)
+                $p = Package::add($order,$package->courier_package_nr,$package->courier_code);
+        }
+
+        return response()->json([
+            'status'=>'SUCCESS'
+        ]);
+    }
+
+    private function getPackages($bl_order_id){
+        $packages = $this->example->getquery("getOrderPackages",["order_id"=>$bl_order_id]);
+        return $packages;
+    }
+
+    public function setOrderStatus(Order $order,string $status){
+        $status = Config::get("mappings.baselinker.status_reversed.$status")?: "unknown";
+        if($status == "unknown")
+            return response()->json([
+                'status'=>'ERROR',
+                'message'=>'Unknown status id'
+            ]);
+        $this->example->getquery("setOrderStatus",["order_id"=>$order->id,"status_id"=>$status]);
+
+        return response()->json([
+            'status'=>'SUCCESS'
+        ]);
     }
 
 }

@@ -30,6 +30,10 @@ class Order extends Model
         return $this->hasMany("App\Models\OrderItem","order_id","id");
     }
 
+    public function packages(){
+        return $this->hasMany("App\Models\Package","order_id","id");
+    }
+
     public static function create($id,User $user,SavedAddress $savedAddress, DeliveryPaymentAvailability $deliveryPaymentAvailability, $status,bool $is_donation,string $order_page,float $due,float $paid,string $source)
     {
         $order = new Order();

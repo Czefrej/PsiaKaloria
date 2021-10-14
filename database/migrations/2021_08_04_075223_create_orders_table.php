@@ -15,7 +15,7 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigInteger('id')->unique()->index();
-            $table->enum('status',['unpaid','paid','packed','sent','in_pickup_point','delivered','returned','cancelled','unknown']);
+            $table->enum('status',['unpaid','paid','packed','sent','in_pickup_point','delivered','returned','cancelled','complained','unknown']);
             $table->boolean('is_donation');
             $table->unsignedBigInteger('shelter_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();

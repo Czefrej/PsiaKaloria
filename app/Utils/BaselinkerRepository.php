@@ -18,4 +18,5 @@ class BaselinkerRepository implements BaselinkerRepositoryInterface
 
         return $json;
     }
+
 }
