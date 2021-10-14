@@ -1,0 +1,106 @@
+@media (min-width: 1400px)  {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1200px;
+    }
+}
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding: 1.4rem .8rem;
+    }
+}
+@media (max-width: 992px) {
+    h2 {
+        font-size: 1.25rem;
+    }
+    .navbar-light .navbar-brand {
+        display: none;
+    }
+    .cart-counter {
+        background-color: var(--primary-clr);
+        padding: 1px 7px;
+        border-radius: 50px;
+        color: var(--white-clr);
+        position: absolute;
+        bottom: -2px;
+        right: -12px;
+        border: 2px solid var(--white-clr);
+        font-size: .7rem;
+    }
+    .types img {
+        width: 100%;
+    }
+    .type-title {
+        font-size: 1rem;
+        margin-top: 24px;
+    }
+    .types .h-220 {
+        min-height: 220px !important;
+    }
+    .carousel-md-img {
+        display: none !important;
+    }
+    .carousel-m-img {
+        display: block !important;
+    }
+    .blog-md-img {
+        display: none;
+    }
+    .blog-m-img {
+        margin-top: 42px;
+        display: block;
+    }
+    .blogs .title-wrapper {
+        text-align: center;
+    }
+    .blogs .btn-primary {
+        width: 100%;
+    }
+    .blogs .description-wrapper {
+        margin-top: 43px !important;
+        font-weight: 300;
+    }
+    .square-pattern-right {
+        width: 107px;
+        right: -30px;
+        bottom: -30px;
+    }
+    .square-pattern-left {
+        width: 107px;
+        left: -30px;
+        bottom: -30px;
+    }
+    .blogs .mt-15 {
+        margin-top: 50px !important;
+    }
+    .mobile-nav {
+        display: block;
+    }
+    .newsletter-wrapper {
+        background-image: url("../images/newsletter_bg_mobile.png");
+        background-size: cover;
+        min-height: 325px;
+        border-radius: 8px;
+    }
+    footer .footer-nav {
+        text-align: center;
+        margin-left: 0;
+        padding-left: 0;
+    }
+    footer .footer-logo-wrapper {
+        display: flex;
+        justify-content: center;
+    }
+    footer .footer-logo-wrapper img {
+        width: 156px;
+    }
+    footer .footer-nav li a, .footer-logo-lead {
+        font-weight: 300 !important;
+        font-size: 1.125rem !important;
+    }
+    footer .separator {
+        height: 0;
+    }
+    .mobile-overflow-hidden {
+        overflow-x: hidden;
+    }
+}
