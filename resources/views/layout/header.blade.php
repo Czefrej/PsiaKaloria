@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-md">
           <a class="navbar-brand" href="#">
-              <img src="images/logo.svg" alt="">
+              <img src="{{ asset('images/logo.svg') }}" alt="">
           </a>
           <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -11,11 +11,11 @@
           <div class="mobile-nav">
             <ul class="navbar-nav d-flex flex-row gap-4 pe-2">
                 <li class="nav-item">
-                    <a class="nav-link icon-link" href="#"><img src="images/user-icon.svg" alt=""></a>
+                    <a class="nav-link icon-link" href="#"><img src="{{ asset('images/user-icon.svg') }}" alt=""></a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link icon-link position-relative">
-                        <img src="images/cart_icon.svg" alt="">
+                        <img src="{{ asset('images/cart_icon.svg') }}" alt="">
                         <span class="cart-counter">1</span>
                     </a>
                 </li>
@@ -44,12 +44,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link icon-link" href="#"><img src="images/user-icon.svg" alt=""></a>
+                    <a class="nav-link icon-link" href="#"><img src="{{ asset('') }}images/user-icon.svg" alt=""></a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link icon-link position-relative">
-                        <img src="images/cart_icon.svg" alt="">
-                        <span class="cart-counter">1</span>
+                        <img src="{{ asset('') }}images/cart_icon.svg" alt="">
+                        <span class="cart-counter">
+                            <span>1</span>
+                        </span>
                     </a>
                 </li>
             </ul>
@@ -61,7 +63,7 @@
             <div class="row">
                 <div class="col">
                     <a href="#" class="close-mobile-nav-list">
-                        <img src="images/close_icon.svg" alt="">
+                        <img src="{{ asset('images/close_icon.svg') }}" alt="">
                     </a>
                     <nav class="mt-3">
                         <ul class="navbar-nav">

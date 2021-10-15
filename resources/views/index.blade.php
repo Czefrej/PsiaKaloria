@@ -8,9 +8,8 @@
 
     @include('sections.home_page.blogs')
 
-    @include('sections.home_page.we_recommend')
+    @include('sections.home_page.recommended_products')
 
     @include('sections.home_page.newsletter')
 
-<!-- Section newsletter ends-->
 @endsection

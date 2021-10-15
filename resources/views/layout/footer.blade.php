@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-3 col-12">
                 <div class="footer-logo-wrapper">
-                    <img src="images/footer_logo.svg" alt="">
+                    <img src="{{ asset('images/footer_logo.svg') }}" alt="">
                 </div>
             </div>
             <div class="col-md-3 col-12 mt-md-0 mt-4">
@@ -48,7 +48,7 @@
         <div class="row">
             <div class="col d-flex justify-content-center flex-column align-items-center">
                 <span class="d-block text-white fw-lighter footer-logo-lead">Sklep obsługuje</span>
-                <img src="images/outer_best_logo.png" alt="Outer Best" class="mt-3">
+                <img src="{{ asset('images/outer_best_logo.png') }}" alt="Outer Best" class="mt-3">
             </div>
         </div>
     </div>

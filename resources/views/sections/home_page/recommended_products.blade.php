@@ -1,5 +1,5 @@
 <!-- Section we recommend starts -->
-<section class="we-recommend mt-md-10 mt-5">
+<section class="we-recommend mt-md-10 mt-5 mb-10">
     <div class="container">
         <div class="title text-left my-md-5 my-4">
             <h2>Polecamy</h2>
@@ -8,11 +8,11 @@
             <div class="col-md-3 col-6">
                 <div class="product">
                     <div class="product-img-wrapper bg-white d-flex justify-content-center">
-                        <img src="images/product_img1.png" alt="" class="img-fluid">
+                        <img src="{{ asset('images/product_img1.png') }}" alt="" class="img-fluid">
                     </div>
                     <div class="product-description-wrapper">
                         <div class="product-rating-wrapper mt-3">
-                            <img src="images/stars.svg" alt="">
+                            <img src="{{ asset('images/stars.svg') }}" alt="">
                             <span class="ps-1 fw-lighter fs-6">(24 opinie)</span>
                         </div>
                         <h5 class="product-title pe-md-5 mt-3">Baton AS Deluxe - 85% mięsa (dłuższa nazwa)</h5>
@@ -26,11 +26,11 @@
             <div class="col-md-3 col-6">
                 <div class="product">
                     <div class="product-img-wrapper bg-white d-flex justify-content-center">
-                        <img src="images/product_img1.png" alt="" class="img-fluid">
+                        <img src="{{ asset('images/product_img1.png') }}" alt="" class="img-fluid">
                     </div>
                     <div class="product-description-wrapper">
                         <div class="product-rating-wrapper mt-3">
-                            <img src="images/stars.svg" alt="">
+                            <img src="{{ asset('images/stars.svg') }}" alt="">
                             <span class="ps-1 fw-lighter fs-6">(24 opinie)</span>
                         </div>
                         <h5 class="product-title pe-md-5 mt-3">Baton AS Deluxe - 85% mięsa (dłuższa nazwa)</h5>
@@ -40,14 +40,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-6 mt-md-0 mt-4">
+            <div class="col-md-3 col-6">
                 <div class="product">
                     <div class="product-img-wrapper bg-white d-flex justify-content-center">
-                        <img src="images/product_img1.png" alt="" class="img-fluid">
+                        <img src="{{ asset('images/product_img1.png') }}" alt="" class="img-fluid">
                     </div>
                     <div class="product-description-wrapper">
                         <div class="product-rating-wrapper mt-3">
-                            <img src="images/stars.svg" alt="">
+                            <img src="{{ asset('images/stars.svg') }}" alt="">
                             <span class="ps-1 fw-lighter fs-6">(24 opinie)</span>
                         </div>
                         <h5 class="product-title pe-md-5 mt-3">Baton AS Deluxe - 85% mięsa (dłuższa nazwa)</h5>
@@ -57,14 +57,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-6  mt-4 mt-md-0">
+            <div class="col-md-3 col-6">
                 <div class="product">
                     <div class="product-img-wrapper bg-white d-flex justify-content-center">
-                        <img src="images/product_img1.png" alt="" class="img-fluid">
+                        <img src="{{ asset('images/product_img1.png') }}" alt="" class="img-fluid">
                     </div>
                     <div class="product-description-wrapper">
                         <div class="product-rating-wrapper mt-3">
-                            <img src="images/stars.svg" alt="">
+                            <img src="{{ asset('images/stars.svg') }}" alt="">
                             <span class="ps-1 fw-lighter fs-6">(24 opinie)</span>
                         </div>
                         <h5 class="product-title pe-md-5 mt-3">Baton AS Deluxe - 85% mięsa (dłuższa nazwa)</h5>

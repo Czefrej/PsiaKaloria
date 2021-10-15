@@ -103,4 +103,47 @@
     .mobile-overflow-hidden {
         overflow-x: hidden;
     }
+    .we-recommend .square-pattern-left {
+        top: 30px;
+        left: -50px;
+        z-index: -1;
+    }
+    .we-recommend .square-pattern-bottom-right{
+        width: 107px;
+        bottom: -120px;
+        right: 30px;
+    }
+    .we-recommend.categoies-page {
+        margin-bottom: 48px;
+    }
+    .faq .square-pattern-left {
+        top: 30px;
+        left: -50px;
+        z-index: -1;
+    }
+    .faq .square-pattern-bottom-right{
+        width: 107px;
+        bottom: -120px;
+        right: 30px;
+    }
+    .faq {
+        margin-bottom: 48px;
+    }
+    .faq .accordion-body {
+        border: 0;
+        line-height: 2rem;
+        padding-top: 5px;
+        padding-right: 10px;
+    }
+    .faq .accordion-button {
+        line-height: 2rem;
+        padding-right: 70px;
+    }
+    .faq .accordion-body {
+        font-weight: 300;
+    }
+    .accordion-button::after {
+        position: absolute;
+        right: 26px;
+    }
 }
