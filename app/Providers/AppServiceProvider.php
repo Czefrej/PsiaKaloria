@@ -31,5 +31,13 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('estDeliveryDate',function($expression){
             return "<?php echo e(getEstimatedDelivery($expression)); ?>";
         });
+
+        Blade::directive('renderStars',function($expression){
+            return "<?php echo renderStars($expression); ?>";
+        });
+
+        Blade::directive('renderCart',function($expression){
+            return "<?php echo renderCart($expression); ?>";
+        });
     }
 }

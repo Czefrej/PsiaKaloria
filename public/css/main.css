@@ -1,0 +1,331 @@
+:root{
+    --body-bg: #f3f3f3;
+    --text-clr: #0d1521;
+    --dark-bg-clr: #0d1521;
+    --primary-clr: #db003b;
+    --white-clr: #fff;
+}
+body {
+    background-color: var(--body-bg);
+    color: var(--text-clr);
+    font-family: 'Sofia Pro', sans-serif;
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Globals */
+.text-primary {
+    color: var(--primary-clr) !important;
+}
+.btn {
+    padding: 13px 27px;
+    border-radius: 8px;
+}
+.btn-primary {
+    background-color: var(--primary-clr);
+    border: 0;
+}
+.btn-primary:hover, .btn-primary:active {
+    background-color: var(--primary-clr);
+}
+h2 {
+    font-size: 1.5rem;
+}
+span.title-leading {
+    font-size: 0.875rem;
+    font-weight: bold;
+}
+.card {
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0px 3px 24px rgba(0, 0, 0, 0.05);
+}
+.mt-10 {
+    margin-top: 6rem!important;
+}
+.mt-15 {
+    margin-top: 9rem!important;
+}
+.mb-10 {
+    margin-bottom: 6rem!important;
+}
+.mb-15 {
+    margin-bottom: 9rem!important;
+}
+/* Navbar */
+header > nav {
+    background: transparent;
+    filter: drop-shadow(0px 10px 25px rgba(0, 0, 0, 0.05));
+    /* Note: currently only Safari supports backdrop-filter */
+    backdrop-filter: blur(7px);
+    --webkit-backdrop-filter: blur(7px);
+    background-color: rgba(255, 255, 255, 0.15);
+    /* (plus shape's fill blended on top as a separate layer with 80% opacity) */
+}
+.navbar-light .navbar-nav .nav-link {
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--text-clr);
+}
+.navbar-light .navbar-nav.left-nav .nav-link.active, .navbar-light .navbar-nav.left-nav .nav-link:hover {
+    color: var(--primary-clr);
+}
+.navbar-light .navbar-nav.left-nav .nav-link.active::after, .navbar-light .navbar-nav.left-nav .nav-link:hover::after {
+    content: '';
+    width: 24px;
+    height: 4px;
+    background-color: var(--primary-clr);
+    border-radius: 50px;
+    margin: 0 auto;
+    display: block;
+}
+.punkty-link {
+    line-height: 1rem;
+}
+.punkty-link span:first-child {
+    font-size: 0.75rem;
+}
+.cart-counter {
+    min-width: 21px;
+    height: 21px;
+    padding-top: 3px;
+    background-color: var(--primary-clr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border-radius: 50px;
+    color: var(--white-clr);
+    position: absolute;
+    bottom: 16px;
+    right: 3px;
+    border: 2px solid var(--white-clr);
+}
+.navbar-light .navbar-toggler {
+    border: 0;
+    padding: 0;
+}
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='16' viewBox='0 0 22 16'%3E%3Cg id='Group_38437' data-name='Group 38437' transform='translate(-25.995 -20.676)'%3E%3Cpath id='Path_40104' data-name='Path 40104' d='M-457.7,16.676h20' transform='translate(484.691 5)' fill='none' stroke='%230d1521' stroke-linecap='round' stroke-width='2'/%3E%3Cpath id='Path_40105' data-name='Path 40105' d='M-457.7,16.676h20' transform='translate(484.691 12)' fill='none' stroke='%230d1521' stroke-linecap='round' stroke-width='2'/%3E%3Cpath id='Path_40106' data-name='Path 40106' d='M-457.7,16.676h20' transform='translate(484.691 19)' fill='none' stroke='%230d1521' stroke-linecap='round' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+.mobile-nav {
+    display: none;
+}
+.mobile-nav-list {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 200;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: transparent;
+    filter: drop-shadow(0px 10px 25px rgba(0, 0, 0, 0.05));
+    /* Note: currently only Safari supports backdrop-filter */
+    backdrop-filter: blur(7px);
+    --webkit-backdrop-filter: blur(7px);
+    background-color: rgba(255, 255, 255, 0.15);
+    /* (plus shape's fill blended on top as a separate layer with 80% opacity) */
+}
+.mobile-nav-list ul li a {
+    font-weight: bold;
+    font-size: 1.25rem;
+    text-align: left;
+    color: var(--text-clr);
+}
+.mobile-nav-list .navbar-nav .nav-link {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.mobile-nav-list .navbar-nav .nav-link.active {
+    color: var(--primary-clr);
+}
+.mobile-nav-list nav {
+    background: transparent
+}
+/* Navbar ends */
+
+/* Carousel */
+.carousel-main .carousel-item > img{
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+.carousel-control-next, .carousel-control-prev {
+    width: 8%;
+}
+.carousel-control-prev-icon{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='22.999' viewBox='0 0 13 22.999'%3E%3Cpath id='Path_40132' data-name='Path 40132' d='M-2040.385,281.871a1.493,1.493,0,0,1-1.06-.439,1.5,1.5,0,0,1,0-2.121l8.939-8.94-8.939-8.939a1.5,1.5,0,0,1,0-2.121,1.5,1.5,0,0,1,2.121,0l10,10a1.5,1.5,0,0,1,0,2.121l-10,10A1.5,1.5,0,0,1-2040.385,281.871Z' transform='translate(2041.885 -258.872)' fill='%230d1521' opacity='0.8' style='isolation: isolate'/%3E%3C/svg%3E%0A");
+    transform: scaleX(-1);
+}
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='22.999' viewBox='0 0 13 22.999'%3E%3Cpath id='Path_40132' data-name='Path 40132' d='M-2040.385,281.871a1.493,1.493,0,0,1-1.06-.439,1.5,1.5,0,0,1,0-2.121l8.939-8.94-8.939-8.939a1.5,1.5,0,0,1,0-2.121,1.5,1.5,0,0,1,2.121,0l10,10a1.5,1.5,0,0,1,0,2.121l-10,10A1.5,1.5,0,0,1-2040.385,281.871Z' transform='translate(2041.885 -258.872)' fill='%230d1521' opacity='0.8' style='isolation: isolate'/%3E%3C/svg%3E%0A");
+}
+.carousel-md-img {
+    display: block !important;
+}
+.carousel-m-img {
+    display: none !important;
+}
+/* Types */
+
+.type-title {
+    font-weight: bold;
+    font-size: 2.625rem;
+}
+
+.h-220 {
+    min-height: 220px;
+}
+
+/* Recommend products */
+
+.we-recommend .product-img-wrapper {
+    padding: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0px 3px 24px rgba(0, 0, 0, 0.05);
+}
+.we-recommend.categoies-page {
+    margin-bottom: 71px;
+}
+.we-recommend .product-title {
+    font-weight: 300;
+    font-size: 1.125rem;
+    text-align: left;
+    min-height: 50px;
+}
+.we-recommend .product-price {
+    font-size: 1.25rem;
+}
+.we-recommend .square-pattern-left {
+    top: 30px;
+    left: -80px;
+    z-index: -1;
+}
+.we-recommend .square-pattern-bottom-right {
+    position: absolute;
+    right: 0;
+    bottom: -220px;
+    z-index: -1;
+}
+/* Newsletter */
+
+.newsletter-wrapper {
+    background-image: url("../images/newsletter_bg.png");
+    background-size: cover;
+    min-height: 400px;
+    border-radius: 8px;
+}
+
+/* footer */
+
+footer {
+    background-color: var(--dark-bg-clr);
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.footer-nav li a {
+    color: var(--white-clr);
+    text-decoration: none;
+    padding: 8px 0;
+    font-weight: 300;
+    display: block;
+}
+
+.separator {
+    height: 1px;
+    background: var(--white-clr);
+    opacity: 0.19;
+}
+
+/* Patterns */
+
+.homepage-bg {
+    background-image: url("../images/homepage-bg.png");
+    background-size: contain;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    margin-top: 20%;
+    top: 0;
+    bottom: 0;
+}
+.square-pattern-right {
+    right: -60px;
+    bottom: -60px;
+    position: absolute;
+}
+.square-pattern-left {
+    left: -60px;
+    bottom: -60px;
+    position: absolute;
+}
+
+.blog-md-img {
+    display: block;
+}
+.blog-m-img {
+    display: none;
+}
+
+/* Faq */
+.faq {
+    margin-bottom: 71px;
+}
+.faq .square-pattern-left {
+    top: 30px;
+    left: -80px;
+    z-index: -1;
+}
+.faq .square-pattern-bottom-right {
+    position: absolute;
+    right: 0;
+    bottom: -220px;
+    z-index: -1;
+}
+.accordion-item {
+    margin-bottom: 8px;
+    border: 0;
+    background: transparent;
+    border-radius: 8px !important;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.05);
+    filter: drop-shadow(0px 10px 25px rgba(0, 0, 0, 0.05));
+    /* Note: currently only Safari supports backdrop-filter */
+    backdrop-filter: blur(7px);
+    --webkit-backdrop-filter: blur(7px);
+    background-color: rgba(255, 255, 255, 0.70);
+}
+.faq .accordion-button {
+    color: var(--text-clr);
+    font-size: 1.125rem;
+    font-weight: bold;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+.faq .accordion-body {
+    border: 0;
+    padding-top: 5px;
+    padding-right: 180px;
+}
+.faq .accordion-button:not(.collapsed) {
+    color: var(--text-clr);
+    background: unset;
+}
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230d1521'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+.returns-and-complaints .card{
+    padding: 32px;
+}
+.returns-and-complaints .card p{
+    margin-top: 40px;
+    font-weight: 300;
+    font-size: 1.125rem;
+}
+.returns-and-complaints .card p strong {
+    font-weight: bold;
+}
