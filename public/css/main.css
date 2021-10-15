@@ -53,6 +53,13 @@ span.title-leading {
 .mb-15 {
     margin-bottom: 9rem!important;
 }
+.text-muted {
+    color: var(--text-clr) !important;
+    opacity: 0.6;
+    font-weight: 300;
+    font-size: 0.875rem;
+}
+
 /* Navbar */
 header > nav {
     background: transparent;
@@ -328,4 +335,36 @@ footer {
 }
 .returns-and-complaints .card p strong {
     font-weight: bold;
+}
+
+/* Account sidebar */
+.account-sidebar .nav-wrapper ul {
+    list-style: none;
+}
+.account-sidebar .nav-wrapper ul a{
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-clr);
+    text-decoration: none;
+    padding: 8px 0;
+    padding-left: 16px;
+    display: block;
+    position: relative;
+}
+.account-sidebar .nav-wrapper ul a:hover, .account-sidebar .nav-wrapper ul a.active {
+    color: var(--primary-clr);
+}
+.account-sidebar .nav-wrapper ul a:hover::before, .account-sidebar .nav-wrapper ul a.active::before {
+    height: 24px;
+    width: 4px;
+    border-radius: 50px;
+    background-color: var(--primary-clr);
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+}
+.value-text {
+    font-size: 1.125rem;
+    color: var(--text-clr);
 }

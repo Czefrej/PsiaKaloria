@@ -28,3 +28,7 @@ Route::get('/page/faq', function () {
 Route::get('/page/returns-and-complaints', function() {
     return view('pages.returns_and_complaint');
 });
+
+Route::get('/account/settings', function() {
+    return view('account.settings');
+});

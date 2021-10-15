@@ -146,4 +146,42 @@
         position: absolute;
         right: 26px;
     }
+    .value-text {
+        font-size: 1rem;
+    }
+    .card-title .action {
+        font-size: 0.875rem !important;
+    }
+    .title-sm-mobile {
+        font-size: 0.875rem;
+    }
+    .account-sidebar .nav-wrapper ul a:hover::before, .account-sidebar .nav-wrapper ul a.active::before {
+        display: none;
+    }
+    .account-sidebar .nav-wrapper ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 15px;
+    }
+    .account-sidebar .nav-wrapper ul a {
+        padding-left: 0;
+        white-space: nowrap;
+        font-size: 1.25rem;
+    }
+    .nav-wrapper {
+        width: calc(100vw);
+        overflow: scroll;
+        margin-left: -15px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .nav-wrapper::-webkit-scrollbar {
+        width: 0;  /* Remove scrollbar space */
+        background: transparent;  /* Optional: just make scrollbar invisible */
+    }
+    /* Optional: show position indicator in red */
+    .nav-wrapper::-webkit-scrollbar-thumb {
+        background: transparent;
+    }
 }
