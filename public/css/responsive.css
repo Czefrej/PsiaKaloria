@@ -184,4 +184,15 @@
     .nav-wrapper::-webkit-scrollbar-thumb {
         background: transparent;
     }
+    .text-sm-mobile h5, .text-sm-mobile span {
+        font-size: 0.875rem;
+    }
+    .page-item .page-link {
+        margin-right: 8px !important;
+        border-radius: 8px !important;
+        padding: 6px 14px;
+        color: var(--text-clr);
+        background-color: var(--white-clr);
+        border: 0;
+    }
 }

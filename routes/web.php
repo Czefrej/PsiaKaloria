@@ -32,3 +32,11 @@ Route::get('/page/returns-and-complaints', function() {
 Route::get('/account/settings', function() {
     return view('account.settings');
 });
+
+Route::get('/account/purchase-history', function() {
+    return view('account.purchase_history');
+});
+
+Route::get('/account/subscriptions', function() {
+    return view('account.subscriptions');
+});

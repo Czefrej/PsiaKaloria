@@ -2,25 +2,11 @@
 
 @section('content')
 
-    {{-- @include('sections.faq_page.accordion') --}}
-
     <div class="account-wrapper mt-md-5 mt-3 mb-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="account-sidebar">
-                        <div class="title text-left mb-md-5">
-                            <span class="title-leading text-primary mb-2 d-md-block d-none">Rodzaj karmy</span>
-                            <h2 class="title-sm-mobile">Moje konto</h2>
-                        </div>
-                        <div class="nav-wrapper">
-                            <ul class="m-0 p-0">
-                                <li><a href="#" class="active">Ustawienia</a></li>
-                                <li><a href="#">Historia zakupów</a></li>
-                                <li><a href="#">Moje subskrypcje</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    @include('sidebars.account_sidebar')
                 </div>
                 <div class="col-md-8">
                     <div class="title text-left mb-5 d-md-block d-none">

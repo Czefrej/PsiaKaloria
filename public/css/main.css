@@ -4,6 +4,8 @@
     --dark-bg-clr: #0d1521;
     --primary-clr: #db003b;
     --white-clr: #fff;
+    --orange-clr: #f90;
+    --green-clr: #16b283;
 }
 body {
     background-color: var(--body-bg);
@@ -18,6 +20,12 @@ body {
 .text-primary {
     color: var(--primary-clr) !important;
 }
+.text-orange {
+    color: var(--orange-clr);
+}
+.text-success {
+    color: var(--green-clr) !important;
+}
 .btn {
     padding: 13px 27px;
     border-radius: 8px;
@@ -26,8 +34,20 @@ body {
     background-color: var(--primary-clr);
     border: 0;
 }
-.btn-primary:hover, .btn-primary:active {
+.btn-primary-light {
+    background: rgba(219, 0, 59, 0.1);
+    color: var(--primary-clr);
+    border: 0;
+}
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus, .btn-primary:visited {
     background-color: var(--primary-clr);
+    box-shadow: none;
+}
+.btn-disabled, .btn-disabled:hover, .btn-disabled:focus, .btn-disabled:active, .btn-disabled:visited {
+    border-radius: 8px;
+    background: rgba(13, 21, 33, 0.1);
+    box-shadow: none;
+    color: rgba(13, 21, 33, 0.24);
 }
 h2 {
     font-size: 1.5rem;
@@ -367,4 +387,39 @@ footer {
 .value-text {
     font-size: 1.125rem;
     color: var(--text-clr);
+}
+
+/* Purchase history */
+td {
+    vertical-align: middle;
+    font-weight: 300;
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+}
+td.text-muted {
+    font-size: 1rem;
+}
+td:first-child {
+    padding-left: 0 !important;
+}
+td:last-child {
+    text-align: right;
+}
+.page-item .page-link {
+    margin-right: 8px !important;
+    border-radius: 8px !important;
+    padding: 8px 18px;
+    color: var(--text-clr);
+    background-color: var(--white-clr);
+    border: 0;
+}
+.page-item:last-child .page-link {
+    margin-right: 0 !important;
+}
+.page-item .page-link.next {
+    background: transparent;
+    border: 0;
+}
+.page-item.active .page-link {
+    background-color: var(--primary-clr);
 }
