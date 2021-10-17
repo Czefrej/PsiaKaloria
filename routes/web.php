@@ -40,3 +40,19 @@ Route::get('/account/purchase-history', function() {
 Route::get('/account/subscriptions', function() {
     return view('account.subscriptions');
 });
+
+Route::get('/account/password', function() {
+    return view('account.password');
+});
+
+Route::get('/account/edit', function() {
+    return view('account.edit');
+});
+
+Route::get('/login', function() {
+    return view('auth.login');
+});
+
+Route::get('/register', function() {
+    return view('auth.register');
+});

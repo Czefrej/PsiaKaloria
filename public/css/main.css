@@ -79,7 +79,10 @@ span.title-leading {
     font-weight: 300;
     font-size: 0.875rem;
 }
-
+label {
+    font-weight: 500;
+    font-size: 0.875rem;
+}
 /* Navbar */
 header > nav {
     background: transparent;
@@ -422,4 +425,32 @@ td:last-child {
 }
 .page-item.active .page-link {
     background-color: var(--primary-clr);
+}
+
+/* Social auth */
+.social-auth a {
+    border: 2px solid rgba(13, 21, 33, 0.15);
+    padding: 10px 44px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+.auth-action a {
+    font-size: 0.875rem;
+    color: var(--text-clr);
+    text-decoration: none;
+    font-weight: 300;
+}
+.fs-7 {
+    font-size: 0.875rem;
+}
+.form-check-label {
+    font-weight: 300 !important;
+    font-size: 0.845rem;
+    color: var(--text-clr);
+}
+.form-check a{
+    font-weight: 300;
+    font-size: 0.875rem;
+    color: var(--text-clr);
+    text-decoration: none;
 }
