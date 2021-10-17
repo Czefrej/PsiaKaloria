@@ -22,7 +22,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                 <label class="form-check-label fs-7" for="flexCheckDefault">
-                                    Akceptuję <a href="#">Regulamin</a> i <a href="#">Politykę prywatności</a> Psia Kaloria.
+                                    Akceptuję <a href="#">Regulamin</a> i <a href="#">Politykę prywatności</a> Psia Kaloria.
                                 </label>
                               </div>
                             <div class="btn-wrapper d-flex gap-4 mt-4">
@@ -44,7 +44,7 @@
                             </div>
                         </div>
                         <div class="auth-action d-flex justify-content-center mt-4">
-                            <a href="#">Masz już konto? Zaloguj się</a>
+                            <a href="{{route("login")}}">Masz już konto? Zaloguj się</a>
                         </div>
                     </div>
                 </div>

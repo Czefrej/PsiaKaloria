@@ -10,7 +10,7 @@
             <div class="col-md-3 col-12 mt-md-0 mt-4">
                 <ul class="footer-nav">
                     <li>
-                        <a href="#">Zwroty i reklamacje</a>
+                        <a href="{{route("returns-and-complaints")}}">Zwroty i reklamacje</a>
                     </li>
                     <li>
                         <a href="#">Regulaminy</a>
@@ -48,7 +48,9 @@
         <div class="row">
             <div class="col d-flex justify-content-center flex-column align-items-center">
                 <span class="d-block text-white fw-lighter footer-logo-lead">Sklep obsługuje</span>
-                <img src="{{ asset('images/outer_best_logo.png') }}" alt="Outer Best" class="mt-3">
+                <a href="https://outerbest.pl">
+                    <img src="{{ asset('images/outer_best_logo.png') }}" alt="Outer Best" class="mt-3">
+                </a>
             </div>
         </div>
     </div>

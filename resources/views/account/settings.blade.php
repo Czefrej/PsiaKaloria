@@ -17,7 +17,7 @@
                         <div class="card px-4 pt-md-5 pt-4 pb-4">
                             <div class="card-title d-flex justify-content-between">
                                 <h5>Dane osobowe</h5>
-                                <a href="#" class="text-decoration-none action"><span class="text-primary fw-light">Edytuj</span></a>
+                                <a href="{{route('account.edit')}}" class="text-decoration-none action"><span class="text-primary fw-light">Edytuj</span></a>
                             </div>
                             <div class="row mt-4">
                                 <div class="col-md-4 mb-md-0 mb-4">
@@ -88,7 +88,7 @@
                                         <h5>Hasło</h5>
                                     </div>
                                     <div class="action">
-                                        <a href="#" class="btn btn-primary d-md-inline-block d-block">
+                                        <a href="{{route('account.password')}}" class="btn btn-primary d-md-inline-block d-block">
                                             Zmień hasło
                                         </a>
                                     </div>

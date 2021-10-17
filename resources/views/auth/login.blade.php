@@ -39,7 +39,7 @@
                         </div>
                         <div class="auth-action d-flex justify-content-between mt-4">
                             <a href="#">Nie pamiętam hasła</a>
-                            <a href="#">Jesteś nowy? Załóż konto</a>
+                            <a href="{{route("register")}}">Jesteś nowy? Załóż konto</a>
                         </div>
                     </div>
                 </div>

@@ -17,26 +17,48 @@ Route::get('/', function () {
     return view('index');
 })->name("home");
 
-Route::get('/page/categories', function () {
-    return view('pages.categories');
-})->name("categories");
+Route::prefix('page')->group(function () {
+    Route::get('/categories', function () {
+        return view('pages.categories');
+    })->name("categories");
 
-Route::get('/page/faq', function () {
-    return view('pages.faq');
-})->name("faq");
+    Route::get('/faq', function () {
+        return view('pages.faq');
+    })->name("faq");
 
-Route::get('/page/returns-and-complaints', function() {
-    return view('pages.returns_and_complaint');
-})->name("returns-and-complaints");
+    Route::get('/returns-and-complaints', function() {
+        return view('pages.returns_and_complaint');
+    })->name("returns-and-complaints");
+});
 
-Route::get('/account/settings', function() {
-    return view('account.settings');
-})->name("account.settings");
+Route::prefix('account')->name('account.')->group(function () {
 
-Route::get('/account/purchase-history', function() {
-    return view('account.purchase_history');
-})->name("account.purchase-history");
+    Route::get('/settings', function() {
+        return view('account.settings');
+    })->name("settings");
 
-Route::get('/account/subscriptions', function() {
-    return view('account.subscriptions');
-})->name("account.subscriptions");
+    Route::get('/purchase-history', function() {
+        return view('account.purchase_history');
+    })->name("purchase-history");
+
+    Route::get('/subscriptions', function() {
+        return view('account.subscriptions');
+    })->name("subscriptions");
+
+    Route::get('/password', function() {
+        return view('account.password');
+    })->name('password');
+
+    Route::get('/edit', function() {
+        return view('account.edit');
+    })->name('edit');
+
+});
+
+Route::get('/login', function() {
+    return view('auth.login');
+})->name('login');
+
+Route::get('/register', function() {
+    return view('auth.register');
+})->name('register');
