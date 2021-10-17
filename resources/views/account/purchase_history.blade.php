@@ -26,7 +26,7 @@
                                 <table class="table ">
                                     <tbody>
                                         <tr>
-                                            <td><img src="{{ asset('images/product_thumbnail.jpg') }}"></td>
+                                            <td><img src="{{ asset('uploads/as_barf_drob_wol.jpg') }}" width="100px"></td>
                                             <td>Baton AS Deluxe - 85% mięsa</td>
                                             <td>Indyk</td>
                                             <td class="text-muted">2x39,90 zł</td>
@@ -45,7 +45,7 @@
                             <div class="table-data-mobile d-md-none d-block mt-5">
                                 <div class="row">
                                     <div class="col">
-                                        <img src="{{ asset('images/product_thumbnail.jpg') }}">
+                                        <img src="{{ asset('uploads/as_barf_drob_wol.jpg') }}" width="75px">
                                     </div>
                                     <div class="col-8 d-flex flex-column justify-content-between align-items-start">
                                         <div class="upper-text text-sm-mobile">

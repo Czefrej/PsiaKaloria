@@ -11,7 +11,7 @@
           <div class="mobile-nav">
             <ul class="navbar-nav d-flex flex-row gap-4 pe-2">
                 <li class="nav-item">
-                    <a class="nav-link icon-link" href="#"><img src="{{ asset('images/user-icon.svg') }}" alt=""></a>
+                    <a class="nav-link icon-link" href="{{route('account.settings')}}"><img src="{{ asset('images/user-icon.svg') }}" alt=""></a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link icon-link position-relative">
@@ -23,7 +23,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav left-nav me-auto mb-2 mb-lg-0 ps-5">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Główna</a>
+                <a class="nav-link @if(Route::current()->getName() == 'home') active @endif"  @if(Route::current()->getName() == 'home') aria-current="page" @endif href="{{route('home')}}">Główna</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Karma mokra</a>
@@ -32,7 +32,7 @@
                 <a class="nav-link" href="#">Karma mrożona</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">FAQ</a>
+                <a class="nav-link @if(Route::current()->getName() == 'faq') active @endif" @if(Route::current()->getName() == 'faq') aria-current="page" @endif href="{{route('faq')}}">FAQ</a>
               </li>
             </ul>
             <ul class="navbar-nav">
@@ -43,7 +43,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link icon-link" href="#"><img src="{{ asset('') }}images/user-icon.svg" alt=""></a>
+                    <a class="nav-link icon-link" href="{{route('account.settings')}}"><img src="{{ asset('images/user-icon.svg') }}" alt=""></a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link icon-link position-relative">
@@ -64,7 +64,7 @@
                     <nav class="mt-3">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Główna</a>
+                                <a class="nav-link @if(Route::current()->getName() == 'home') active @endif"  @if(Route::current()->getName() == 'home') aria-current="page" @endif href="{{route('home')}}">Główna</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Karma mokra</a>
@@ -73,7 +73,7 @@
                                 <a class="nav-link" href="#">Karma mrożona</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">FAQ</a>
+                                <a class="nav-link @if(Route::current()->getName() == 'faq') active @endif"  @if(Route::current()->getName() == 'faq') aria-current="page" @endif href="{{route('faq')}}">FAQ</a>
                             </li>
                         </ul>
                     </nav>
