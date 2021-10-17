@@ -1,56 +1,50 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layout.main')
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+@section('content')
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+    <div class="account-wrapper mt-md-5 mt-3 mb-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="title text-center mb-4 d-md-block d-none my-5">
+                        <h2 class="mt-3">Zaloguj się</h2>
+                    </div>
+                    <div class="editable-wrapper">
+                        <form>
+                            <div class="input-wrapper mb-4">
+                                <label class="mb-1">Adres e-mail</label>
+                                <input type="text" class="form-control border-0 py-2" value="a.nowak@gmail.com">
+                            </div>
+                            <div class="input-wrapper mb-4">
+                                <label class="mb-1">Hasło</label>
+                                <input type="text" class="form-control border-0 py-2" value="123 456 789">
+                            </div>
+                            <div class="btn-wrapper d-flex gap-4">
+                                <a href="#" class="btn btn-primary w-100">Zaloguj się</a>
+                            </div>
+                        </form>
+                        <div class="social-auth-wrapper">
+                            <span class="d-block my-4 fw-light text-center fs-7">Lub kontynuuj z</span>
+                            <div class="social-auth d-flex justify-content-between">
+                                <a href="#">
+                                    <img src="{{ asset('images/google.svg') }}" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="{{ asset('images/apple.svg') }}" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="{{ asset('images/facebook.svg') }}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="auth-action d-flex justify-content-between mt-4">
+                            <a href="#">Nie pamiętam hasła</a>
+                            <a href="#">Jesteś nowy? Załóż konto</a>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
-            </div>
-
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+@endsection
