@@ -26,6 +26,10 @@ Route::prefix('page')->group(function () {
         return view('pages.faq');
     })->name("faq");
 
+    Route::get('/contact', function () {
+        return view('pages.contact');
+    })->name("contact");
+
     Route::get('/returns-and-complaints', function() {
         return view('pages.returns_and_complaint');
     })->name("returns-and-complaints");
@@ -62,3 +66,15 @@ Route::get('/login', function() {
 Route::get('/register', function() {
     return view('auth.register');
 })->name('register');
+
+Route::get('/forgot-password', function() {
+    return view('auth.forgot_password');
+})->name('forgot-password');
+
+Route::get('/registration-success', function() {
+    return view('auth.registration_success');
+})->name('registration-success');
+
+Route::get('/auth/error-state', function() {
+    return view('auth.error_state');
+})->name('error-state');

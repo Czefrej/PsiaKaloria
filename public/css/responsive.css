@@ -195,4 +195,7 @@
         background-color: var(--white-clr);
         border: 0;
     }
+    .w-mobile-100 {
+        width: 100% !important;
+    }
 }
