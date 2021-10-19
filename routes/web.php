@@ -30,13 +30,24 @@ Route::prefix('page')->group(function () {
         return view('pages.contact');
     })->name("contact");
 
+    Route::get('/delivery', function() {
+        return view('pages.delivery');
+    })->name("delivery");
+
+    Route::get('/payment', function() {
+        return view('pages.payment');
+    })->name("payment");
+
+    Route::get('/lead-time', function() {
+        return view('pages.lead_time');
+    })->name("lead-time");
+
     Route::get('/returns-and-complaints', function() {
         return view('pages.returns_and_complaint');
     })->name("returns-and-complaints");
 });
 
 Route::prefix('account')->name('account.')->group(function () {
-
     Route::get('/settings', function() {
         return view('account.settings');
     })->name("settings");
