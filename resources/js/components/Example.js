@@ -2,26 +2,37 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Button from 'react-bootstrap/Button';
 
+class Timer extends React.Component{
 
-function Example() {
-    return (
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-header">Example Component</div>
+    constructor(props) {
+        super(props);
+        this.state = { seconds: 0 };
+        this.tick = this.tick.bind(this); // bind to the component
+    }
 
-                        <div className="card-body">I'm an example component!</div>
-                        <Button onClick={()=>setShow(False)}>test</Button>
-                    </div>
-                </div>
+    tick() {
+        // start timer after button is clicked
+        this.interval = setInterval(() => {
+            this.setState(prevState => ({
+                seconds: prevState.seconds + 1
+            }));
+
+        }, 1000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
+    render(){
+        return (
+            <div className="btn-wrapper d-flex gap-4 mt-3">
+                <button type="submit" onClick={this.tick()} className="btn btn-primary w-100">Wyślij ponownie</button>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
-export default Example;
-
-if (document.getElementById('example')) {
-    ReactDOM.render(<Example />, document.getElementById('example'));
+if (document.getElementById('verification_button')) {
+    ReactDOM.render(<Timer />, document.getElementById('verification_button'));
 }

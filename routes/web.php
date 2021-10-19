@@ -31,7 +31,7 @@ Route::prefix('page')->group(function () {
     })->name("returns-and-complaints");
 });
 
-Route::prefix('account')->name('account.')->group(function () {
+Route::prefix('account')->name('account.')->middleware(['auth','verified'])->group(function () {
 
     Route::get('/settings', function() {
         return view('account.settings');
@@ -55,10 +55,4 @@ Route::prefix('account')->name('account.')->group(function () {
 
 });
 
-Route::get('/login', function() {
-    return view('auth.login');
-})->name('login');
-
-Route::get('/register', function() {
-    return view('auth.register');
-})->name('register');
+require __DIR__.'/auth.php';

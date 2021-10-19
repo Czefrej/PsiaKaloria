@@ -7,8 +7,8 @@
             <img src="images/dog_mobile.jpg" class="d-block w-100 carousel-m-img" alt="dog">
           </div>
           <div class="carousel-item">
-            <img src="images/dog.jpg" class="d-block w-100 carousel-md-img" alt="dog">
-            <img src="images/dog_mobile.jpg" class="d-block w-100 carousel-m-img" alt="dog">
+            <img src="images/darmowa-dostawa.jpg" class="d-block w-100 carousel-md-img" alt="dog">
+            <img src="images/darmowa-dostawa.jpg" class="d-block w-100 carousel-m-img" alt="dog">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carousel-main" data-bs-slide="prev">

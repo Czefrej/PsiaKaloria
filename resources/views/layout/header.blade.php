@@ -36,12 +36,14 @@
               </li>
             </ul>
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link punkty-link" href="#">
-                        <span class="d-block fw-normal">Punkty:</span>
-                        <span class="d-block text-primary">25</span>
-                    </a>
-                </li>
+                @if (Auth::check())
+                    <li class="nav-item">
+                        <a class="nav-link punkty-link" href="#">
+                            <span class="d-block fw-normal">Punkty:</span>
+                            <span class="d-block text-primary">25</span>
+                        </a>
+                    </li>
+                @endif
                 <li class="nav-item">
                     <a class="nav-link icon-link" href="{{route('account.settings')}}"><img src="{{ asset('images/user-icon.svg') }}" alt=""></a>
                 </li>
@@ -50,6 +52,16 @@
                         @renderCart(13)
                     </a>
                 </li>
+                @if (Auth::check())
+                    <li class="nav-item">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="nav-link border-0">
+                                Wyloguj się
+                            </button>
+                        </form>
+                    </li>
+                @endif
             </ul>
           </div>
         </div>

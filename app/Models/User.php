@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable;
+
+    public const EMAIL_UNIQUE = "UNIQUE";
+    public const EMAIL_RECURRENT = "RECURRENT";
 
     /**
      * The attributes that are mass assignable.
@@ -51,7 +54,7 @@ class User extends Authenticatable
 
     public static function createTemporary($login,$email){
         if($login == null){
-            $login = "TEMP-".substr(md5($email),-7);
+            $login = "TEMP-".substr(md5($email),-6);
         }
 
         $user = new User();
@@ -68,5 +71,18 @@ class User extends Authenticatable
         if($user != null){
             return $user;
         }else return false;
+    }
+
+    public static function isUniqueEmail(string $email){
+        $user = User::where('email', $email)->first();
+
+        if($user != null){
+            $user = User::where('email', $email)->where('email', 'not like', "%allegromail.pl")->where('password', null)->first();
+
+            if($user != null) {
+                return User::EMAIL_RECURRENT;
+            }else return false;
+
+        }else return User::EMAIL_UNIQUE;
     }
 }
