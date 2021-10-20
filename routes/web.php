@@ -89,3 +89,7 @@ Route::get('/registration-success', function() {
 Route::get('/auth/error-state', function() {
     return view('auth.error_state');
 })->name('error-state');
+
+Route::get('/cart', function() {
+    return view('pages.cart');
+})->name("cart");

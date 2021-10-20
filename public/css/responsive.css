@@ -199,3 +199,45 @@
         width: 100% !important;
     }
 }
+@media (max-width: 770px) {
+    .cart-item {
+        display: block !important;
+    }
+    .cart-item .product-details {
+        width: 100% !important;
+    }
+    .discount-apply .d-flex {
+        flex-direction: column !important;
+    }
+    .discount-apply .d-flex .btn {
+        display: block !important;
+        width: 100% !important;
+    }
+    .discount-apply input {
+        width: 100% !important;
+    }
+    .discount-apply {
+        width: 100%;
+    }
+    .toggle {
+        width: 100%;
+    }
+    .cart-quantity-counter {
+        width: 93px;
+        padding: 15px;
+    }
+    .cart-item.desktop {
+        display: none !important;
+    }
+    .cart-item.mobile {
+        display: block !important;
+    }
+    .btn-primary-outline {
+        padding: 15px 8px !important;
+        font-size: 1rem;
+    }
+    .btn-gray-outline {
+        padding: 15px 8px !important;
+        font-size: 1rem;
+    }
+}
