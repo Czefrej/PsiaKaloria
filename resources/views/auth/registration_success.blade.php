@@ -18,9 +18,15 @@
                         <a href="#" class="text-decoration-none"><span class="d-block text-muted">Brak wiadomości?</span></a>
                     </div>
                     <form method="post" action="{{route('verification.send')}}">
+                        @csrf
                         <div>
                             <button type="submit" class="btn btn-primary w-100" id="verification_button">Wyślij ponownie</button>
                         </div>
+                        @if (session('status'))
+                            <div class="text-center" id="success">
+                                <a href="#" class="text-decoration-none"><span class="d-block text-success">{{session('status')}}</span></a>
+                            </div>
+                        @endif
                         <div class="text-center d-none" id="success">
                             <a href="#" class="text-decoration-none"><span class="d-block text-success" id="success-message"></span></a>
                         </div>
@@ -53,22 +59,14 @@
                     url: "{{ route('verification.send') }}",
                     method: 'post',
                     success: function(result){
+                        $("#error").addClass('d-none');
                         $("#success").removeClass('d-none');
                         $("#success-message").html("Wiadomość została ponownie wysłana na maila.");
 
-                        seconds = 3;
-                        var interval = setInterval(function () {
-                            seconds--;
-
-                            if(seconds===0){
-                                $("#success").addClass('d-none');
-                                clearInterval(interval);
-                            }
-
-                        }, 1000);
                     },
                     error: function(jqXHR, textStatus, errorThrown){
                         seconds = 3
+                        $("#success").addClass('d-none');
                         $("#error").removeClass('d-none');
                         $("#error-message").html("("+jqXHR.status+") "+errorThrown);
                         var interval = setInterval(function () {
@@ -95,6 +93,7 @@
             if (seconds === 0) {
                 $("#verification_button").html('Wyślij ponownie');
                 $("#verification_button").removeClass("btn-disabled").addClass("btn-primary");
+                $("#success").addClass('d-none');
                 var temp = timerId;
                 timerId = 0;
                 clearInterval(temp);

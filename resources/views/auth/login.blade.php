@@ -9,6 +9,11 @@
                     <div class="title text-center mb-4 d-md-block my-5">
                         <h2 class="mt-3">Zaloguj się</h2>
                     </div>
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{session('status')}}
+                        </div>
+                    @endif
                     <div class="editable-wrapper">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf

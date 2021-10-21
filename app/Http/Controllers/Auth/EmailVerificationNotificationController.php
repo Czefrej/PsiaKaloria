@@ -27,8 +27,7 @@ class EmailVerificationNotificationController extends Controller
                 'status' => 'SUCCESS'
             ]);
         }else{
-            return redirect()->route('verification.notice');
-            //back()->with('status', 'verification-link-sent');
+            return redirect()->back()->with('status', 'IWiadomość została ponownie wysłana na maila.');
         }
     }
 }
