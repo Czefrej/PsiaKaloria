@@ -93,3 +93,27 @@ Route::get('/auth/error-state', function() {
 Route::get('/cart', function() {
     return view('pages.cart');
 })->name("cart");
+
+Route::get('/cart-empty', function() {
+    return view('pages.cart_empty');
+})->name("cart-empty");
+
+Route::get('/place-order-not-loggedin', function() {
+    return view('pages.place_order_not_loggedin');
+})->name("place-order-not-loggedin");
+
+Route::get('/place-order-loggedin', function() {
+    return view('pages.place_order_loggedin');
+})->name("place-order-loggedin");
+
+Route::get('/order-shelter-not-loggedin', function() {
+    return view('pages.shelter_order_not_loggedin');
+})->name("order-shelter-not-loggedin");
+
+Route::get('/order-shelter-not-loggedin', function() {
+    return view('pages.shelter_order_not_loggedin');
+})->name("order-shelter-not-loggedin");
+
+Route::get('/order-shelter-loggedin', function() {
+    return view('pages.shelter_order_loggedin');
+})->name("order-shelter-loggedin");
