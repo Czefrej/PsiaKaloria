@@ -8,19 +8,19 @@
                 <div class="col-md-6">
                     <div class="title text-center mb-4 d-md-block d-block my-5">
                         <img src="{{ asset('images/smile_icon.svg') }}" alt="">
-                        <h2 class="mt-5">Potwierdź swój adres e-mail</h2>
-                        <p class="mt-4 mb-5 fw-light">Dziękujemy za rejestrację, na Twój adres e-mail wysłaliśmy wiadomość z prośbą o potwierdzenie.</p>
+                        <h2 class="mt-5">{{__('User.confirm_your_email')}}</h2>
+                        <p class="mt-4 mb-5 fw-light">{{__('User.thank_you_for_registration')}}</p>
                     </div>
                 </div>
                 <div class="clear-both"></div>
                 <div class="col-md-4">
                     <div class="text-center">
-                        <a href="#" class="text-decoration-none"><span class="d-block text-muted">Brak wiadomości?</span></a>
+                        <a href="#" class="text-decoration-none"><span class="d-block text-muted">{{__('User.no_mail')}}</span></a>
                     </div>
                     <form method="post" action="{{route('verification.send')}}">
                         @csrf
                         <div>
-                            <button type="submit" class="btn btn-primary w-100" id="verification_button">Wyślij ponownie</button>
+                            <button type="submit" class="btn btn-primary w-100" id="verification_button">{{__('User.send_again')}}</button>
                         </div>
                         @if (session('status'))
                             <div class="text-center" id="success">
@@ -52,23 +52,34 @@
                 timerId = setTimer();
                 $.ajaxSetup({
                     headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
                 });
                 jQuery.ajax({
                     url: "{{ route('verification.send') }}",
                     method: 'post',
-                    success: function(result){
-                        $("#error").addClass('d-none');
-                        $("#success").removeClass('d-none');
-                        $("#success-message").html("Wiadomość została ponownie wysłana na maila.");
-
+                    dataType:'JSON',
+                    success: function(result, textStatus, xhr){
+                        if(xhr.status < 400){
+                            $("#error").addClass('d-none');
+                            $("#success").removeClass('d-none');
+                            $("#success-message").html(result.status);
+                        }else{
+                            $("#success").addClass('d-none');
+                            $("#error").removeClass('d-none');
+                            $("#error-message").html("("+result.status+") ");
+                        }
                     },
                     error: function(jqXHR, textStatus, errorThrown){
-                        seconds = 3
+                        console.log(jqXHR);
+                        console.log(errorThrown);
+                        seconds = 20
                         $("#success").addClass('d-none');
                         $("#error").removeClass('d-none');
-                        $("#error-message").html("("+jqXHR.status+") "+errorThrown);
+                        if(jqXHR.status === 429)
+                            $("#error-message").html("("+jqXHR.status+") "+'{{__('Exceptions.429')}}');
+                        else $("#error-message").html("("+jqXHR.status+") "+errorThrown);
                         var interval = setInterval(function () {
                             seconds--;
 
@@ -87,18 +98,18 @@
     function setTimer(){
         var seconds = 60;
         $("#verification_button").addClass("btn-disabled").removeClass("btn-primary");
-        $("#verification_button").html('Wyślij ponownie ('+seconds+' sek.)');
+        $("#verification_button").html('{{__('User.send_again')}} ('+seconds+' sek.)');
         return setInterval(function () {
             seconds--;
             if (seconds === 0) {
-                $("#verification_button").html('Wyślij ponownie');
+                $("#verification_button").html('{{__('User.send_again')}}');
                 $("#verification_button").removeClass("btn-disabled").addClass("btn-primary");
                 $("#success").addClass('d-none');
                 var temp = timerId;
                 timerId = 0;
                 clearInterval(temp);
             }else{
-                $("#verification_button").html('Wyślij ponownie ('+seconds+' sek.)');
+                $("#verification_button").html('{{__('User.send_again')}} ('+seconds+' sek.)');
             }
         }, 1000);
     }

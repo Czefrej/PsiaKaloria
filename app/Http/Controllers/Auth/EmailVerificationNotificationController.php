@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EmailVerificationNotificationController extends Controller
 {
@@ -24,10 +25,10 @@ class EmailVerificationNotificationController extends Controller
 
         if($request->ajax()) {
             return response()->json([
-                'status' => 'SUCCESS'
+                'status' => __('User.sent_again',['mail'=>$request->user()->email])
             ]);
         }else{
-            return redirect()->back()->with('status', 'IWiadomość została ponownie wysłana na maila.');
+            return redirect()->back()->with('status', __('passwords.sent'));
         }
     }
 }
