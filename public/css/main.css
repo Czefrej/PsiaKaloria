@@ -564,3 +564,99 @@ td:last-child {
 .cart-item.mobile {
     display: none !important;
 }
+
+/* Product */
+.product-thumbnail-item {
+    filter: drop-shadow(0px 3px 24px rgba(0, 0, 0, 0.05));
+    background-color: var(--white-clr);
+    border-radius: 8px;
+    width: 180px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.product-thumbnail-item {
+    margin-bottom: 24px;
+}
+.product-thumbnail-item:last-child {
+    margin-bottom: 0;
+}
+.product-imgs-wrapper {
+    display: flex;
+    gap: 24px;
+}
+.main-product-img-wrapper {
+    box-shadow: 0px 3px 24px rgba(0, 0, 0, 0.05);
+    background-color: var(--white-clr);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+.product-details .product-price-wrapper .product-price{
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--primary-clr);
+    line-height: 1rem;
+}
+.product-details .product-price-wrapper .product-price-discount {
+    font-weight: 300;
+    font-size: 0.875rem;
+    line-height: .7rem;
+    text-align: left;
+    color: #828d93;
+}
+.feature-item {
+    background-color: var(--white-clr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 282px;
+    margin-bottom: 22px;
+    gap: 52px;
+    filter: drop-shadow(0px 3px 24px rgba(0, 0, 0, 0.05));
+    border-radius: 8px;
+    text-align: center;
+}
+.product-nutritions {
+    border: 2px solid #cfd8d9;
+    box-shadow: 0px 3px 24px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+.product-nutritions__item  {
+    border-bottom: 1px solid #cfd8d9;
+}
+.product-nutritions__item:last-child {
+    border-bottom: 1px solid transparent;
+}
+.daily-usage__item {
+    width: 300px;
+    height: 373px;
+    border-radius: 0px;
+    background: transparent;
+    border: 2px solid #cfd8d9;
+    border-right: 0;
+    box-shadow: 0px 3px 24px rgba(0, 0, 0, 0.05);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.daily-usage__item:last-child {
+    border-right: 2px solid #cfd8d9;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.daily-usage__item:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.daily-usage__item .quantity {
+    height: 128px;
+    border-top: 2px solid #cfd8d9;
+    width: 100%;
+    opacity: 1;
+    background-color: transparent;
+}

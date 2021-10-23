@@ -117,3 +117,11 @@ Route::get('/order-shelter-not-loggedin', function() {
 Route::get('/order-shelter-loggedin', function() {
     return view('pages.shelter_order_loggedin');
 })->name("order-shelter-loggedin");
+
+Route::get('/product', function() {
+    return view('pages.product');
+})->name("product");
+
+Route::get('/product-frozen', function() {
+    return view('pages.product_frozen');
+})->name("product");
