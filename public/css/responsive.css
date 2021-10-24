@@ -195,4 +195,107 @@
         background-color: var(--white-clr);
         border: 0;
     }
+    .w-mobile-100 {
+        width: 100% !important;
+    }
+}
+@media (max-width: 770px) {
+    .product-imgs-wrapper .product-thumbnails {
+        display: none;
+    }
+    .mt-m-5 {
+        margin-top: 2.3rem !important;
+    }
+    .mt-m-0 {
+        margin-top: 0 !important;
+    }
+    .cart-item {
+        display: block !important;
+    }
+    .cart-item .product-details {
+        width: 100% !important;
+    }
+    .discount-apply .d-flex {
+        flex-direction: column !important;
+    }
+    .discount-apply .d-flex .btn {
+        display: block !important;
+        width: 100% !important;
+    }
+    .discount-apply input {
+        width: 100% !important;
+    }
+    .discount-apply {
+        width: 100%;
+    }
+    .toggle {
+        width: 100%;
+    }
+    .cart-quantity-counter {
+        width: 93px;
+        padding: 15px;
+    }
+    .cart-item.desktop {
+        display: none !important;
+    }
+    .cart-item.mobile {
+        display: block !important;
+    }
+    .btn-primary-outline {
+        padding: 15px 8px !important;
+        font-size: 1rem;
+    }
+    .btn-gray-outline {
+        padding: 15px 8px !important;
+        font-size: 1rem;
+    }
+    .product-details .btn-primary-outline, .product-details .btn-gray-outline {
+        padding: 15px 20px !important;
+    }
+    .add-to-cart-wrapper {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+        padding: 16px 24px;
+        background-color: var(--white-clr);
+    }
+    .feature-item {
+        height: 156px;
+        padding: 20px 0;
+        gap: 20px;
+    }
+    .feature-item .img-wrapper img{
+        height: 60px;
+    }
+    .feature-item .name-wrapper {
+        font-size: 0.9rem;
+        line-height: 1rem;
+    }
+    .daily-usage__item {
+        width: 50%;
+        height: 224px;
+        margin-bottom: 16px;
+        border: 2px solid #cfd8d9 !important;
+        border-radius: 0 !important;
+    }
+    .daily-usage__item:nth-child(2n) {
+        border-top-right-radius: 8px !important;
+        border-bottom-right-radius: 8px !important;
+    }
+    .daily-usage__item:nth-child(3n), .daily-usage__item:nth-child(1) {
+        border-top-left-radius: 8px !important;
+        border-bottom-left-radius: 8px !important;
+        border-right: 0 !important;
+    }
+    .daily-usage__item .quantity {
+        height: 70px;
+    }
+    .daily-usage__item img {
+        max-width: 90px;
+    }
+    .daily-usage {
+        flex-wrap: wrap;
+    }
 }

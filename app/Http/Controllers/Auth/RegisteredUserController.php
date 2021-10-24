@@ -33,22 +33,47 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+//            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+//            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'agreement' => ['accepted']
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        $uniqueness = User::isUniqueEmail($request->email);
+        if($uniqueness === false)
+            $request->validate([
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            ]);
+
+        $name = "PK-".strtoupper(substr(md5($request->email),-6));
+
+        if ($uniqueness == USER::EMAIL_RECURRENT){
+            $user = User::where('email',$request->email)->first();
+            $user->password = Hash::make($request->password);
+            $user->name = $name;
+            $user->save();
+
+        }else{
+
+            $user = User::create([
+                'name' => $name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
+
+        }
 
         event(new Registered($user));
 
         Auth::login($user);
+        if($user->verified){
+            return redirect(RouteServiceProvider::HOME);
+        }else{
+            return redirect()->route('verification.notice');
+        }
 
-        return redirect(RouteServiceProvider::HOME);
     }
 }
