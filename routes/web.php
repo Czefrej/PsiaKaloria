@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
 
 Route::get('/', function () {
     return view('index');
@@ -32,8 +31,7 @@ Route::prefix('page')->group(function () {
     })->name("returns-and-complaints");
 });
 
-Route::prefix('account')->name('account.')->middleware(['auth','verified'])->group(function () {
-
+Route::prefix('account')->name('account.')->group(function () {
     Route::get('/settings', function() {
         return view('account.settings');
     })->name("settings");
@@ -55,5 +53,61 @@ Route::prefix('account')->name('account.')->middleware(['auth','verified'])->gro
     })->name('edit');
 
 });
+
+Route::get('/login', function() {
+    return view('auth.login');
+})->name('login');
+
+Route::get('/register', function() {
+    return view('auth.register');
+})->name('register');
+
+Route::get('/forgot-password', function() {
+    return view('auth.forgot_password');
+})->name('forgot-password');
+
+Route::get('/registration-success', function() {
+    return view('auth.registration_success');
+})->name('registration-success');
+
+Route::get('/auth/error-state', function() {
+    return view('auth.error_state');
+})->name('error-state');
+
+Route::get('/cart', function() {
+    return view('pages.cart');
+})->name("cart");
+
+Route::get('/cart-empty', function() {
+    return view('pages.cart_empty');
+})->name("cart-empty");
+
+Route::get('/place-order-not-loggedin', function() {
+    return view('pages.place_order_not_loggedin');
+})->name("place-order-not-loggedin");
+
+Route::get('/place-order-loggedin', function() {
+    return view('pages.place_order_loggedin');
+})->name("place-order-loggedin");
+
+Route::get('/order-shelter-not-loggedin', function() {
+    return view('pages.shelter_order_not_loggedin');
+})->name("order-shelter-not-loggedin");
+
+Route::get('/order-shelter-not-loggedin', function() {
+    return view('pages.shelter_order_not_loggedin');
+})->name("order-shelter-not-loggedin");
+
+Route::get('/order-shelter-loggedin', function() {
+    return view('pages.shelter_order_loggedin');
+})->name("order-shelter-loggedin");
+
+Route::get('/product', function() {
+    return view('pages.product');
+})->name("product");
+
+Route::get('/product-frozen', function() {
+    return view('pages.product_frozen');
+})->name("product");
 
 require __DIR__.'/auth.php';
