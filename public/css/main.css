@@ -660,3 +660,89 @@ td:last-child {
     opacity: 1;
     background-color: transparent;
 }
+/* Order form */
+.progress-item {
+    height: 8px;
+    border-radius: 4px;
+    background: #cfd8d9;
+    box-shadow: 0px 3px 24px rgba(0, 0, 0, 0.05);
+    margin-bottom: 12px;
+}
+.progress-item + span {
+    color: var(--text-clr);
+}
+.progress-item.active + span {
+    color: var(--text-clr);
+}
+.progress-item.active {
+    background-color: var(--primary-clr);
+}
+.progress-item + span {
+    color: #828d93;
+}
+.styled-checkbox {
+    position: absolute;
+    opacity: 0;
+}
+.styled-checkbox + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+    font-weight: 300;
+}
+.styled-checkbox + label:before {
+    content: "";
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 20px;
+    height: 20px;
+    background: #CFD8D9;
+    margin-top: -5px;
+}
+.styled-checkbox:hover + label:before {
+    background: var(--primary-clr);
+}
+.styled-checkbox:focus + label:before {
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+}
+.styled-checkbox:checked + label:before {
+    background: var(--primary-clr);
+}
+.styled-checkbox:disabled + label {
+    color: #b8b8b8;
+    cursor: auto;
+}
+.styled-checkbox:disabled + label:before {
+    box-shadow: none;
+    background: #ddd;
+}
+.styled-checkbox:checked + label:after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 12px;
+    background: white;
+    width: 2px;
+    height: 2px;
+    box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+    transform: rotate(45deg);
+    margin-top: -5px;
+}
+.delivery-list__item, .delivery-list__item:hover {
+    color: #828D93;
+    background: transparent;
+    border: 2px solid #828d93;
+    border-radius: 8px;
+    padding: 11px 18px;
+    text-decoration: none;
+    margin-bottom: 16px;
+}
+.delivery-list__item.active, .delivery-list__item.active:hover {
+    color: var(--primary-clr);
+    background: transparent;
+    border: 2px solid var(--primary-clr);
+}
+.total-item span:first-child {
+    min-width: 70px;
+}
