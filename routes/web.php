@@ -17,10 +17,11 @@ Route::get('/', function () {
     return view('index');
 })->name("home");
 
+Route::get('/categories', function () {
+    return view('pages.categories');
+})->name("categories");
+
 Route::prefix('page')->group(function () {
-    Route::get('/categories', function () {
-        return view('pages.categories');
-    })->name("categories");
 
     Route::get('/faq', function () {
         return view('pages.faq');
@@ -85,6 +86,10 @@ Route::get('/cart-empty', function() {
 Route::get('/place-order-not-loggedin', function() {
     return view('pages.place_order_not_loggedin');
 })->name("place-order-not-loggedin");
+
+Route::get('/place-order-form-not-loggedin', function() {
+    return view('pages.place_order_form_not_loggedin');
+})->name("place-order-form-not-loggedin");
 
 Route::get('/place-order-loggedin', function() {
     return view('pages.place_order_loggedin');

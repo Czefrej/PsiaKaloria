@@ -26,10 +26,10 @@
                 <a class="nav-link @if(Route::current()->getName() == 'home') active @endif"  @if(Route::current()->getName() == 'home') aria-current="page" @endif href="{{route('home')}}">Główna</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" @if(Route::current()->getName() == '/page/categories') active @endif"  @if(Route::current()->getName() == 'categories') aria-current="page" @endif href="{{route('categories')}}">Karma mokra</a>
+                <a class="nav-link" @if(Route::current()->getName() == '/categories') active @endif"  @if(Route::current()->getName() == 'categories') aria-current="page" @endif href="{{route('categories')}}">Karma mokra</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" @if(Route::current()->getName() == '/page/categories') active @endif"  @if(Route::current()->getName() == 'categories') aria-current="page" @endif href="{{route('categories')}}">Karma mrożona</a>
+                <a class="nav-link" @if(Route::current()->getName() == '/categories') active @endif"  @if(Route::current()->getName() == 'categories') aria-current="page" @endif href="{{route('categories')}}">Karma mrożona</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link @if(Route::current()->getName() == 'faq') active @endif" @if(Route::current()->getName() == 'faq') aria-current="page" @endif href="{{route('faq')}}">FAQ</a>
