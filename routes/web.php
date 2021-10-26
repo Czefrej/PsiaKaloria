@@ -17,10 +17,11 @@ Route::get('/', function () {
     return view('index');
 })->name("home");
 
+Route::get('/categories', function () {
+    return view('pages.categories');
+})->name("categories");
+
 Route::prefix('page')->group(function () {
-    Route::get('/categories', function () {
-        return view('pages.categories');
-    })->name("categories");
 
     Route::get('/faq', function () {
         return view('pages.faq');
