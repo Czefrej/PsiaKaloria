@@ -298,4 +298,21 @@
     .daily-usage {
         flex-wrap: wrap;
     }
+    .progress-item {
+        margin-bottom: 2px;
+    }
+    .progress-item + span {
+        font-size: 0.70rem;
+    }
+    .delivery-list__item, .delivery-list__item:hover {
+        font-size: 0.975rem;
+    }
+    .delivery-list__item .price-wrapper {
+        width: 20%;
+        float: right;
+    }
+    .delivery-list__item .indentity-wrapper {
+        width: 80%;
+        float: right;
+    }
 }

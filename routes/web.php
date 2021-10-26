@@ -86,6 +86,10 @@ Route::get('/place-order-not-loggedin', function() {
     return view('pages.place_order_not_loggedin');
 })->name("place-order-not-loggedin");
 
+Route::get('/place-order-form-not-loggedin', function() {
+    return view('pages.place_order_form_not_loggedin');
+})->name("place-order-form-not-loggedin");
+
 Route::get('/place-order-loggedin', function() {
     return view('pages.place_order_loggedin');
 })->name("place-order-loggedin");
