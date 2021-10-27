@@ -108,6 +108,9 @@ label {
 .card .form-control {
     background-color: var(--body-bg);
 }
+.card .form-select {
+    background-color: var(--body-bg);
+}
 /* Navbar */
 header > nav {
     background: transparent;

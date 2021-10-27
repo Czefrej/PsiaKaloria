@@ -95,6 +95,10 @@ Route::get('/place-order-loggedin', function() {
     return view('pages.place_order_loggedin');
 })->name("place-order-loggedin");
 
+Route::get('/place-order-form-loggedin', function() {
+    return view('pages.place_order_form_loggedin');
+})->name("place-order-form-loggedin");
+
 Route::get('/order-shelter-not-loggedin', function() {
     return view('pages.shelter_order_not_loggedin');
 })->name("order-shelter-not-loggedin");
@@ -102,6 +106,14 @@ Route::get('/order-shelter-not-loggedin', function() {
 Route::get('/order-shelter-not-loggedin', function() {
     return view('pages.shelter_order_not_loggedin');
 })->name("order-shelter-not-loggedin");
+
+Route::get('/order-shelter-form-not-loggedin', function() {
+    return view('pages.shelter_order_form_not_loggedin');
+})->name("order-shelter-form-not-loggedin");
+
+Route::get('/order-shelter-form-loggedin', function() {
+    return view('pages.shelter_order_form_loggedin');
+})->name("order-shelter-form-loggedin");
 
 Route::get('/order-shelter-loggedin', function() {
     return view('pages.shelter_order_loggedin');
