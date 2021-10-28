@@ -749,3 +749,22 @@ td:last-child {
 .total-item span:first-child {
     min-width: 70px;
 }
+.btn-close {
+    box-sizing: content-box;
+    background-image: url('../images/close_icon.svg');
+    background-size: 10px;
+    border: 0;
+}
+.modal-header {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+.modal .address-wrapper {
+    border: 2px solid #828d93;
+    border-radius: 8px;
+    padding: 20px 20px;
+    margin-top: 20px;
+}
+.modal .form-control, .modal .form-select {
+    background-color: var(--body-bg);
+}

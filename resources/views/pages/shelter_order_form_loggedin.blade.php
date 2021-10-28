@@ -36,7 +36,7 @@
                         </div>
                         <div class="address-header d-flex justify-content-between mt-4">
                             <h5 class="m-0">Anna Nowak</h5>
-                            <span class="text-primary">Zmień</span>
+                            <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="text-primary">Zmień</span></a>
                         </div>
                         <p class="fw-light mt-4">
                             ul. Przykładowa 21 m 5 <br>
@@ -52,7 +52,7 @@
                                 <span class="text-muted">Dane do faktury</span>
                                 <h5 class="m-0 mt-2">Nowak Studio</h5>
                             </div>
-                            <span class="text-primary">Zmień</span>
+                            <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="text-primary">Zmień</span></a>
                         </div>
                         <p class="fw-light mt-4">
                             ul. Przykładowa 21 m 5 <br>
@@ -250,5 +250,137 @@
             </div>
         </div>
     </form>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen-lg-down">
+        <div class="modal-content">
+            <div class="modal-header px-4 pt-4 pb-0 mt-1">
+                <h4>Twoje adresy</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pt-0 px-4">
+                <div class="address-wrapper">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="address-header d-flex justify-content-between">
+                                <h5 class="m-0">Anna Nowak</h5>
+                            </div>
+                            <p class="fw-light mt-4">
+                                ul. Przykładowa 21 m 5 <br>
+                                15-842 Białystok, Polska <br>
+                                +48 852 456 111
+                            </p>
+                        </div>
+                        <div class="col-6 d-flex justify-content-start flex-column text-end gap-2">
+                            <a href="#" class="btn btn-primary">Użyj tego adresu</a>
+                            <a href="#" class="text-decoration-none"><span class="text-primary">Edytuj</span></a>
+                            <a href="#" class="text-decoration-none"><span class="text-primary">Usuń</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="address-wrapper">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="address-header d-flex justify-content-between">
+                                <h5 class="m-0">Anna Nowak</h5>
+                            </div>
+                            <p class="fw-light mt-4">
+                                ul. Przykładowa 21 m 5 <br>
+                                15-842 Białystok, Polska <br>
+                                +48 852 456 111
+                            </p>
+                        </div>
+                        <div class="col-6 d-flex justify-content-start flex-column text-end gap-2">
+                            <a href="#" class="btn btn-primary">Użyj tego adresu</a>
+                            <a href="#" class="text-decoration-none"><span class="text-primary">Edytuj</span></a>
+                            <a href="#" class="text-decoration-none"><span class="text-primary">Usuń</span></a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal2" class="btn btn-primary-light mt-3 d-flex align-items-center w-100 justify-content-center gap-2">
+                    <img src="{{ asset('images/plus_icon.svg') }}" alt="">
+                    <span>Dodaj nowy adres</span>
+                </a>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header px-4 pt-4 pb-0 mt-1">
+                <h4>Twoje dane</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pt-0 px-4">
+                <div class="row mt-4">
+                    <div class="col-md-6 col-12">
+                        <div class="input-wrapper">
+                            <label class="fw-light">Imię</label>
+                            <input type="text" class="form-control border-0 py-2" placeholder="a.nowak@gmail.com">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12 mt-md-0 mt-3">
+                        <div class="input-wrapper">
+                            <label class="fw-light">Nazwisko</label>
+                            <input type="text" class="form-control border-0 py-2" placeholder="a.nowak@gmail.com">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-6 col-12">
+                        <div class="input-wrapper">
+                            <label class="fw-light">E-mail</label>
+                            <input type="text" class="form-control border-0 py-2" placeholder="a.nowak@gmail.com">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12 mt-md-0 mt-3">
+                        <div class="input-wrapper">
+                            <label class="fw-light">Numer telefonu</label>
+                            <input type="text" class="form-control border-0 py-2" placeholder="a.nowak@gmail.com">
+                        </div>
+                    </div>
+                </div>
+                <div class="title d-flex align-items-center mt-4">
+                    <h2 class="m-0">Adres</h2>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-6 col-12">
+                        <div class="input-wrapper">
+                            <label class="fw-light">Ulica i numer</label>
+                            <input type="text" class="form-control border-0 py-2" placeholder="a.nowak@gmail.com">
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-5 mt-md-0 mt-3">
+                        <div class="input-wrapper">
+                            <label class="fw-light">Kod pocztowy</label>
+                            <input type="text" class="form-control border-0 py-2" placeholder="__-___">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-7 mt-md-0 mt-3">
+                        <div class="input-wrapper">
+                            <label class="fw-light">Miejscowość</label>
+                            <input type="text" class="form-control border-0 py-2" placeholder="Warszawa">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12 mt-md-0 mt-3">
+                        <div class="input-wrapper mt-md-4 mt-0">
+                            <label class="fw-light">Kraj</label>
+                            <select class="form-select border-0 py-2">
+                                <option value="Polska">Polska</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mt-4 d-flex gap-4 mb-3">
+                        <a href="#" class="btn btn-primary-light flex-grow-1">Anuluj</a>
+                        <a href="#" class="btn btn-primary flex-grow-1">Zapisz zmiany</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
 
 @endsection
