@@ -9,6 +9,9 @@ body {
 	position: relative;
 	overflow-x: hidden;
     padding-top: 88px;
+    background-image: url('../images/bg_pattern.svg');
+    background-size: contain;
+    background-position: 500px;
 }
 .text-primary {
 	color: $primary-clr !important;

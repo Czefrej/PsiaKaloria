@@ -6,6 +6,9 @@ body {
   position: relative;
   overflow-x: hidden;
   padding-top: 88px;
+  background-image: url(/images/bg_pattern.svg?17cd72fe2f2f8759cefd0e15f96b1651);
+  background-size: contain;
+  background-position: 500px;
 }
 
 .text-primary {
