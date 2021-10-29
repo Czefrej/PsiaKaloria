@@ -47,10 +47,25 @@
                 <li class="nav-item">
                     <a class="nav-link icon-link" href="{{route('account.settings')}}"><img src="{{ asset('images/user-icon.svg') }}" alt=""></a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link icon-link position-relative">
+                <li class="nav-item btn-group cart-dropdown">
+                    <a href="#" class="nav-link icon-link position-relative" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                         @renderCart(13)
                     </a>
+                    <div class="dropdown-menu dropdown-menu-lg-end">
+                        <h2 class="text-center mt-3">Dodano do koszyka</h2>
+                        <div class="mt-5">
+                            <h6>Baton AS Deluxe - 85% mięsa - indyk</h6>
+                            <span class="fw-light">Ilość: 1</span>
+                            <span class="ps-4 fw-light">koszt: 15,47 zł</span>
+                        </div>
+                        <div class="mt-4">
+                            <h6>Baton AS Deluxe - 85% mięsa - jagnięcina</h6>
+                            <span class="fw-light">Ilość: 1</span>
+                            <span class="ps-4 fw-light">koszt: 15,47 zł</span>
+                        </div>
+                        <a href="#" class="btn btn-primary mt-4 d-block">Zobacz koszyk</a>
+                        <a href="#" class="btn-link text-center d-block mt-4 text-decoration-none"><span class="text-dark">Kontynuuj zakupy</span></a>
+                    </div>
                 </li>
                 @if (Auth::check())
                     <li class="nav-item">
