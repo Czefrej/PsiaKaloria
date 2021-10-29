@@ -27,19 +27,15 @@ body {
 	background-color: $primary-clr;
 	border: 0;
 	&:hover {
-		background-color: $primary-clr;
+		background-color: #AB002E;
 		box-shadow: none;
 	}
 	&:active {
-		background-color: $primary-clr;
+		background-color: #AB002E;
 		box-shadow: none;
 	}
 	&:focus {
-		background-color: $primary-clr;
-		box-shadow: none;
-	}
-	&:visited {
-		background-color: $primary-clr;
+		background-color: #AB002E;
 		box-shadow: none;
 	}
 }
@@ -47,6 +43,10 @@ body {
 	background: rgba(219, 0, 59, 0.1);
 	color: $primary-clr;
 	border: 0;
+    &:hover {
+        background: rgba(219, 0, 59, 0.15);
+        color: $primary-clr;
+    }
 }
 .btn-disabled {
 	border-radius: 8px;
@@ -103,17 +103,17 @@ body {
 	color: $white-clr;
 	border: 0;
 	&:hover {
-		background-color: #FF9900;
+		background-color: #de8500;
 		color: $white-clr;
 		border: 0;
 	}
 	&:focus {
-		background-color: #FF9900;
+		background-color: #de8500;
 		color: $white-clr;
 		border: 0;
 	}
 	&:active {
-		background-color: #FF9900;
+		background-color: #de8500;
 		color: $white-clr;
 		border: 0;
 	}
@@ -123,6 +123,9 @@ body {
 	border-radius: 8px !important;
 	padding: 15px 18px;
 	color: $primary-clr;
+    &:hover {
+        color: $primary-clr;
+    }
 }
 .btn-gray-outline {
 	border: 2px solid #828D93;
