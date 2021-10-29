@@ -100,7 +100,7 @@
                                         <h5>Konto</h5>
                                     </div>
                                     <div class="action">
-                                        <a href="#" class="btn btn-primary d-md-inline-block d-block">
+                                        <a href="#"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary d-md-inline-block d-block">
                                             Usuń konto
                                         </a>
                                     </div>
@@ -112,5 +112,19 @@
             </div>
         </div>
     </div>
-
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body text-center py-5 px-4">
+                <h5>Opuszczasz nas?</h5>
+                <p class="mt-4 fw-light">Pamiętaj jeżeli usuniesz konto, stracisz wszystkie dane o historii zamówień oraz swoich subskrypcjach.</p>
+                <div class="btns mt-4 d-flex gap-3 justify-content-center">
+                    <a href="#" class="btn btn-primary-light" data-bs-dismiss="modal">Usuwam konto</a>
+                    <a href="#" class="btn btn-primary" data-bs-dismiss="modal">Anuluj</a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
 @endsection

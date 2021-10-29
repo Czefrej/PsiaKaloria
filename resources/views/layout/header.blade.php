@@ -1,6 +1,6 @@
 <!-- Navigation starts -->
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container-md">
           <a class="navbar-brand" href="#">
               <img src="{{ asset('images/logo.svg') }}" alt="">

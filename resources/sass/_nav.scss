@@ -1,0 +1,133 @@
+header {
+	>nav {
+        background: transparent;
+        box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.05);
+        /* Note: currently only Safari supports backdrop-filter */
+        backdrop-filter: blur(7px);
+        --webkit-backdrop-filter: blur(7px);
+        background-color: rgba(255, 255, 255, 0.15);
+        /* (plus shape's fill blended on top as a separate layer with 80% opacity) */
+	}
+}
+.navbar-light {
+	.navbar-nav {
+		.nav-link {
+			font-weight: 500;
+			font-size: 1rem;
+			color: $text-clr;
+		}
+	}
+	.navbar-nav.left-nav {
+		.nav-link.active {
+			color: $primary-clr;
+			&::after {
+				content: '';
+				width: 24px;
+				height: 4px;
+				background-color: $primary-clr;
+				border-radius: 50px;
+				margin: 0 auto;
+				display: block;
+			}
+		}
+		.nav-link {
+			&:hover {
+				color: $primary-clr;
+				&::after {
+					content: '';
+					width: 24px;
+					height: 4px;
+					background-color: $primary-clr;
+					border-radius: 50px;
+					margin: 0 auto;
+					display: block;
+				}
+			}
+            &::after {
+                content: '';
+                width: 24px;
+                height: 4px;
+                background-color: transparent;
+                border-radius: 50px;
+                margin: 0 auto;
+                display: block;
+            }
+		}
+	}
+	.navbar-toggler {
+		border: 0;
+		padding: 0;
+	}
+	.navbar-toggler-icon {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='16' viewBox='0 0 22 16'%3E%3Cg id='Group_38437' data-name='Group 38437' transform='translate(-25.995 -20.676)'%3E%3Cpath id='Path_40104' data-name='Path 40104' d='M-457.7,16.676h20' transform='translate(484.691 5)' fill='none' stroke='%230d1521' stroke-linecap='round' stroke-width='2'/%3E%3Cpath id='Path_40105' data-name='Path 40105' d='M-457.7,16.676h20' transform='translate(484.691 12)' fill='none' stroke='%230d1521' stroke-linecap='round' stroke-width='2'/%3E%3Cpath id='Path_40106' data-name='Path 40106' d='M-457.7,16.676h20' transform='translate(484.691 19)' fill='none' stroke='%230d1521' stroke-linecap='round' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E%0A");
+	}
+}
+.punkty-link {
+	line-height: 1rem;
+	span {
+		&:first-child {
+			font-size: 0.75rem;
+		}
+	}
+}
+.cart-counter {
+	min-width: 21px;
+	height: 21px;
+	padding-top: 3px;
+	background-color: $primary-clr;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	border-radius: 50px;
+	color: $white-clr;
+	position: absolute;
+	bottom: 16px;
+	right: 3px;
+	border: 2px solid $white-clr;
+}
+.mobile-nav {
+	display: none;
+}
+@-moz-document url-prefix() {
+    .mobile-nav-list {
+        background-color: rgba(255, 255, 255, 0.85) !important;
+    }
+}
+.mobile-nav-list {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 10000;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	background: transparent;
+	filter: drop-shadow(0px 10px 25px rgba(0, 0, 0, 0.05));
+	backdrop-filter: blur(7px);
+	--webkit-backdrop-filter: blur(7px);
+	background-color: rgba(255, 255, 255, 0.15);
+	ul {
+		li {
+			a {
+				font-weight: bold;
+				font-size: 1.25rem;
+				text-align: left;
+				color: $text-clr;
+			}
+		}
+	}
+	.navbar-nav {
+		.nav-link {
+			padding-top: 12px;
+			padding-bottom: 12px;
+		}
+		.nav-link.active {
+			color: $primary-clr;
+		}
+	}
+	nav {
+		background: transparent;
+	}
+}

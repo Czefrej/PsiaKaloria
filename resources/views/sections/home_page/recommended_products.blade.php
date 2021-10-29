@@ -6,7 +6,8 @@
         </div>
         <div class="row">
             <div class="col-md-3 col-6">
-                <div class="product">
+                <div class="product position-relative">
+                    <span class="badge-product">Promocja</span>
                     <div class="product-img-wrapper bg-white d-flex justify-content-center">
                         <img src="{{ asset('images/product_img1.png') }}" alt="" class="img-fluid">
                     </div>
