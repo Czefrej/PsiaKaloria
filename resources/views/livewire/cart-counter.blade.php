@@ -1,4 +1,4 @@
-<a class="nav-link icon-link position-relative" href="{{route('cart')}}">
+<div>
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="21.231" viewBox="0 0 24 21.231">
         <defs>
             <clipPath id="clip-path">
@@ -12,4 +12,4 @@
         </g>
     </svg>
     <span class="cart-counter"><span id="counter">{{$counter}}</span></span>
-</a>
+</div>

@@ -18,6 +18,8 @@ class PaymentMethodsSeeder extends Seeder
             'name'=>'Płatność przy odbiorze',
             'service_fee'=>17,
             'country'=>'PL',
+            'donation_eligible'=>1,
+            'active'=>1,
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
@@ -26,6 +28,8 @@ class PaymentMethodsSeeder extends Seeder
             'name'=>'Przelew bankowy tradycyjny',
             'service_fee'=>17,
             'country'=>'PL',
+            'donation_eligible'=>1,
+            'active'=>1,
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
@@ -34,6 +38,8 @@ class PaymentMethodsSeeder extends Seeder
             'name'=>'PayU',
             'service_fee'=>17,
             'country'=>'PL',
+            'donation_eligible'=>1,
+            'active'=>1,
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
@@ -42,6 +48,8 @@ class PaymentMethodsSeeder extends Seeder
             'name'=>'Przelewy24',
             'service_fee'=>17,
             'country'=>'PL',
+            'donation_eligible'=>1,
+            'active'=>0,
             'created_at'=>now(),
             'updated_at'=>now()
         ]);

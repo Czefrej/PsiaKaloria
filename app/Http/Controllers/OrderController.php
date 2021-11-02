@@ -11,11 +11,19 @@ class OrderController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return "hello";
+        $request->validate([
+            'donation'=>'boolean',
+            'subscription'=>'boolean',
+        ]);
+
+
+
+        return view('pages.order')->with(['donation'=>$request->input('donation'),'subscription'=>$request->input('subscription')]);
+
     }
 
     /**

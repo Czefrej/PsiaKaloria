@@ -18,6 +18,9 @@ class CreatePaymentMethodsTable extends Migration
             $table->string('name');
             $table->double('service_fee');
             $table->string('country');
+            $table->string('thumbnail')->nullable();
+            $table->boolean('donation_eligible');
+            $table->boolean('active');
             $table->timestamps();
         });
     }

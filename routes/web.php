@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -82,6 +83,8 @@ Route::get('/auth/error-state', function() {
 Route::get('/cart', function() {
     return view('pages.cart-new');
 })->name("cart");
+
+Route::get('/order', [OrderController::class, 'index'])->name("order");
 
 Route::get('/cart-empty', function() {
     return view('pages.cart_empty');

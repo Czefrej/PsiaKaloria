@@ -4,6 +4,20 @@
 
     @if(Cart::content()->count()>0)
         <div class="container">
+            <div class="row mt-5">
+                <div class="col-4">
+                    <div class="progress-item active"></div>
+                    <span>Twój koszyk</span>
+                </div>
+                <div class="col-4">
+                    <div class="progress-item"></div>
+                    <span>Dostawa i płatność</span>
+                </div>
+                <div class="col-4">
+                    <div class="progress-item"></div>
+                    <span>Gotowe</span>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-12">
                     <div class="title text-left mb-3 mt-5 d-flex gap-2 align-items-center">

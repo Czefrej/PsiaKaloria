@@ -19,6 +19,9 @@ class CreateDeliveryMethodsTable extends Migration
             $table->double('gross_price_per_package');
             $table->integer('max_package_weight');
             $table->integer('free_delivery_threshold');
+            $table->boolean('donation_eligible');
+            $table->boolean('active');
+            $table->string('thumbnail')->nullable();
             $table->string('country');
             $table->timestamps();
         });

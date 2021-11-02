@@ -20,6 +20,9 @@ class DeliveryMethodsSeeder extends Seeder
             'max_package_weight'=>31,
             'free_delivery_threshold'=>150,
             'country'=>'PL',
+            'donation_eligible'=>1,
+            'active'=>1,
+            'thumbnail'=>'images/dpd.png',
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
@@ -30,6 +33,9 @@ class DeliveryMethodsSeeder extends Seeder
             'max_package_weight'=>25,
             'free_delivery_threshold'=>150,
             'country'=>'PL',
+            'donation_eligible'=>0,
+            'active'=>1,
+            'thumbnail'=>'images/inpos.svg',
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
@@ -40,6 +46,9 @@ class DeliveryMethodsSeeder extends Seeder
             'max_package_weight'=>31,
             'free_delivery_threshold'=>150,
             'country'=>'PL',
+            'donation_eligible'=>1,
+            'active'=>1,
+            'thumbnail'=>'images/inpos2.png',
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
@@ -50,6 +59,8 @@ class DeliveryMethodsSeeder extends Seeder
             'max_package_weight'=>25,
             'free_delivery_threshold'=>150,
             'country'=>'PL',
+            'donation_eligible'=>0,
+            'active'=>0,
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
@@ -60,6 +71,8 @@ class DeliveryMethodsSeeder extends Seeder
             'max_package_weight'=>31,
             'free_delivery_threshold'=>150,
             'country'=>'PL',
+            'donation_eligible'=>0,
+            'active'=>0,
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
@@ -70,6 +83,8 @@ class DeliveryMethodsSeeder extends Seeder
             'max_package_weight'=>31,
             'free_delivery_threshold'=>150,
             'country'=>'PL',
+            'donation_eligible'=>0,
+            'active'=>0,
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
@@ -80,6 +95,9 @@ class DeliveryMethodsSeeder extends Seeder
             'max_package_weight'=>0,
             'free_delivery_threshold'=>150,
             'country'=>'PL',
+            'donation_eligible'=>0,
+            'active'=>1,
+            'thumbnail'=>'images/home.svg',
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
