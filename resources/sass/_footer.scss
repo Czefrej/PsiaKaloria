@@ -1,0 +1,16 @@
+footer {
+	background-color: $dark-bg-clr;
+	padding-top: 32px;
+	padding-bottom: 32px;
+}
+.footer-nav {
+	li {
+		a {
+			color: $white-clr;
+			text-decoration: none;
+			padding: 8px 0;
+			font-weight: 300;
+			display: block;
+		}
+	}
+}

@@ -1,6 +1,6 @@
 <!-- Navigation starts -->
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container-md">
           <a class="navbar-brand" href="#">
               <img src="{{ asset('images/logo.svg') }}" alt="">
@@ -14,7 +14,9 @@
                     <a class="nav-link icon-link" href="{{route('account.settings')}}"><img src="{{ asset('images/user-icon.svg') }}" alt=""></a>
                 </li>
                 <li class="nav-item">
-                    @livewire('cart-counter')
+                    <a href="#" class="nav-link icon-link position-relative">
+                        @livewire('cart-counter')
+                    </a>
                 </li>
             </ul>
           </div>
@@ -23,9 +25,9 @@
               <li class="nav-item">
                 <a class="nav-link @if(Route::current()->getName() == 'home') active @endif"  @if(Route::current()->getName() == 'home') aria-current="page" @endif href="{{route('home')}}">Główna</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link @if(Route::current()->getName() == 'products') active @endif"  @if(Route::current()->getName() == 'products') aria-current="page" @endif href="{{route('products')}}">Produkty</a>
-              </li>
+                <li class="nav-item">
+                    <a class="nav-link @if(Route::current()->getName() == 'products') active @endif"  @if(Route::current()->getName() == 'products') aria-current="page" @endif href="{{route('products')}}">Produkty</a>
+                </li>
               <li class="nav-item">
                 <a class="nav-link @if(Route::current()->getName() == 'faq') active @endif" @if(Route::current()->getName() == 'faq') aria-current="page" @endif href="{{route('faq')}}">FAQ</a>
               </li>
@@ -43,7 +45,24 @@
                     <a class="nav-link icon-link" href="{{route('account.settings')}}"><img src="{{ asset('images/user-icon.svg') }}" alt=""></a>
                 </li>
                 <li class="nav-item">
-                    @livewire('cart-counter')
+                    <a href="#" class="nav-link icon-link position-relative">
+                        @livewire('cart-counter')
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg-end">
+                        <h2 class="text-center mt-3">Dodano do koszyka</h2>
+                        <div class="mt-5">
+                            <h6>Baton AS Deluxe - 85% mięsa - indyk</h6>
+                            <span class="fw-light">Ilość: 1</span>
+                            <span class="ps-4 fw-light">koszt: 15,47 zł</span>
+                        </div>
+                        <div class="mt-4">
+                            <h6>Baton AS Deluxe - 85% mięsa - jagnięcina</h6>
+                            <span class="fw-light">Ilość: 1</span>
+                            <span class="ps-4 fw-light">koszt: 15,47 zł</span>
+                        </div>
+                        <a href="#" class="btn btn-primary mt-4 d-block">Zobacz koszyk</a>
+                        <a href="#" class="btn-link text-center d-block mt-4 text-decoration-none"><span class="text-dark">Kontynuuj zakupy</span></a>
+                    </div>
                 </li>
                 @if (Auth::check())
                     <li class="nav-item">
