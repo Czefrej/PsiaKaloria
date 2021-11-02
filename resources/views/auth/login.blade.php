@@ -33,7 +33,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="remember_me" name="remember">
                                 <label class="form-check-label fs-7" for="remember_me">
-                                    {{__('User.forgot_password')}}
+                                    {{__('User.remember_me')}}
                                 </label>
                             </div>
                             <div class="btn-wrapper d-flex gap-4 mt-4">

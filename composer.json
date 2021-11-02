@@ -7,12 +7,15 @@
     "require": {
         "php": "^7.3|^8.0",
         "ext-json": "*",
+        "bumbummen99/shoppingcart": "^4.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "hardevine/shoppingcart": "^3.0",
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
+        "livewire/livewire": "^2.7",
         "php-http/guzzle7-adapter": "^1.0",
         "pragmarx/countries": "^0.7.2",
         "t3ko/dpd-pl-api-php": "^0.4.0"

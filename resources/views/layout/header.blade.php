@@ -14,9 +14,7 @@
                     <a class="nav-link icon-link" href="{{route('account.settings')}}"><img src="{{ asset('images/user-icon.svg') }}" alt=""></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link icon-link position-relative">
-                        @renderCart(15)
-                    </a>
+                    @livewire('cart-counter')
                 </li>
             </ul>
           </div>
@@ -26,10 +24,7 @@
                 <a class="nav-link @if(Route::current()->getName() == 'home') active @endif"  @if(Route::current()->getName() == 'home') aria-current="page" @endif href="{{route('home')}}">Główna</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" @if(Route::current()->getName() == '/categories') active @endif"  @if(Route::current()->getName() == 'categories') aria-current="page" @endif href="{{route('categories')}}">Karma mokra</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" @if(Route::current()->getName() == '/categories') active @endif"  @if(Route::current()->getName() == 'categories') aria-current="page" @endif href="{{route('categories')}}">Karma mrożona</a>
+                <a class="nav-link @if(Route::current()->getName() == 'products') active @endif"  @if(Route::current()->getName() == 'products') aria-current="page" @endif href="{{route('products')}}">Produkty</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link @if(Route::current()->getName() == 'faq') active @endif" @if(Route::current()->getName() == 'faq') aria-current="page" @endif href="{{route('faq')}}">FAQ</a>
@@ -48,9 +43,7 @@
                     <a class="nav-link icon-link" href="{{route('account.settings')}}"><img src="{{ asset('images/user-icon.svg') }}" alt=""></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link icon-link position-relative">
-                        @renderCart(13)
-                    </a>
+                    @livewire('cart-counter')
                 </li>
                 @if (Auth::check())
                     <li class="nav-item">
@@ -79,10 +72,7 @@
                                 <a class="nav-link @if(Route::current()->getName() == 'home') active @endif"  @if(Route::current()->getName() == 'home') aria-current="page" @endif href="{{route('home')}}">Główna</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Karma mokra</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Karma mrożona</a>
+                                <a class="nav-link @if(Route::current()->getName() == 'products') active @endif" @if(Route::current()->getName() == 'products') aria-current="page" @endif href="{{route('products')}}">Produkty</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link @if(Route::current()->getName() == 'faq') active @endif"  @if(Route::current()->getName() == 'faq') aria-current="page" @endif href="{{route('faq')}}">FAQ</a>

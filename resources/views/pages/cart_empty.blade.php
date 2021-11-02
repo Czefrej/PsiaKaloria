@@ -2,6 +2,9 @@
 
 @section('content')
 
+    @if(Cart::content()->count()>0)
+
+    @else
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -11,9 +14,10 @@
                     <p class="fw-light mt-4">Sprawdź nasze polecane produkty.</p>
                 </div>
             </div>
-            </div>
         </div>
     </div>
+
+    @endif
 
     @include('sections.home_page.recommended_products')
     @include('sections.home_page.newsletter')

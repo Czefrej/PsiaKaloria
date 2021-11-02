@@ -38,15 +38,22 @@ class PasswordResetLinkController extends Controller
         $status = Password::sendResetLink(
             $request->only('email')
         );
+//
+//        if($request->ajax()){
+//            return $status == Password::RESET_LINK_SENT
+//                ? response()->json(['status'=>__($status)])
+//                : response()->json(['errors' => ['email' => __($status)]], 429);
+//        }else
+//            return $status == Password::RESET_LINK_SENT
+//                    ? back()->with('status', __($status))
+//                    : back()->withInput($request->only('email'))
+//                            ->withErrors(['email' => __($status)]);
 
-        if($request->ajax()){
-            return $status == Password::RESET_LINK_SENT
-                ? response()->json(['status'=>__($status)])
-                : response()->json(['errors' => ['email' => __($status)]], 429);
-        }else
-            return $status == Password::RESET_LINK_SENT
-                    ? back()->with('status', __($status))
-                    : back()->withInput($request->only('email'))
-                            ->withErrors(['email' => __($status)]);
+        return $status == Password::RESET_LINK_SENT
+            ? back()->with('status', __($status))
+            : back()->withInput($request->only('email'))
+                ->withErrors(['email' => __($status)]);
+
+
     }
 }

@@ -16,7 +16,7 @@ class isAjax
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->ip() == env("APP_LOCALHOST") || $request->ajax())
+        if($request->ajax())
             return $next($request);
         else return response("Unauthorized",403);
     }

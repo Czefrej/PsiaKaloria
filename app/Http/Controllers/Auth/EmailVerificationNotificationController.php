@@ -23,12 +23,6 @@ class EmailVerificationNotificationController extends Controller
 
         $request->user()->sendEmailVerificationNotification();
 
-        if($request->ajax()) {
-            return response()->json([
-                'status' => __('User.sent_again',['mail'=>$request->user()->email])
-            ]);
-        }else{
-            return redirect()->back()->with('status', __('passwords.sent'));
-        }
+        return redirect()->back()->with('status', __('passwords.sent'));
     }
 }

@@ -17,4 +17,15 @@ class Product extends Model
         return $this->hasMany("App\Models\OrderItem");
     }
 
+    public function getVariants(){
+        $products = Product::where('brand',$this->brand)->get();
+        return $products;
+    }
+
+    public function getPrice(){
+        if($this->gross_base_price < $this->regular_price)
+            return $this->gross_base_price;
+        else return $this->regular_price;
+    }
+
 }

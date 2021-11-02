@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,13 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('', function () {
     return view('index');
 })->name("home");
-
-Route::get('/categories', function () {
-    return view('pages.categories');
-})->name("categories");
 
 Route::prefix('page')->group(function () {
 
@@ -32,7 +32,7 @@ Route::prefix('page')->group(function () {
     })->name("returns-and-complaints");
 });
 
-Route::prefix('account')->name('account.')->group(function () {
+Route::prefix('account')->middleware(['verified'])->name('account.')->group(function () {
     Route::get('/settings', function() {
         return view('account.settings');
     })->name("settings");
@@ -76,7 +76,7 @@ Route::get('/auth/error-state', function() {
 })->name('error-state');
 
 Route::get('/cart', function() {
-    return view('pages.cart');
+    return view('pages.cart-new');
 })->name("cart");
 
 Route::get('/cart-empty', function() {
@@ -111,8 +111,24 @@ Route::get('/product', function() {
     return view('pages.product');
 })->name("product");
 
+
 Route::get('/product-frozen', function() {
     return view('pages.product_frozen');
 })->name("product");
+
+Route::get('/products',[ProductController::class,'index'])->name('products');
+
+Route::get('/product/{product:slug}', [ProductController::class, 'show'])
+    ->name('product')
+    ->missing(function (Request $request) {
+        return Redirect::route('products');
+    });
+
+Route::resource('cart', CartController::class, [
+    'names' => [
+        'index' => 'cart',
+        'store' => 'cart.store',
+    ]
+]);
 
 require __DIR__.'/auth.php';

@@ -61,4 +61,5 @@
             </div>
         </div>
     </div>
+    <div class="cart-items-separator"></div>
 </div>

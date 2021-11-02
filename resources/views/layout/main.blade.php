@@ -17,8 +17,9 @@
     {{-- Custom CSS --}}
     <link href="{{ url('css/main.css') }}" rel="stylesheet">
     <link href="{{ url('css/responsive.css') }}" rel="stylesheet">
-
     @stack('after-styles')
+
+    @livewireStyles
 </head>
 <body>
     @include('layout.header')
@@ -41,11 +42,33 @@
     -->
 
     <!-- Jquery -->
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+{{--    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>--}}
 
     {{-- Custom JS --}}
     <script src="{{ url('js/main.js') }}"></script>
-
+    <script>
+        function updateCart() {
+            $.ajaxSetup({
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            jQuery.ajax({
+                url: "/api/cart",
+                method: 'get',
+                dataType: 'JSON',
+                success: function (result, textStatus, xhr) {
+                    console.log(result);
+                    $('#counter').html(result.count);
+                },
+                error: function (jqXHR, textStatus, errorThrown, a) {
+                    console.log(jqXHR);
+                }
+            });
+        }
+    </script>
     @stack('after-scripts')
+    @livewireScripts
 </body>
 </html>
