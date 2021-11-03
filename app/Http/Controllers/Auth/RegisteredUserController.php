@@ -43,6 +43,7 @@ class RegisteredUserController extends Controller
         ]);
 
         $uniqueness = User::isUniqueEmail($request->email);
+
         if($uniqueness === false)
             $request->validate([
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -69,6 +70,7 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+
         if($user->verified){
             return redirect(RouteServiceProvider::HOME);
         }else{

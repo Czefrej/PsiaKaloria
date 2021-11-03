@@ -22,6 +22,10 @@ class Order extends Model
         return $this->belongsTo("App\Models\SavedAddress","saved_address_id");
     }
 
+    public function shelter(){
+        return $this->belongsTo("App\Models\AnimalShelter","shelter_id");
+    }
+
     public function deliveryPaymentAvailability(){
         return $this->belongsTo("App\Models\DeliveryPaymentAvailability","delivery_payment_id");
     }

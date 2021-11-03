@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             DeliveryMethodsSeeder::class,
             PaymentMethodsSeeder::class,
             ProductsTableSeeder::class,
-            DeliveryPaymentsSeeder::class
+            DeliveryPaymentsSeeder::class,
+            ShelterSeeder::class
         ]);
     }
 }

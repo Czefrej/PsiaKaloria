@@ -18,7 +18,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Interfaces\BaselinkerRepositoryInterface', 'App\Utils\BaselinkerRepository');
         $this->app->bind('App\Interfaces\InPostRepositoryInterface', 'App\Utils\InPostRepository');
         $this->app->bind('App\Interfaces\DPDRepositoryInterface', 'App\Utils\DPDRepository');
-
+        if ($this->app->environment('local')) {
+            $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
+            $this->app->register(TelescopeServiceProvider::class);
+        }
     }
 
     /**

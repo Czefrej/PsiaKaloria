@@ -18,6 +18,7 @@ class CreateAnimalSheltersTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('phone');
+            $table->string('email');
             $table->string('postal_code');
             $table->string('city');
             $table->string('country');
