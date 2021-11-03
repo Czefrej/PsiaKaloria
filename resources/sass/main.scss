@@ -922,4 +922,18 @@ td.text-muted {
         padding: 50px 80px;
     }
 }
+.account-wrapper {
+    .square-pattern-top, .square-pattern-bottom {
+        position: absolute;
+        z-index: -1;
+    }
+    .square-pattern-top {
+        top: 70px;
+        right: 40px;
+    }
+    .square-pattern-bottom {
+        bottom: -180px;
+        left: 80px;
+    }
+}
 @import 'footer';

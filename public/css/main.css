@@ -1037,6 +1037,19 @@ td.text-muted {
   padding: 50px 80px;
 }
 
+.account-wrapper .square-pattern-top, .account-wrapper .square-pattern-bottom {
+  position: absolute;
+  z-index: -1;
+}
+.account-wrapper .square-pattern-top {
+  top: 70px;
+  right: 40px;
+}
+.account-wrapper .square-pattern-bottom {
+  bottom: -180px;
+  left: 80px;
+}
+
 footer {
   background-color: #0d1521;
   padding-top: 32px;

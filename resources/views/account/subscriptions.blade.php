@@ -8,7 +8,9 @@
                 <div class="col-lg-4">
                     @include('sidebars.account_sidebar')
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-8 position-relative">
+                    <img src="{{ asset('images/square_pattern.svg') }}" alt="" class="square-pattern-top">
+                    <img src="{{ asset('images/square_pattern.svg') }}" alt="" class="square-pattern-bottom">
                     <div class="title text-left mb-5 d-md-block d-none">
                         <span class="title-leading text-primary mb-2 d-block">&nbsp;</span>
                         <h2>Moje subskrypcje</h2>
