@@ -7,22 +7,22 @@
         </div>
         <div class="row">
             <div class="col-md-6 col-6">
-                <div class="flex flex-md-row card align-items-center px-3 px-md-5 py-3 justify-content-between h-220">
+                <a href="#" class="type-item text-decoration-none flex flex-md-row card align-items-center px-3 px-md-5 py-3 justify-content-between h-220">
                     <div class="img-wrapper">
                         <img src="images/type1.svg" alt="">
                     </div>
                     <div class="text-wrapper me-md-4">
-                        <h5 class="type-title text-center">
+                        <h5 class="type-title text-center text-dark">
                             Karma
                             mokra
                         </h5>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-md-6 col-6">
-                <div class="flex flex-md-row card align-items-center px-3 px-md-5 py-3 justify-content-between h-220">
+                <a href="#" class="type-item text-decoration-none flex flex-md-row card align-items-center px-3 px-md-5 py-3 justify-content-between h-220">
                     <div class="text-wrapper order-2">
-                        <h5 class="type-title text-center ms-md-4">
+                        <h5 class="type-title text-center ms-md-4 text-dark">
                             Karma
                             mrożona
                         </h5>
@@ -30,7 +30,7 @@
                     <div class="img-wrapper order-sm-1 order-md-2 mt-md-0 mt-3">
                         <img src="images/type2.svg" alt="">
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>

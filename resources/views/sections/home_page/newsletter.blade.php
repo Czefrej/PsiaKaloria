@@ -12,7 +12,7 @@
                         </p>
                     </div>
                     <div class="row justify-content-center">
-                        <div class="col-md-4">
+                        <div class="col-lg-4 pb-lg-9 pb-md-3">
                             <div class="form-wrapper px-3">
                                 <div class="input-group">
                                     <input type="text" class="w-100 py-2 px-2 form-control" placeholder="Adres e-mail">

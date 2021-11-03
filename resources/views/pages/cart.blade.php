@@ -25,7 +25,7 @@
                         @include('sections.cart.cart_item')
                         <div class="cart-items-separator"></div>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center flex-md-row flex-column">
+                    <div class="d-flex justify-content-between align-items-center flex-md-row flex-column flex-wrap">
                         <div class="discount-apply">
                             <label>Kod rabatowy</label>
                             <div class="d-flex align-items-center gap-4 justify-content-start">
@@ -33,9 +33,15 @@
                                 <button class="btn btn-primary">Wykorzystaj kod</button>
                             </div>
                         </div>
-                        <div class="toggle d-flex gap-3 mt-4">
+                        <div class="d-flex gap-3 mt-4 align-items-center">
                             <span>Płać punktami</span>
-                            <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
+                            <div class="flipswitch">
+                                <input type="checkbox" name="flipswitch" class="flipswitch-cb" id="fs" checked>
+                                <label class="flipswitch-label" for="fs">
+                                    <div class="flipswitch-inner"></div>
+                                    <div class="flipswitch-switch"></div>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -44,7 +50,7 @@
                 <div class="card mt-4 pt-5 px-4 pb-4">
                     <h2>Podsumowanie</h2>
                     <span class="d-block text-muted mt-3">Rodzaj</span>
-                    <div class="btn-group d-flex gap-4 mt-3">
+                    <div class="btn-group d-flex gap-4 mt-3 flex-wrap">
                         <a href="#" class="btn btn-primary-outline">jednorozowy zakup</a>
                         <a href="#" class="btn btn-gray-outline">subskrypcja</a>
                     </div>
