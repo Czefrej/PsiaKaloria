@@ -8,7 +8,7 @@
                 @if($methods != null)
                     @if($methods->count() > 0)
                         @foreach($methods as $method)
-                            <a wire:key="{{$method->name}}-{{$method->id}}" href='#' wire:click.prevent="selectDelivery({{$method->delivery_id}})" class="delivery-list__item d-flex justify-content-between align-items-center @if($sel==$method->delivery_id) active @endif">
+                            <a wire:key="delivery-method-{{$method->id}}" href='#' wire:click.prevent="selectDelivery({{$method->id}})" class="delivery-list__item d-flex justify-content-between align-items-center @if($selected == $method->id) active @endif">
                                 <div class="indentity-wrapper d-flex gap-md-4 gap-2 align-items-center">
                                     <img src="{{$method->thumbnail}}" alt="">
                                     <span class="name">{{$method->name}}</span>

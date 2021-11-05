@@ -5,17 +5,23 @@
     <div class="row">
         <div class="col-md-10 col-12">
             <div class="delivery-list mt-4" wire:key="payment-method-loop">
-                @foreach($methods as $method)
-                    <a wire:key="{{$method->name}}-{{$method->id}}" href='#' class="delivery-list__item d-flex justify-content-between align-items-center @if($selected==$method->id) active @endif" wire:click.prevent="select({{$method->id}})">
-                        <div class="indentity-wrapper d-flex gap-md-4 gap-2 align-items-center">
-                            <img src="{{$method->thumbnail}}" alt="">
-                            <span class="name">{{$method->name}}</span>
-                        </div>
-                        <div class="price-wrapper">
-                            {{$method->service_fee}} zł
-                        </div>
-                    </a>
-                @endforeach
+
+                @if($methods->count() > 0)
+                    @foreach($methods as $method)
+                        <a wire:key="payment-method-{{$method->payment_id}}" href='#' class="delivery-list__item d-flex justify-content-between align-items-center @if($selected ==$method->payment_id) active @endif" wire:click.prevent="select({{$method->payment_id}})">
+                            <div class="indentity-wrapper d-flex gap-md-4 gap-2 align-items-center">
+                                <img src="{{$method->thumbnail}}" alt="">
+                                <span class="name">{{$method->name}}</span>
+                            </div>
+                            <div class="price-wrapper">
+                                {{$method->service_fee}} zł
+                            </div>
+                        </a>
+                        <div wire:loading.delay.longest wire:target="select">...</div>
+                    @endforeach
+                @else
+                    <span class="fw-light">Wybierz najpierw sposób dostawy.</span>
+                @endif
             </div>
         </div>
     </div>
