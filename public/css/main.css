@@ -1068,7 +1068,7 @@ td.text-muted {
   margin-top: -70px;
   margin-bottom: 100px;
 }
-.sticky-btn-wrapper .sticky-btn {
+.sticky-btn-wrapper div {
   border-radius: 8px;
 }
 
