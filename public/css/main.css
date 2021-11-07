@@ -1050,6 +1050,28 @@ td.text-muted {
   left: 80px;
 }
 
+.collapse-btn[aria-expanded=true] .hide {
+  display: block;
+}
+.collapse-btn[aria-expanded=true] .show {
+  display: none;
+}
+
+.collapse-btn[aria-expanded=false] .hide {
+  display: none;
+}
+.collapse-btn[aria-expanded=false] .show {
+  display: block;
+}
+
+.sticky-btn-wrapper {
+  margin-top: -70px;
+  margin-bottom: 100px;
+}
+.sticky-btn-wrapper .sticky-btn {
+  border-radius: 8px;
+}
+
 footer {
   background-color: #0d1521;
   padding-top: 32px;

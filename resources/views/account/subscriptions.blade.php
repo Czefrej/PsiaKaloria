@@ -91,8 +91,10 @@
                                     </h5>
                                 </div>
                             </div>
-                            <div class="border-top"></div>
-                            <div class="row mt-4">
+                            <div class="row collapse show" id="order-details-collapse-1">
+                                <div class="col-12">
+                                    <div class="border-top"></div>
+                                </div>
                                 <div class="col-md-4 mt-4">
                                     <span class="text-muted d-block fw-ligther">Numer zamówienia</span>
                                     <span class="d-block fw-lighter value-text">45489412562</span>
@@ -135,9 +137,15 @@
                                 </div>
                             </div>
                             <div class="bottom-actions mt-3 d-flex justify-content-end">
-                                <a href="#" class="text-muted text-decoration-none align-middle gap-2 d-flex">
-                                    <img src="{{ asset('images/arrow_up_icon.svg') }}">
-                                    Zwiń
+                                <a href="#order-details-collapse-1" data-bs-toggle="collapse" href="#order-details-collapse-1" role="button" aria-expanded="true" aria-controls="order-details-collapse-1" class="collapse-btn text-muted text-decoration-none align-middle gap-2 d-flex">
+                                   <span class="hide">
+                                        <img src="{{ asset('images/arrow_up_icon.svg') }}">
+                                        Zwiń
+                                   </span>
+                                   <span class="show">
+                                        <img src="{{ asset('images/arrow_down_icon.svg') }}">
+                                        Rozwiń
+                                    </span>
                                 </a>
                             </div>
                         </div>
@@ -195,11 +203,61 @@
                                     </h5>
                                 </div>
                             </div>
-
+                            <div class="row collapse" id="order-details-collapse">
+                                <div class="col-12">
+                                    <div class="border-top"></div>
+                                </div>
+                                <div class="col-md-4 mt-4">
+                                    <span class="text-muted d-block fw-ligther">Numer zamówienia</span>
+                                    <span class="d-block fw-lighter value-text">45489412562</span>
+                                </div>
+                                <div class="col-md-4 mt-4">
+                                    <span class="text-muted d-block fw-ligther">Status płatności</span>
+                                    <span class="d-block fw-lighter value-text">
+                                        opłacone <br>
+                                        12.08.2021, 13:14
+                                    </span>
+                                </div>
+                                <div class="col-md-4 mt-4">
+                                    <span class="text-muted d-block fw-ligther">Dostawa</span>
+                                    <span class="d-block fw-lighter value-text">
+                                        Kurier Inpost <br>
+                                        14,30 zł
+                                    </span>
+                                </div>
+                                <div class="col-md-4 mt-4">
+                                    <span class="text-muted d-block fw-ligther">Adres</span>
+                                    <span class="d-block fw-lighter value-text">
+                                        Anna Nowak <br>
+                                        ul.Przykładowa 12 <br>
+                                        15-544 Białystok
+                                    </span>
+                                </div>
+                                <div class="col-md-4 mt-4">
+                                    <span class="text-muted d-block fw-ligther">Metoda płatności</span>
+                                    <span class="d-block fw-lighter value-text">
+                                        Przelew błyskawiczny lub <br>
+                                        karta płatnicza
+                                    </span>
+                                </div>
+                                <div class="col-md-4 mt-4">
+                                    <span class="text-muted d-block fw-ligther">Dostawa</span>
+                                    <span class="d-block fw-lighter value-text">
+                                        Kurier Inpost<br>
+                                        darmowa
+                                    </span>
+                                </div>
+                            </div>
                             <div class="bottom-actions mt-3 d-flex justify-content-end">
-                                <a href="#" class="text-muted text-decoration-none align-middle gap-2 d-flex">
-                                    <img src="{{ asset('images/arrow_down_icon.svg') }}">
-                                    Rozwiń
+                                <a href="#order-details-collapse" data-bs-toggle="collapse" href="#order-details-collapse" role="button" aria-expanded="false" aria-controls="order-details-collapse" class="collapse-btn text-muted text-decoration-none align-middle gap-2 d-flex">
+                                   <span class="hide">
+                                        <img src="{{ asset('images/arrow_up_icon.svg') }}">
+                                        Zwiń
+                                   </span>
+                                   <span class="show">
+                                        <img src="{{ asset('images/arrow_down_icon.svg') }}">
+                                        Rozwiń
+                                    </span>
                                 </a>
                             </div>
                         </div>

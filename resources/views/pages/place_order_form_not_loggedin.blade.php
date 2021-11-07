@@ -336,9 +336,15 @@
                             <span class="fs-4 fw-bold">50 zł</span>
                         </div>
 
-                        <button class="btn btn-success d-block mt-4">Złóż zamówienie</button>
+                        <button class="btn btn-success d-md-block d-none mt-4">Złóż zamówienie</button>
                     </div>
                 </div>
+            </div>
+        </div>
+        {{-- It needs to be separated because it will only be sticky if it's outside it's parents --}}
+        <div class="container d-md-none sticky-btn-wrapper position-sticky bottom-0">
+            <div class="bg-white pt-4 pb-4 px-4">
+                <button class="btn btn-success d-block w-100">Złóż zamówienie</button>
             </div>
         </div>
     </form>

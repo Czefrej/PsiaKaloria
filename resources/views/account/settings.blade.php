@@ -5,10 +5,10 @@
     <div class="account-wrapper mt-md-5 mt-3 mb-5">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-lg-4">
                     @include('sidebars.account_sidebar')
                 </div>
-                <div class="col-md-8 position-relative pb-5">
+                <div class="col-lg-8 position-relative pb-5">
                     <img src="{{ asset('images/square_pattern.svg') }}" alt="" class="square-pattern-top">
                     <img src="{{ asset('images/square_pattern.svg') }}" alt="" class="square-pattern-bottom">
                     <div class="title text-left mb-5 d-md-block d-none">
