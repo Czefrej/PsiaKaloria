@@ -134,7 +134,25 @@
                         <div class="row mt-4">
                             <div class="col">
                                 <input class="styled-checkbox" id="styled-checkbox-2" type="checkbox" value="value1">
-                                <label for="styled-checkbox-2">Chcę założyć konto <img src="{{ asset('images/info_icon.svg') }}" alt=""></label>
+                                <label for="styled-checkbox-2">
+                                    Chcę założyć konto
+                                    <a  href="#"
+                                        data-bs-container="body"
+                                        data-bs-toggle="popover"
+                                        data-bs-placement="right"
+                                        data-bs-html='true'
+                                        data-bs-custom-class="custom-popover"
+                                        data-bs-content="
+                                            <h5 class='text-center'>Co zyszkasz?</h5>
+                                            <p class='mt-4 fw-light'>-szybsze zakupy w przyszłości</p>
+                                            <p class='fw-light'>-możliwość zakupów w modelu subskrypcji</p>
+                                            <p class='fw-light'>-program lojalnościowy (zbieraj punkty i wymieniaj na rabaty)</p>
+                                            <p class='fw-light'>-historia zamówień w jednym miejscu</p>
+                                        "
+                                    >
+                                        <img src="{{ asset('images/info_icon.svg') }}" alt="">
+                                    </a>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -318,9 +336,15 @@
                             <span class="fs-4 fw-bold">50 zł</span>
                         </div>
 
-                        <button class="btn btn-success d-block mt-4">Złóż zamówienie</button>
+                        <button class="btn btn-success d-md-block d-none mt-4">Złóż zamówienie</button>
                     </div>
                 </div>
+            </div>
+        </div>
+        {{-- It needs to be separated because it will only be sticky if it's outside it's parents --}}
+        <div class="container d-md-none sticky-btn-wrapper position-sticky bottom-0">
+            <div class="bg-white pt-4 pb-4 px-4">
+                <button class="btn btn-success d-block w-100">Złóż zamówienie</button>
             </div>
         </div>
     </form>

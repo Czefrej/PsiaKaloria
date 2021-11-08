@@ -28,6 +28,6 @@
             <span class="fs-4 fw-bold">{{$price + $delivery_price}} zł</span>
         </div>
 
-        <button class="btn btn-success d-block mt-4" wire:click.prevent="submit">Złóż zamówienie</button>
+        <button class="btn btn-success d-md-block d-none mt-4" wire:click.prevent="submit">Złóż zamówienie</button>
     </div>
 </div>
