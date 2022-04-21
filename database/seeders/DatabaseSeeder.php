@@ -14,12 +14,19 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        $this->call([
-            DeliveryMethodsSeeder::class,
-            PaymentMethodsSeeder::class,
-            ProductsTableSeeder::class,
-            DeliveryPaymentsSeeder::class,
-            ShelterSeeder::class
+//        $this->call([
+//            DeliveryMethodsSeeder::class,
+//            PaymentMethodsSeeder::class,
+//            ProductsTableSeeder::class,
+//            DeliveryPaymentsSeeder::class,
+//            ShelterSeeder::class
+//        ]);
+
+        DB::table('users')->insert([
+            'name' => 'admin',
+            'email' => 'jeffery@outerbest.pl',
+            'password' => bcrypt('@7$$sY5ymeGJ'),
+            'role' => 'admin'
         ]);
     }
 }
