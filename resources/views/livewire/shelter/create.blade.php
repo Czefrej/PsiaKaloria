@@ -51,24 +51,6 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-6">
-                <div class="input-wrapper mb-4">
-                    <label class="mb-1">Ilość psów</label>
-                    <input type="number" class="form-control border-0 py-2" wire:model="dogs" name="dogs" value="{{$dogs}}" required>
-                    @error('dogs') <span class="d-block fs-7 fw-light pt-1 text-end text-primary">{{$message}}</span> @enderror
-                </div>
-            </div>
-
-            <div class="col-6">
-                <div class="input-wrapper mb-4">
-                    <label class="mb-1">Ilość kotów</label>
-                    <input type="number" class="form-control border-0 py-2" wire:model="cats" name="cats" value="{{$cats}}" required>
-                    @error('cats') <span class="d-block fs-7 fw-light pt-1 text-end text-primary">{{$message}}</span> @enderror
-                </div>
-            </div>
-        </div>
-
         <div class="input-wrapper mb-4">
             <div class="d-flex gap-3 mt-4 align-items-center">
                 <div class="flipswitch">
@@ -98,7 +80,7 @@
         </div>
 
         <div class="btn-wrapper d-flex gap-4">
-            <a href="{{route('account.settings')}}" class="btn btn-primary-light w-50">Anuluj</a>
+            <a href="{{route('account.shelter.index')}}" class="btn btn-primary-light w-50">Anuluj</a>
             <button type="submit" class="btn btn-primary w-50">Zapisz zmiany</button>
         </div>
     </form>

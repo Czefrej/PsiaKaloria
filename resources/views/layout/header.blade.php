@@ -77,15 +77,15 @@
                             <li class="nav-item">
                                 <a class="nav-link @if(Route::current()->getName() == 'home') active @endif"  @if(Route::current()->getName() == 'home') aria-current="page" @endif href="/jak-to-dziala">Jak to działa?</a>
                             </li>
-{{--                            <li class="nav-item">--}}
-{{--                                <a class="nav-link @if(Route::current()->getName() == 'home') active @endif"  @if(Route::current()->getName() == 'home') aria-current="page" @endif href="{{route('home')}}">Główna</a>--}}
-{{--                            </li>--}}
-{{--                            <li class="nav-item">--}}
-{{--                                <a class="nav-link @if(Route::current()->getName() == 'products') active @endif" @if(Route::current()->getName() == 'products') aria-current="page" @endif href="{{route('products')}}">Produkty</a>--}}
-{{--                            </li>--}}
-{{--                            <li class="nav-item">--}}
-{{--                                <a class="nav-link @if(Route::current()->getName() == 'faq') active @endif"  @if(Route::current()->getName() == 'faq') aria-current="page" @endif href="{{route('faq')}}">FAQ</a>--}}
-{{--                            </li>--}}
+                            <li class="nav-item">
+                                <a class="nav-link @if(Route::current()->getName() == 'home') active @endif"  @if(Route::current()->getName() == 'home') aria-current="page" @endif href="https://psiakaloria.pl">Sklep</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @if(Route::current()->getName() == 'products') active @endif" @if(Route::current()->getName() == 'products') aria-current="page" @endif href="https://psiakaloria.pl/pages/paczka-dla-schroniska">Paczka do schroniska</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @if(Route::current()->getName() == 'faq') active @endif"  @if(Route::current()->getName() == 'faq') aria-current="page" @endif href="https://psiakaloria.pl/pages/contact">Kontakt</a>
+                            </li>
                         </ul>
                     </nav>
                 </div>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Livewire\Order;
+use App\Http\Livewire\shelter\Order;
 use Illuminate\Http\Request;
 use Laravel\Cashier\Events\WebhookReceived;
 use Laravel\Cashier\Http\Controllers\WebhookController;

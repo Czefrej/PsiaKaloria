@@ -3,7 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\Shelters;
+use App\Http\Controllers\ShelterController;
 use App\Http\Controllers\StripeController;
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -44,7 +44,13 @@ Route::get('', function () {
 //    })->name("regulations");
 //});
 //
+
+Route::get('/email', function() {
+        return view('mail.test');
+})->name("regulations");
 Route::prefix('account')->middleware(['verified'])->name('account.')->group(function () {
+    Route::resource('shelter', ShelterController::class)->middleware("isadmin");
+
     Route::get('/settings', function() {
         return view('account.settings');
     })->name("settings");
@@ -53,11 +59,11 @@ Route::prefix('account')->middleware(['verified'])->name('account.')->group(func
         return view('account.create_account');
     })->name("create-user")->middleware("isadmin");
 
-    Route::get('/create-shelter', function() {
-        return view('account.create_shelter');
-    })->name("create-shelter")->middleware("isadmin");
-
-    Route::get('/shelters', [Shelters::class, 'index'])->name("shelters")->middleware("isadmin");;
+//    Route::get('/create-shelter', function() {
+//        return view('account.create_shelter');
+//    })->name("create-shelter")->middleware("isadmin");
+//
+//    Route::get('/shelters', [ShelterController::class, 'index'])->name("shelters")->middleware("isadmin");;
 
 //    Route::get('/shelters', function() {
 //        return view('account.shelters');

@@ -11,15 +11,19 @@ class ShelterPassword extends Mailable
 {
     use Queueable, SerializesModels;
     private $password;
+    private $id;
+    private $email;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(String $password)
+    public function __construct(String $password,int $id, string $email)
     {
         $this->password = $password;
+        $this->id = $id;
+        $this->email = $email;
     }
 
     /**
@@ -29,8 +33,10 @@ class ShelterPassword extends Mailable
      */
     public function build()
     {
-        return $this->from('kontakt@outerbest.pl', 'Biuro - Psia Kaloria')->view('mail.shelter-password')->with([
+        return $this->from('kontakt@outerbest.pl', 'Psia Kaloria')->subject("Konto do platformy dla schronisk - Psia Kaloria")->view('mail.shelter-password')->with([
             'password' => $this->password,
+            'email' => $this->email,
+            'id' => $this->id
         ]);
     }
 }

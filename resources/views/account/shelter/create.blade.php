@@ -9,12 +9,12 @@
                     @include('sidebars.account_sidebar')
                 </div>
                 <div class="col-lg-4">
-                    <div class="title text-left mb-4 d-md-block d-none">
+                    <div class="title text-left mb-4 d-md-block">
                         <span class="title-leading text-primary mb-2 d-block">&nbsp;</span>
-                        <a href="{{route('account.shelters')}}" class="text-decoration-none"><img src="{{ asset('images/back_arrow_icon.svg') }}"> <small class="ms-1 text-muted">Wróć do listy schronisk</small></a>
+                        <a href="{{route('account.shelter.index')}}" class="text-decoration-none"><img src="{{ asset('images/back_arrow_icon.svg') }}"> <small class="ms-1 text-muted">Wróć do listy schronisk</small></a>
                         <h2 class="mt-3">Utwórz schronisko</h2>
                     </div>
-                    @livewire('create-shelter')
+                    @livewire('shelter.create')
                 </div>
             </div>
         </div>

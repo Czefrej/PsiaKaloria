@@ -1,19 +1,17 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\shelter;
 
 use App\Models\AnimalShelter;
 use Livewire\Component;
 
-class CreateShelter extends Component
+class Create extends Component
 {
     public $name;
     public $email;
     public $phone;
     public $postal;
     public $city;
-    public $dogs;
-    public $cats;
     public $address;
 
     public $ukraine;
@@ -22,18 +20,15 @@ class CreateShelter extends Component
     protected $rules = [
         'name' => 'required|unique:animal_shelters,name|max:90',
         'email' => 'required|email',
-        'postal' => array('required','regex:/[0-9]{2}-[0-9]{3}/'),
+        'postal' => array('required','regex:/^[_0-9]{2}-[_0-9]{3}$/'),
         'phone' => 'required',
         'address' => 'required|unique:animal_shelters,address',
         'city' => 'required',
-        'dogs' => 'required|numeric|gte:0',
-        'cats' => 'required|numeric|gte:0'
     ];
 
     public function render()
     {
-
-        return view('livewire.create-shelter');
+        return view('livewire.shelter.create');
     }
 
     public function submit(){
@@ -50,8 +45,6 @@ class CreateShelter extends Component
         $shelter->name = $this->name;
         $shelter->country = "PL";
         $shelter->email = $this->email;
-        $shelter->dogs_amount = $this->dogs;
-        $shelter->cats_amount = $this->cats;
         $shelter->phone = $this->phone;
         $shelter->address = $this->address;
         $shelter->ukraine = $ukraine;
@@ -61,7 +54,7 @@ class CreateShelter extends Component
         $shelter->save();
 
         session()->flash('message', "Schronisko $this->name zostało dodane do systemu.");
-        return redirect("/account/create-shelter");
+        return redirect(route('account.shelter.create'));
 
 
 

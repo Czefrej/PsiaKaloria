@@ -21,9 +21,7 @@ class CreateAnimalSheltersTable extends Migration
             $table->string('email');
             $table->string('postal_code');
             $table->string('city');
-            $table->string('country');
-            $table->integer('dogs_amount');
-            $table->integer('cats_amount');
+            $table->string('country')->default('PL');
             $table->boolean('active');
             $table->boolean('ukraine');
             $table->timestamps();

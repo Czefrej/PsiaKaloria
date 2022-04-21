@@ -77,7 +77,7 @@ class CreateAccount extends Component
         $user->sendEmailVerificationNotification();
 
         Mail::to($user)
-            ->send(new ShelterPassword($password));
+            ->send(new ShelterPassword($password,$user->name,$user->email));
 
         session()->flash('message', "Konto $this->role o numerze $this->username zostało pomyślnie utworzone. Wygenerowane hasło zostało przesłane na maila $this->email.");
         return redirect("/account/create_user");
