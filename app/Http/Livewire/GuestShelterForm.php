@@ -3,9 +3,14 @@
 namespace App\Http\Livewire;
 
 use App\Models\AnimalShelter;
+use App\Models\DeliveryMethod;
+use App\Models\PaymentMethod;
 use App\Models\User;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
@@ -29,16 +34,16 @@ class GuestShelterForm extends Component
     public $shelters;
     public $shelter_id;
 
+
     protected $listeners = [
         'order_submit'=>"submit"
     ];
 
     protected function rules()
     {
-        return [
+        $rules = [
             'company' => 'required|boolean',
             'register' => 'required',
-            'password' => [Rules\Password::defaults(),'required_if:register,true','confirmed'],
             'email' => 'required|email|string|max:255',
             'phone' => 'required',
             'address' => 'required',
@@ -51,12 +56,29 @@ class GuestShelterForm extends Component
             'tax_id' => 'required_if:company,true',
             'company_name' => 'required_if:company,true',
         ];
+        if($this->register)
+            $rules['password'] = ['required_if:register,true',Rules\Password::defaults(),'confirmed'];
+
+        return $rules;
+    }
+
+    public function fillForm(){
+        $this->name = "Wiktor";
+        $this->surname = "TEST";
+        $this->email = "test@test.com";
+        $this->phone = "+48507632653";
+        $this->address = "Puławska 99";
+        $this->postal = "24-100";
+        $this->city = "Puławy";
+
     }
 
     public function mount(){
         $this->company = false;
         $this->register = false;
         $this->shelters = AnimalShelter::all();
+        $this->shelter_id = $this->shelters->first()->id;
+        $this->country = 'PL';
     }
 
     public function render()
@@ -75,13 +97,12 @@ class GuestShelterForm extends Component
 
     public function submit(){
         $this->validate();
-        $user = null;
+
         if($this->register){
             $uniqueness = User::isUniqueEmail($this->email);
 
             if($uniqueness === false)
                 $this->validateOnly($this->email, "","",'required|string|email|max:255|unique:users');
-
 
             $name = "PK-".strtoupper(substr(md5($this->email),-6));
 
@@ -105,8 +126,29 @@ class GuestShelterForm extends Component
             Auth::login($user);
         }
 
+        if($this->company){
+            $company_name = $this->company_name;
+            $fullname = "";
+            $tax_id = $this->tax_id;
+        }else{
+            $fullname = $this->name." ".$this->surname;
+            $company_name = "";
+            $tax_id = "";
+        }
 
+        $this->emit("process_form",[
+            'email'=>$this->email,
+            'phone'=>$this->phone,
+            'shelter_id' => $this->shelter_id,
+            'invoice_fullname'=>$fullname,
+            'invoice_company'=>$company_name,
+            'invoice_nip'=>$tax_id,
+            'invoice_address'=>$this->address,
+            'invoice_postcode'=>$this->postal,
+            'invoice_city'=>$this->city,
+            'invoice_country_code'=>$this->country,
+            'company_purchase'=>$this->company]);
 
-        return redirect()->to('/contact-form-success');
+        //return redirect()->to('/contact-form-success');
     }
 }

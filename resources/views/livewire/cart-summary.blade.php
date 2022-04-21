@@ -37,8 +37,8 @@
             </span>
         </div>
         <div class="btns">
-            <a href="#" class="btn btn-success d-block mt-4">Złóż zamówienie</a>
-            <a href="#" class="btn btn-warning d-block mt-4">Zamów do schroniska</a>
+            <a href="{{route('order',['subscription' => $subscription,'donation'=>0])}}" class="btn btn-success d-block mt-4">Złóż zamówienie</a>
+            <a href="{{route('order',['subscription' => $subscription,'donation'=>1])}}" class="btn btn-warning d-block mt-4">Zamów do schroniska</a>
         </div>
     </div>
 </div>

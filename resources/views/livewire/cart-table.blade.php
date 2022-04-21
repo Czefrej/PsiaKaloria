@@ -13,11 +13,15 @@
                         <span class="d-block">{{$row->model->name}}</span>
                     </div>
                 </div>
-                <div class="cart-quantity-counter ms-5">
-                    <button wire:click.prevent="decrement('{{$row->rowId}}')">-</button>
-                    <input type="text" wire:model="quantity.{{$row->rowId}}" class="bg-transparent">
-                    <button wire:click.prevent="increment('{{$row->rowId}}')">+</button>
+
+                <div class="input-wrapper ms-5">
+                    <select class="form-select border-0 py-2 mt-4" wire:model="quantity.{{$row->rowId}}" wire:change="change('{{$row->rowId}}')">
+                        @for($i = 1; $i < 100; $i++)
+                            <option value="{{$i}}">{{$i}} </option>
+                        @endfor
+                    </select>
                 </div>
+
                 <div class="ms-5 text-end d-flex align-items-center">
                     <div class="fw-light">
                         <span class="d-block">{{$row->total}} zł</span>
@@ -49,11 +53,18 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-end mt-3">
-                    <div class="cart-quantity-counter ms-5">
-                        <button wire:click.prevent="decrement('{{$row->rowId}}')">-</button>
-                        <input type="text" wire:model="quantity.{{$row->rowId}}" class="bg-transparent">
-                        <button wire:click.prevent="increment('{{$row->rowId}}')">+</button>
+                    <div class="input-wrapper ms-5">
+                        <select class="form-select border-0 py-2 mt-4" wire:model="quantity.{{$row->rowId}}" wire:change="change('{{$row->rowId}}')">
+                            @for($i = 1; $i < 100; $i++)
+                                <option value="{{$i}}">{{$i}} </option>
+                            @endfor
+                        </select>
                     </div>
+{{--                    <div class="cart-quantity-counter ms-5">--}}
+{{--                        <button wire:click.prevent="decrement('{{$row->rowId}}')">-</button>--}}
+{{--                        <input type="text" wire:model="quantity.{{$row->rowId}}" class="bg-transparent">--}}
+{{--                        <button wire:click.prevent="increment('{{$row->rowId}}')">+</button>--}}
+{{--                    </div>--}}
                     <div class="ms-3 text-end d-flex align-items-center">
                         <div class="fw-light">
                             <span class="d-block">{{$row->total}} zł</span>

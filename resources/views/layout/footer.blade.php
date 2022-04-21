@@ -9,9 +9,9 @@
             </div>
             <div class="col-md-3 col-12 mt-md-0 mt-4">
                 <ul class="footer-nav">
-                    <li>
-                        <a href="{{route("returns-and-complaints")}}">Zwroty i reklamacje</a>
-                    </li>
+{{--                    <li>--}}
+{{--                        <a href="{{route("returns-and-complaints")}}">Zwroty i reklamacje</a>--}}
+{{--                    </li>--}}
                     <li>
                         <a href="#">Regulaminy</a>
                     </li>

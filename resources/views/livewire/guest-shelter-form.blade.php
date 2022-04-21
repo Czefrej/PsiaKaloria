@@ -17,6 +17,7 @@
         <div class="title d-flex align-items-center">
             <h2 class="m-0">Twoje dane</h2>
             <span class="text-muted ms-5 d-md-block d-none">Masz konto? Zaloguj się</span>
+            <span class="text-muted ms-5 d-md-block d-none"><a href="#" wire:click="fillForm">Wypełnij.</a></span>
         </div>
         <div class="row mt-4">
             <div class="col">
@@ -40,14 +41,14 @@
                 <div class="col-md-6 col-12">
                     <div class="input-wrapper">
                         <label class="fw-light">Nazwa firmy</label>
-                        <input type="text" class="form-control border-0 py-2" wire:model="company_name">
+                        <input type="text" class="form-control border-0 py-2" wire:model.lazy="company_name">
                         @error('company_name') <span class="d-block fs-7 fw-light pt-1 text-end text-primary">{{$message}}</span> @enderror
                     </div>
                 </div>
                 <div class="col-md-6 col-12 mt-md-0 mt-3">
                     <div class="input-wrapper">
                         <label class="fw-light">NIP</label>
-                        <input type="text" class="form-control border-0 py-2" wire:model="tax_id">
+                        <input type="text" class="form-control border-0 py-2" wire:model.lazy="tax_id">
                         @error('tax_id') <span class="d-block fs-7 fw-light pt-1 text-end text-primary">{{$message}}</span> @enderror
                     </div>
                 </div>
@@ -57,14 +58,14 @@
                 <div class="col-md-6 col-12">
                     <div class="input-wrapper">
                         <label class="fw-light">Imię</label>
-                        <input type="text" class="form-control border-0 py-2" wire:model="name">
+                        <input type="text" class="form-control border-0 py-2" wire:model.lazy="name">
                         @error('name') <span class="d-block fs-7 fw-light pt-1 text-end text-primary">{{$message}}</span> @enderror
                     </div>
                 </div>
                 <div class="col-md-6 col-12 mt-md-0 mt-3">
                     <div class="input-wrapper">
                         <label class="fw-light">Nazwisko</label>
-                        <input type="text" class="form-control border-0 py-2" wire:model="surname">
+                        <input type="text" class="form-control border-0 py-2" wire:model.lazy="surname">
                         @error('surname') <span class="d-block fs-7 fw-light pt-1 text-end text-primary">{{$message}}</span> @enderror
                     </div>
                 </div>
@@ -74,14 +75,14 @@
             <div class="col-md-6 col-12">
                 <div class="input-wrapper">
                     <label class="fw-light">Adres e-mail</label>
-                    <input type="email" class="form-control border-0 py-2" wire:model="email">
+                    <input type="email" class="form-control border-0 py-2" wire:model.lazy="email">
                     @error('email') <span class="d-block fs-7 fw-light pt-1 text-end text-primary">{{$message}}</span> @enderror
                 </div>
             </div>
             <div class="col-md-6 col-12 mt-md-0 mt-3">
                 <div class="input-wrapper">
                     <label class="fw-light">Numer telefonu</label>
-                    <input type="text" class="form-control border-0 py-2" wire:model="phone">
+                    <input type="text" class="form-control border-0 py-2" wire:model.lazy="phone">
                     @error('phone') <span class="d-block fs-7 fw-light pt-1 text-end text-primary">{{$message}}</span> @enderror
                 </div>
             </div>
@@ -93,21 +94,21 @@
             <div class="col-md-6 col-12">
                 <div class="input-wrapper">
                     <label class="fw-light">Ulica i numer</label>
-                    <input type="text" class="form-control border-0 py-2" wire:model="address">
+                    <input type="text" class="form-control border-0 py-2" wire:model.lazy="address">
                     @error('address') <span class="d-block fs-7 fw-light pt-1 text-end text-primary">{{$message}}</span> @enderror
                 </div>
             </div>
             <div class="col-md-2 col-5 mt-md-0 mt-3">
                 <div class="input-wrapper">
                     <label class="fw-light">Kod pocztowy</label>
-                    <input type="text" class="form-control border-0 py-2" wire:model="postal">
+                    <input type="text" class="form-control border-0 py-2" wire:model.lazy="postal">
                     @error('postal') <span class="d-block fs-7 fw-light pt-1 text-end text-primary">{{$message}}</span> @enderror
                 </div>
             </div>
             <div class="col-md-4 col-7 mt-md-0 mt-3">
                 <div class="input-wrapper">
                     <label class="fw-light">Miejscowość</label>
-                    <input type="text" class="form-control border-0 py-2" wire:model="city">
+                    <input type="text" class="form-control border-0 py-2" wire:model.lazy="city">
                     @error('city') <span class="d-block fs-7 fw-light pt-1 text-end text-primary">{{$message}}</span> @enderror
                 </div>
             </div>
@@ -137,14 +138,14 @@
                         <div class="col-md-6 col-12">
                             <div class="input-wrapper">
                                 <label class="fw-light">Hasło</label>
-                                <input type="password" wire:model="password" class="form-control border-0 py-2">
+                                <input type="password" wire:model.lazy="password" class="form-control border-0 py-2">
                                 @error('password') <span class="d-block fs-7 fw-light pt-1 text-end text-primary">{{$message}}</span> @enderror
                             </div>
                         </div>
                         <div class="col-md-6 col-12 mt-md-0 mt-3">
                             <div class="input-wrapper">
                                 <label class="fw-light">Potwierdź hasło</label>
-                                <input type="password" wire:model="password_confirmation" class="form-control border-0 py-2">
+                                <input type="password" wire:model.lazy="password_confirmation" class="form-control border-0 py-2">
                                 @error('password_confirmation') <span class="d-block fs-7 fw-light pt-1 text-end text-primary">{{$message}}</span> @enderror
                             </div>
                         </div>

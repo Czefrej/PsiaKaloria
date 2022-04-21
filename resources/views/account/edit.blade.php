@@ -16,6 +16,7 @@
                     </div>
                     <div class="editable-wrapper">
                         <form>
+
                             <div class="input-wrapper mb-4">
                                 <label class="mb-1">Imię</label>
                                 <input type="text" class="form-control border-0 py-2" value="Anna">

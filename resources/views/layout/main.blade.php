@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Psia</title>
+    <title>Psia Kaloria</title>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     @stack('before-styles')
 
     <!-- Fonts -->
@@ -17,6 +18,8 @@
     {{-- Custom CSS --}}
     <link href="{{ url('css/main.css') }}" rel="stylesheet">
     <link href="{{ url('css/responsive.css') }}" rel="stylesheet">
+    <link href="{{ url('css/checkout.css') }}" rel="stylesheet">
+
     @stack('after-styles')
 
     @livewireStyles
@@ -40,6 +43,7 @@
     -->
 
     {{-- Custom JS --}}
+
     <script src="{{ url('js/main.js') }}"></script>
     @stack('after-scripts')
     @livewireScripts

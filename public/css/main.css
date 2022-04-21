@@ -693,6 +693,14 @@ td.text-muted {
   border-radius: 8px;
 }
 
+.bg-green {
+    background-color: #16B283;
+    padding: 14px;
+    text-align: center;
+    color: #fff;
+    border-radius: 8px;
+}
+
 .cart-quantity-counter {
   border-radius: 8px;
   background: transparent;

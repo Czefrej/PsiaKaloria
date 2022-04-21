@@ -40,25 +40,25 @@
                                 <button type="submit" class="btn btn-primary w-100">{{__('User.login')}}</button>
                             </div>
                         </form>
-                        <div class="social-auth-wrapper">
-                            <span class="d-block my-4 fw-light text-center fs-7">{{__('User.login_with')}}</span>
-                            <div class="social-auth d-flex justify-content-between">
-                                <a href="#" class="disabled">
-                                    <img style="-webkit-filter: grayscale(1); filter: grayscale(1); opacity: 50%;" src="{{ asset('images/google.svg') }}" alt="">
-                                </a>
-                                <a href="#" class="disabled">
-                                    <img style="-webkit-filter: grayscale(1); filter: grayscale(1); opacity: 50%;" src="{{ asset('images/apple.svg') }}" alt="">
-                                </a>
-                                <a href="#" class="disabled">
-                                    <img style="-webkit-filter: grayscale(1); filter: grayscale(1); opacity: 50%;" src="{{ asset('images/facebook.svg') }}" alt="">
-                                </a>
-                            </div>
-                        </div>
+{{--                        <div class="social-auth-wrapper">--}}
+{{--                            <span class="d-block my-4 fw-light text-center fs-7">{{__('User.login_with')}}</span>--}}
+{{--                            <div class="social-auth d-flex justify-content-between">--}}
+{{--                                <a href="#" class="disabled">--}}
+{{--                                    <img style="-webkit-filter: grayscale(1); filter: grayscale(1); opacity: 50%;" src="{{ asset('images/google.svg') }}" alt="">--}}
+{{--                                </a>--}}
+{{--                                <a href="#" class="disabled">--}}
+{{--                                    <img style="-webkit-filter: grayscale(1); filter: grayscale(1); opacity: 50%;" src="{{ asset('images/apple.svg') }}" alt="">--}}
+{{--                                </a>--}}
+{{--                                <a href="#" class="disabled">--}}
+{{--                                    <img style="-webkit-filter: grayscale(1); filter: grayscale(1); opacity: 50%;" src="{{ asset('images/facebook.svg') }}" alt="">--}}
+{{--                                </a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <div class="auth-action d-flex justify-content-between mt-4">
                             @if (Route::has('password.request'))
                                 <a href="{{ route('password.request') }}">{{__('User.forgot_password')}}</a>
                             @endif
-                            <a href="{{route("register")}}">{{__('User.sign_up')}}</a>
+{{--                            <a href="{{route("register")}}">{{__('User.sign_up')}}</a>--}}
                         </div>
                     </div>
                 </div>

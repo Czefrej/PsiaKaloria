@@ -25,6 +25,13 @@ class CartTable extends Component
         }
     }
 
+    public function change($row_id){
+        Cart::update($row_id, ['qty' => $this->quantity[$row_id]]);
+        $this->emit('recalculate_free_delivery');
+        $this->emit('update_summary');
+    }
+
+
     public function increment($row_id){
         $this->quantity[$row_id] += 1;
         Cart::update($row_id, ['qty' => $this->quantity[$row_id]]);
@@ -46,5 +53,6 @@ class CartTable extends Component
         unset($this->quantity[$row_id]);
         $this->emit('recalculate_free_delivery');
         $this->emit('update_summary');
+        $this->emit('cart_update');
     }
 }

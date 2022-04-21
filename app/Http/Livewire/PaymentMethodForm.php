@@ -14,9 +14,20 @@ class PaymentMethodForm extends Component
     public $selected;
     public $delivery_method;
 
-    protected $listeners = ['update_delivery_method'=>'setDeliveryMethod'];
+    public $valid;
+
+    protected $listeners = [
+        'update_delivery_method'=>'setDeliveryMethod',
+        'validate' => 'validation',
+        'form-invalid' => 'resetForm',
+        'form-valid' => 'unlock'
+    ];
+    protected $rules = [
+        'selected' => 'required|exists:payment_methods,id',
+    ];
 
     public function mount(){
+        $this->valid = false;
         $this->update();
     }
 
@@ -42,6 +53,7 @@ class PaymentMethodForm extends Component
         $this->selected = $id;
         $this->update();
         $method = $this->methods->firstWhere('payment_id', $id);
+        $this->validate();
         if($method != null) {
             $this->emit('update_payment_method', $method);
         }else{
@@ -51,6 +63,7 @@ class PaymentMethodForm extends Component
     }
 
     public function setDeliveryMethod($method){
+        $this->selected=null;
         $this->delivery_method = $method;
         $this->update();
     }
@@ -58,6 +71,25 @@ class PaymentMethodForm extends Component
 
     public function setCca2($cca2){
         $this->country_cca2 = $cca2;
+        $this->update();
+    }
+
+    public function validation(){
+        $this->update();
+        $this->validate();
+    }
+
+    public function resetForm(){
+        $this->delivery_method = null;
+        $this->selected = 0;
+        $this->update();
+        $this->valid = false;
+    }
+
+    public function unlock(){
+        $this->valid = true;
+        $this->delivery_method = null;
+        $this->selected = 0;
         $this->update();
     }
 }

@@ -17,6 +17,14 @@ class DeliveryPaymentAvailability extends Model
         return $this->hasMany("App\Models\Order","delivery_payment_id");
     }
 
+    public function payment(){
+        return $this->belongsTo("App\Models\PaymentMethod");
+    }
+
+    public function delivery(){
+        return $this->belongsTo('App\Models\DeliveryMethod');
+    }
+
     public static function isAvailable(PaymentMethod $paymentMethod, DeliveryMethod $deliveryMethod){
         $dp_availability = DeliveryPaymentAvailability::where('payment_id',$paymentMethod->id)
             ->where('delivery_id',$deliveryMethod->id)->first();

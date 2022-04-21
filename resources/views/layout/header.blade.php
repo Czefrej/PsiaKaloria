@@ -13,57 +13,44 @@
                 <li class="nav-item">
                     <a class="nav-link icon-link" href="{{route('account.settings')}}"><img src="{{ asset('images/user-icon.svg') }}" alt=""></a>
                 </li>
-                <li class="nav-item btn-group cart-dropdown">
-                    <a href="#" class="nav-link icon-link position-relative" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-                        @livewire('cart-counter')
-                    </a>
-                </li>
+{{--                <li class="nav-item btn-group cart-dropdown">--}}
+{{--                    <a href="{{route('cart')}}" class="nav-link icon-link position-relative" id="dropdown-toggle-mobile"  data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">--}}
+{{--                        @livewire('cart-counter')--}}
+{{--                    </a>--}}
+{{--                    @livewire('added-to-cart-modal',['dropdown_id'=>'dropdown-toggle-mobile'])--}}
+{{--                </li>--}}
             </ul>
           </div>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav left-nav me-auto mb-2 mb-lg-0 ps-5">
-              <li class="nav-item">
-                <a class="nav-link @if(Route::current()->getName() == 'home') active @endif"  @if(Route::current()->getName() == 'home') aria-current="page" @endif href="{{route('home')}}">Główna</a>
-              </li>
-                <li class="nav-item">
-                    <a class="nav-link @if(Route::current()->getName() == 'products') active @endif"  @if(Route::current()->getName() == 'products') aria-current="page" @endif href="{{route('products')}}">Produkty</a>
-                </li>
-              <li class="nav-item">
-                <a class="nav-link @if(Route::current()->getName() == 'faq') active @endif" @if(Route::current()->getName() == 'faq') aria-current="page" @endif href="{{route('faq')}}">FAQ</a>
-              </li>
+{{--              <li class="nav-item">--}}
+{{--                <a class="nav-link @if(Route::current()->getName() == 'home') active @endif"  @if(Route::current()->getName() == 'home') aria-current="page" @endif href="{{route('home')}}">Główna</a>--}}
+{{--              </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link @if(Route::current()->getName() == 'products') active @endif"  @if(Route::current()->getName() == 'products') aria-current="page" @endif href="{{route('products')}}">Produkty</a>--}}
+{{--                </li>--}}
+{{--              <li class="nav-item">--}}
+{{--                <a class="nav-link @if(Route::current()->getName() == 'faq') active @endif" @if(Route::current()->getName() == 'faq') aria-current="page" @endif href="{{route('faq')}}">FAQ</a>--}}
+{{--              </li>--}}
             </ul>
             <ul class="navbar-nav">
-                @if (Auth::check())
-                    <li class="nav-item">
-                        <a class="nav-link punkty-link" href="#">
-                            <span class="d-block fw-normal">Punkty:</span>
-                            <span class="d-block text-primary">25</span>
-                        </a>
-                    </li>
-                @endif
+{{--                @if (Auth::check())--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link punkty-link" href="#">--}}
+{{--                            <span class="d-block fw-normal">Punkty:</span>--}}
+{{--                            <span class="d-block text-primary">25</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                @endif--}}
                 <li class="nav-item">
                     <a class="nav-link icon-link" href="{{route('account.settings')}}"><img src="{{ asset('images/user-icon.svg') }}" alt=""></a>
                 </li>
-                <li class="nav-item btn-group cart-dropdown">
-                    <a href="#" class="nav-link icon-link position-relative"  data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-                        @livewire('cart-counter')
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg-end">
-                        <h2 class="text-center mt-3">Dodano do koszyka</h2>
-                        <div class="mt-5">
-                            <h6>Baton AS Deluxe - 85% mięsa - indyk</h6>
-                            <span class="fw-light">Ilość: 1</span>
-                            <span class="ps-4 fw-light">koszt: 15,47 zł</span>
-                        </div>
-                        <div class="mt-4">
-                            <h6>Baton AS Deluxe - 85% mięsa - jagnięcina</h6>
-                            <span class="fw-light">Ilość: 1</span>
-                            <span class="ps-4 fw-light">koszt: 15,47 zł</span>
-                        </div>
-                        <a href="{{route('cart')}}" class="btn btn-primary mt-4 d-block">Zobacz koszyk</a>
-                        <a href="#" class="btn-link text-center d-block mt-4 text-decoration-none" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false"><span class="text-dark">Kontynuuj zakupy</span></a>
-                    </div>
-                </li>
+{{--                <li class="nav-item btn-group cart-dropdown">--}}
+{{--                    <a href="#" class="nav-link icon-link position-relative" id="dropdown-toggle-desktop"  data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">--}}
+{{--                        @livewire('cart-counter')--}}
+{{--                    </a>--}}
+{{--                    @livewire('added-to-cart-modal',['dropdown_id'=>'dropdown-toggle-desktop'])--}}
+{{--                </li>--}}
                 @if (Auth::check())
                     <li class="nav-item">
                         <form method="POST" action="{{ route('logout') }}">
@@ -88,14 +75,17 @@
                     <nav class="mt-3">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link @if(Route::current()->getName() == 'home') active @endif"  @if(Route::current()->getName() == 'home') aria-current="page" @endif href="{{route('home')}}">Główna</a>
+                                <a class="nav-link @if(Route::current()->getName() == 'home') active @endif"  @if(Route::current()->getName() == 'home') aria-current="page" @endif href="/jak-to-dziala">Jak to działa?</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link @if(Route::current()->getName() == 'products') active @endif" @if(Route::current()->getName() == 'products') aria-current="page" @endif href="{{route('products')}}">Produkty</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link @if(Route::current()->getName() == 'faq') active @endif"  @if(Route::current()->getName() == 'faq') aria-current="page" @endif href="{{route('faq')}}">FAQ</a>
-                            </li>
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link @if(Route::current()->getName() == 'home') active @endif"  @if(Route::current()->getName() == 'home') aria-current="page" @endif href="{{route('home')}}">Główna</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link @if(Route::current()->getName() == 'products') active @endif" @if(Route::current()->getName() == 'products') aria-current="page" @endif href="{{route('products')}}">Produkty</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link @if(Route::current()->getName() == 'faq') active @endif"  @if(Route::current()->getName() == 'faq') aria-current="page" @endif href="{{route('faq')}}">FAQ</a>--}}
+{{--                            </li>--}}
                         </ul>
                     </nav>
                 </div>

@@ -22,6 +22,11 @@ return [
             6191 => "allegro",
             3002403 => "store_old"
         ],
+        "sources_reversed"=>[
+            "personal"=>0,
+            "allegro"=>6191,
+            "store_old"=>3002403
+        ],
         "status" => [
             27677 => [
                 "name" => "Zamówienie nieopłacone",
@@ -127,6 +132,7 @@ return [
             ]
         ],
         "status_reversed"=>[
+            "unpaid" => 27677,
             "sent" => 42841,
             "returned" => 42855,
             "delivered" => 42848,

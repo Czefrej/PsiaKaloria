@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="title text-left mb-3 mt-5 d-flex gap-2 align-items-center">
-                        <h2 class="m-0">Twój koszyk</h2> <span class="text-primary">3 produkty</span>
+                        <h2 class="m-0">Twój koszyk</h2> <span class="text-primary">{{Cart::content()->count()}} produkty</span>
                     </div>
                 </div>
                 @livewire('cart-free-delivery')

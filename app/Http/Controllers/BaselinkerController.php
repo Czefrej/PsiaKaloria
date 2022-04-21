@@ -13,6 +13,7 @@ use App\Models\Product;
 use App\Models\SavedAddress;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Config;
 use PragmaRX\Countries\Package\Countries;
 
@@ -105,6 +106,79 @@ class BaselinkerController extends Controller
         return response()->json([
             'status'=>'SUCCESS'
         ]);
+    }
+
+    public function setOrderPayment(Order $order, float $payment_done, $note = ""){
+        if($order->due <= $payment_done)
+            $payment_done = $order->due;
+
+        if($payment_done < 0) {
+            return response()->json([
+                'status'=>'ERROR',
+                'message'=>'Payment method cannot be negative'
+            ]);
+        }
+
+        if(strlen($note)>32)
+            return response()->json([
+                'status'=>'ERROR',
+                'message'=>'Max note length is 32.'
+            ]);
+
+        $this->example->getquery("setOrderPayment", ['order_id' => $order->id, "payment_done" => $payment_done, 'payment_date' => Carbon::now()->timestamp, 'payment_comment' => $note]);
+
+        return response()->json([
+            'status' => 'SUCCESS'
+        ]);
+    }
+
+    public function newOrder(PaymentMethod $payment,DeliveryMethod $delivery,$email,$phone,$login,$delivery_price,$user_comments,
+    $d_fullname,$d_company,$d_address,$d_postcode,$d_city,$d_country_code,$d_point_id,$d_point_name, $d_point_address, $d_point_postcode, $d_point_city,
+    $invoice_fullname,$invoice_company,$invoice_nip,$invoice_address,$invoice_postcode, $invoice_city,$invoice_country_code,$company_purchase,$products,$paid,$status){
+        if($paid > 0)
+            $paid = true;
+        else $paid = false;
+        $bl_order = $this->example->getquery("addOrder",
+            ["order_status_id"=>Config::get("mappings.baselinker.status_reversed.unpaid")?: "unknown",
+                "custom_source_id"=>3002403,
+                "date_add"=>Carbon::now()->timestamp,
+                "currency"=>"PLN",
+                "payment_method"=>$payment->getBaselinkerName(),
+                "delivery_method"=>$delivery->getBaselinkerName(),
+                "paid" => $paid,
+                "user_comments"=>$user_comments,
+                "payment_method_cod" => $payment->cod,
+                "email"=>$email,
+                "phone"=>$phone,
+                "user_login"=>$login,
+                "delivery_price" => $delivery_price,
+                "delivery_fullname" => $d_fullname,
+                "delivery_company" => $d_company,
+                "delivery_address" => $d_address,
+                "delivery_postcode" => $d_postcode,
+                "delivery_city" => $d_city,
+                "delivery_country_code" => $d_country_code,
+                "delivery_point_id" => $d_point_id,
+                "delivery_point_name" => $d_point_name,
+                "delivery_point_address" => $d_point_address,
+                "delivery_point_postcode" => $d_point_postcode,
+                "delivery_point_city" => $d_point_city,
+                "invoice_fullname" => $invoice_fullname,
+                "invoice_company" => $invoice_company,
+                'invoice_nip' => $invoice_nip,
+                "invoice_address"=>$invoice_address,
+                "invoice_postcode"=>$invoice_postcode,
+                "invoice_city"=>$invoice_city,
+                "invoice_country_code"=>$invoice_country_code,
+                "want_invoice"=>$company_purchase,
+                "extra_field_1"=>"",
+                "extra_field_2"=>"",
+                "products"=>$products
+            ]
+
+        );
+        return response()->json($bl_order);
+
     }
 
 

@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class AddToCart extends Component
 {
-    public $quantity;
+    public $quantity = 1;
     public $product;
 
 
@@ -21,19 +21,22 @@ class AddToCart extends Component
     }
 
     public function addToCart(){
-        Cart::add($this->product->sku, $this->product->name, $this->quantity, $this->product->getPrice(),$this->product->weight)->associate('App\Models\Product');
-        $this->emit('update_quantity', $this->quantity);
-        $this->emit('cart_update');
-        $this->emit('open_modal');
+        $item = Cart::search(function ($cartItem, $rowId) {
+            return $cartItem->id === $this->product->sku;
+        })->first();
+
+        if(($i = $item) == null)
+            $qty = 0;
+        else $qty = $i->qty;
+
+        if($qty + $this->quantity <= 99){
+            Cart::add($this->product->sku, $this->product->name, $this->quantity, $this->product->getPrice(), $this->product->weight)->associate('App\Models\Product');
+            $this->emit('cart_update');
+            $this->emit('open_modal');
+        }else{
+            session()->flash('message', 'Maksymalna ilość w koszyku to 99.');
+        }
     }
 
-    public function increment(){
-        $this->quantity+=1;
-    }
-
-    public function decrement(){
-        if($this->quantity-1>=1)
-            $this->quantity-=1;
-    }
 
 }

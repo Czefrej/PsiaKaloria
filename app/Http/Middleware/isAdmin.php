@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class isAdmin
 {
@@ -16,6 +17,12 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if ( Auth::check() && Auth::user()->role != "shelter" )
+        {
+            return $next($request);
+        }else {
+
+            return redirect('/account/settings');
+        }
     }
 }

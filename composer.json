@@ -12,12 +12,13 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "hardevine/shoppingcart": "^3.0",
+        "laravel/cashier": "^13.6",
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
         "livewire/livewire": "^2.7",
         "php-http/guzzle7-adapter": "^1.0",
-        "pragmarx/countries": "^0.7.2",
+        "sentry/sentry-laravel": "^2.10",
         "t3ko/dpd-pl-api-php": "^0.4.0"
     },
     "require-dev": {
@@ -25,7 +26,6 @@
         "fakerphp/faker": "^1.9.1",
         "laravel/breeze": "^1.4",
         "laravel/sail": "^1.0.1",
-        "laravel/telescope": "^4.6",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.3.3"

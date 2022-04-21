@@ -2,21 +2,20 @@
 
 namespace App\Http\Livewire;
 
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Livewire\Component;
 
 class AddedToCartModal extends Component
 {
     protected $listeners = [
-        'update_quantity'=>'update',
-        'open_modal'=>'openModal'];
+        'open_modal'=>'openModal'
+    ];
 
-    public $quantity;
-    public $total;
-    public $product;
+    public $dropdown_id;
+    public $cart;
 
     public function mount(){
-        $this->quantity = 1;
-        $this->total = 0;
+        $this->cart = Cart::content();
     }
 
     public function render()
@@ -24,11 +23,8 @@ class AddedToCartModal extends Component
         return view('livewire.added-to-cart-modal');
     }
 
-    public function update($quantity){
-        $this->quantity = $quantity;
-    }
-
     public function openModal(){
+        $this->cart = Cart::content();
         $this->dispatchBrowserEvent('openModal');
     }
 

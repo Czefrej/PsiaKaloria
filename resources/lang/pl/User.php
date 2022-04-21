@@ -35,6 +35,10 @@ return [
     'thank_you_for_registration' => 'Dziękujemy za rejestrację, na Twój adres e-mail wysłaliśmy wiadomość z prośbą o potwierdzenie.',
     'we_sent_you_instructions' => 'Instrukcje resetu hasła zostały wysłane mailem.',
     'we_will_send_you_instructions' => 'Na podany adres wyślemy Ci instrukcję resetowania hasła.',
+    'personal_data' => "Dane użytkownika",
+    'account_name' => "Nazwa użytkownika",
+    'settings' => "Ustawienia"
+
 
 
 ];

@@ -18,7 +18,7 @@ class SavedAddress extends Model
     }
 
     public function orders(){
-        return $this->hasMany("App\Models\Order");
+        return $this->hasMany("App\Models\Order",'saved_address_id','id');
     }
 
     public static function create(User   $user, bool $company_purchase, String $invoice_fullname, String $invoice_company, String $invoice_tax_id, String $invoice_address, String $invoice_postal_code, String $invoice_city, String $invoice_country_cca2,

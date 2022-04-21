@@ -12,7 +12,9 @@ function convertToName(String $string){
 }
 
 function cca2Verify(String $cca2){
-    $countries = new Countries();
-    return $countries->where("cca2",$cca2)->count() > 0;
+    //$countries = new Countries();
+    if(strtoupper($cca2) == "PL")
+        return true;
+    else return false;
 }
 

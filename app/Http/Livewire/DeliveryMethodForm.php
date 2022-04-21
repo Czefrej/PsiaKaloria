@@ -12,6 +12,17 @@ class DeliveryMethodForm extends Component
     public $methods;
     public $selected;
     public $payment_method;
+    public $valid;
+
+    protected $rules = [
+        'selected' => 'required|exists:delivery_methods,id',
+    ];
+
+    protected $listeners = [
+        'validate' => 'validation',
+        'form-invalid' => 'resetForm',
+        'form-valid' => 'unlock'
+    ];
 
     public function mount(){
         $this->payment_method = 0;
@@ -33,9 +44,25 @@ class DeliveryMethodForm extends Component
         $this->selected = $id;
         //UNEXPECTED BEHAVIOR? - DELETE THIS.
         //$this->update();
+        $this->validate();
         $method = $this->methods->find($id);
         $this->emit('update_delivery_method',$method);
     }
 
+    public function validation(){
+        $this->validate();
+    }
+
+    public function resetForm(){
+        $this->selected = null;
+        $this->payment_method = 0;
+        $this->update();
+        $this->valid = false;
+    }
+
+    public function unlock(){
+        $this->valid = true;
+        $this->selected = null;
+    }
 
 }

@@ -2,9 +2,14 @@
 
 namespace Tests\Unit;
 
+use App\Models\DeliveryMethod;
+use App\Models\PaymentMethod;
 use App\Models\Product;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Config;
+use Tests\TestCase;
 
-class DataManipulationTest extends \PHPUnit\Framework\TestCase
+class DataManipulationTest extends TestCase
 {
     /**
      * A basic test example.
@@ -102,6 +107,42 @@ class DataManipulationTest extends \PHPUnit\Framework\TestCase
     public function testFind(){
         $product = Product::where('sku',"as_barf_wol")->first();
         $this->assertEquals($product->category,'sausage');
+    }
+
+    public function testBaselinker(){
+        $payment = PaymentMethod::where('cod',0)->first();
+        $delivery = DeliveryMethod::find(3);
+        $product = Product::where('sku',"as_barf_wol")->first();
+
+
+
+        App::call('App\Http\Controllers\BaselinkerController@newOrder',[
+            'payment'=>$payment
+            ,'delivery'=>$delivery
+            ,'email'=>'jeffery@outerbest.pl',
+            'phone'=>"507632650",
+            'login'=>'karma-as',
+            'delivery_price'=>32.50,
+            'user_comments'=>"Brak",
+            'd_fullname'=>"Wiktor Jeffery",
+            'd_company'=>'',
+            'd_address'=>'Puławska 99',
+            'd_postcode'=>'24-100',
+            'd_country_code'=>'PL',
+            'd_city'=>'Gołąb',
+            'd_point_id'=>'WRO3041',
+            'd_point_name'=>'Packzomat fajnu',
+            'd_point_address'=>'Gwizdnięta 34',
+            'd_point_postcode'=>'24-100',
+            'd_point_city'=>'Szamotuły',
+            'invoice_fullname'=>'Wiktor Jeffery',
+            'invoice_company'=>'FHU AS Maria Jeffery',
+            'invoice_nip'=>'7161571935',
+            'invoice_address'=>'Puławska 99',
+            'invoice_postcode'=>'24-100',
+            'invoice_city'=>'Warsaw',
+            'invoice_country_code'=>'PL',
+            'company_purchase'=>true,'products'=>[$product]]);
     }
 
 }

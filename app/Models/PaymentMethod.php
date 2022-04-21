@@ -24,4 +24,9 @@ class PaymentMethod extends Model
         else return false;
 
     }
+
+    public function getBaselinkerName(){
+        $payment = Config::get("mappings.baselinker.payment.$this->name")?: $this->name;
+        return $payment;
+    }
 }

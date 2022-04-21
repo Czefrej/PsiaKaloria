@@ -24,4 +24,8 @@ class DeliveryMethod extends Model
         else return false;
 
     }
+
+    public function getBaselinkerName(){
+        return Config::get("mappings.baselinker.delivery.$this->name")?: $this->name;
+    }
 }

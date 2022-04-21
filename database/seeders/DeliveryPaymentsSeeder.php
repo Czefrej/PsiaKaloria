@@ -38,6 +38,12 @@ class DeliveryPaymentsSeeder extends Seeder
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
+        DB::table('delivery_payment_availability')->insert([
+            'delivery_id'=>1,
+            'payment_id'=>5,
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
 
         DB::table('delivery_payment_availability')->insert([
             'delivery_id'=>2,
@@ -79,6 +85,13 @@ class DeliveryPaymentsSeeder extends Seeder
         DB::table('delivery_payment_availability')->insert([
             'delivery_id'=>3,
             'payment_id'=>4,
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+
+        DB::table('delivery_payment_availability')->insert([
+            'delivery_id'=>3,
+            'payment_id'=>5,
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
@@ -130,6 +143,13 @@ class DeliveryPaymentsSeeder extends Seeder
         DB::table('delivery_payment_availability')->insert([
             'delivery_id'=>6,
             'payment_id'=>4,
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+
+        DB::table('delivery_payment_availability')->insert([
+            'delivery_id'=>2,
+            'payment_id'=>5,
             'created_at'=>now(),
             'updated_at'=>now()
         ]);

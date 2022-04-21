@@ -25,3 +25,4 @@ Route::resource('/order', \App\Http\Controllers\OrderController::class)
 
 
 Route::get('/link/{bl_order_id}/{secret}/','App\Http\Controllers\BaselinkerController@link')->whereNumber("bl_order_id")->whereAlphaNumeric("secret");
+Route::get('/test','App\Http\Controllers\BaselinkerController@newOrder');

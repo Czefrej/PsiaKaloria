@@ -5,7 +5,6 @@
     <div class="container">
         <div class="row justify-content-center mt-10 mb-md-5 mt-m-5">
             <!-- Modal -->
-            @livewire('added-to-cart-modal', ['product' => $product])
 
 {{--            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">--}}
 {{--                <div class="modal-dialog" role="document">--}}
@@ -443,4 +442,3 @@
 
 
 @endsection
-
