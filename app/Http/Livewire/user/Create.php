@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\user;
 
 use App\Mail\ShelterPassword;
 use App\Models\User;
@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
-class CreateAccount extends Component
+class Create extends Component
 {
     public $username;
     public $email;
@@ -62,7 +62,7 @@ class CreateAccount extends Component
 
     public function render()
     {
-        return view('livewire.create-account');
+        return view('livewire.user.create');
     }
 
     public function submit(){
@@ -73,6 +73,7 @@ class CreateAccount extends Component
         $user->password = Hash::make($password);
         $user->email = $this->email;
         $user->name = $this->username;
+        $user->role = $this->role;
         $user->save();
         $user->sendEmailVerificationNotification();
 
@@ -80,7 +81,7 @@ class CreateAccount extends Component
             ->send(new ShelterPassword($password,$user->name,$user->email));
 
         session()->flash('message', "Konto $this->role o numerze $this->username zostało pomyślnie utworzone. Wygenerowane hasło zostało przesłane na maila $this->email.");
-        return redirect("/account/create_user");
+        return redirect()->route("account.user.create");
     }
 
 

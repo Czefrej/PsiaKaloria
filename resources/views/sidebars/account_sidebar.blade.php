@@ -5,8 +5,8 @@
     <div class="nav-wrapper">
         <ul class="m-0 p-0">
             <li><a href="{{route("account.settings")}}" @if(Route::current()->getName() == 'account.settings') class="active" @endif>Ustawienia</a></li>
-            @if(\Illuminate\Support\Facades\Auth::user()->role == "admin")
-                <li><a href="{{route("account.create-user")}}" @if(Route::current()->getName() == 'account.create-user') class="active" @endif>Dodaj użytkownika</a></li>
+            @if(\Illuminate\Support\Facades\Auth::user()->role != "shelter")
+                <li><a href="{{route("account.user.index")}}" @if(str_contains(Route::current()->getName(),'account.user')) class="active" @endif>Użytkownicy</a></li>
             @endif
 
             @if(\Illuminate\Support\Facades\Auth::user()->role != "shelter")

@@ -32,48 +32,48 @@
                             </div>
                         </div>
                     </div>
-                    @if(Auth::user()->role == "shelter")
-                        <div class="card-wrapper mt-3">
-                            <div class="card px-4 pt-md-5 pt-4 pb-4">
-                                <div class="card-title d-flex justify-content-between">
-                                    <h5>{{__('Shelter.shelters')}}</h5>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-md-4 mb-md-0 mb-4">
-                                        <h5><center>Schronisko nad czerwonym pelikanem - Warszawa</center></h5>
-                                        <span class="d-block fw-lighter value-text mt-3">
-                                            <center>
-                                                ul. Przykładowa 21 m 5 <br>
-                                        15-842 Białystok, Polska <br>
-                                        +48 852 456 111
-                                            </center>
+{{--                    @if(Auth::user()->role == "shelter")--}}
+{{--                        <div class="card-wrapper mt-3">--}}
+{{--                            <div class="card px-4 pt-md-5 pt-4 pb-4">--}}
+{{--                                <div class="card-title d-flex justify-content-between">--}}
+{{--                                    <h5>{{__('Shelter.shelters')}}</h5>--}}
+{{--                                </div>--}}
+{{--                                <div class="row mt-3">--}}
+{{--                                    <div class="col-md-4 mb-md-0 mb-4">--}}
+{{--                                        <h5><center>Schronisko nad czerwonym pelikanem - Warszawa</center></h5>--}}
+{{--                                        <span class="d-block fw-lighter value-text mt-3">--}}
+{{--                                            <center>--}}
+{{--                                                ul. Przykładowa 21 m 5 <br>--}}
+{{--                                        15-842 Białystok, Polska <br>--}}
+{{--                                        +48 852 456 111--}}
+{{--                                            </center>--}}
 
-                                    </span>
-                                        <div class="actions d-flex gap-4 mt-3">
-                                            <a href="#" class="text-decoration-none"><span class="text-primary fw-light">{{__('Shelter.edit')}}</span></a>
+{{--                                    </span>--}}
+{{--                                        <div class="actions d-flex gap-4 mt-3">--}}
+{{--                                            <a href="#" class="text-decoration-none"><span class="text-primary fw-light">{{__('Shelter.edit')}}</span></a>--}}
 {{--                                            <a href="#" class="text-decoration-none"><span class="text-primary fw-light">{{__('User.delete')}}</span></a>--}}
-                                        </div>
-                                    </div>
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
-                                </div>
-                            </div>
-                        </div>
-                    @endif
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    @endif--}}
 
-                    <div class="card-wrapper mt-3">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="card px-4 pt-md-5 pt-4 pb-4">
-                                    <div class="card-title d-flex justify-content-between">
-                                        <h5>{{__('User.password')}}</h5>
-                                    </div>
-                                    <div class="action">
-                                        <a href="{{route('account.password')}}" class="btn btn-primary d-md-inline-block d-block">
-                                            {{__('User.change_password')}}
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+{{--                    <div class="card-wrapper mt-3">--}}
+{{--                        <div class="row">--}}
+{{--                            <div class="col-md-6">--}}
+{{--                                <div class="card px-4 pt-md-5 pt-4 pb-4">--}}
+{{--                                    <div class="card-title d-flex justify-content-between">--}}
+{{--                                        <h5>{{__('User.password')}}</h5>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="action">--}}
+{{--                                        <a href="{{route('account.password')}}" class="btn btn-primary d-md-inline-block d-block">--}}
+{{--                                            {{__('User.change_password')}}--}}
+{{--                                        </a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 {{--                            <div class="col-md-6">--}}
 {{--                                <div class="card px-4 pt-md-5 pt-4 pb-4 mt-md-0 mt-3">--}}
 {{--                                    <div class="card-title d-flex justify-content-between">--}}
@@ -86,8 +86,8 @@
 {{--                                    </div>--}}
 {{--                                </div>--}}
 {{--                            </div>--}}
-                        </div>
-                    </div>
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
             </div>
         </div>

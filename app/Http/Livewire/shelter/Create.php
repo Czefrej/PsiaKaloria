@@ -54,7 +54,7 @@ class Create extends Component
         $shelter->save();
 
         session()->flash('message', "Schronisko $this->name zostało dodane do systemu.");
-        return redirect(route('account.shelter.create'));
+        return redirect()->route('account.shelter.create');
 
 
 

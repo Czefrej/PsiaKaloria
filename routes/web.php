@@ -5,6 +5,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShelterController;
 use App\Http\Controllers\StripeController;
+use App\Http\Controllers\UserController;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -45,11 +46,12 @@ Route::get('', function () {
 //});
 //
 
-Route::get('/email', function() {
-        return view('mail.test');
-})->name("regulations");
+//Route::get('/email', function() {
+//        return view('mail.test');
+//})->name("regulations");
 Route::prefix('account')->middleware(['verified'])->name('account.')->group(function () {
     Route::resource('shelter', ShelterController::class)->middleware("isadmin");
+    Route::resource('user', UserController::class)->middleware("isadmin");
 
     Route::get('/settings', function() {
         return view('account.settings');

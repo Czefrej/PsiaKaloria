@@ -13,7 +13,7 @@
                         <span class="title-leading text-primary mb-2 d-block">&nbsp;</span>
                         <h2 class="mt-3">Dodaj użytkownika</h2>
                     </div>
-                    @livewire('create-account')
+                    @livewire('user.create')
                 </div>
             </div>
         </div>
