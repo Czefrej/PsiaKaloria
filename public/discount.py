@@ -45,7 +45,7 @@ text_json = json.dumps(data)
 shopify.Session.setup(api_key=API_KEY, secret=API_SECRET)
 
 shop_url = "psiakaloria.myshopify.com"
-api_version = '2020-10'
+api_version = '2021-10'
 
 session = shopify.Session(shop_url, api_version)
 
@@ -53,7 +53,7 @@ session = shopify.Session(shop_url, api_version)
 session = shopify.Session(shop_url, api_version, access_token)
 shopify.ShopifyResource.activate_session(session)
 
-start_date = datetime.datetime.now()
+start_date = datetime.datetime.now() - datetime.timedelta(hours=2)
 end_date = start_date + datetime.timedelta(days=3)
 end_date = end_date.replace(minute=59, hour=23, second=59)
 
