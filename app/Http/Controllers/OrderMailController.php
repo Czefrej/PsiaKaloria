@@ -48,6 +48,8 @@ class OrderMailController extends Controller
         $c_name = $request->input("c_name");
         if($c_name == null)
             $c_name = "";
+        else $c_name = explode(" ",$c_name)[0];
+
         $sh_name = $request->input("sh_name");
         $order_num = $request->input("order_num");
 
