@@ -23,7 +23,7 @@ class OrderMailController extends Controller
                 "required","numeric"
             ],
             "c_name" => [
-                "required"
+                "nullable"
             ],
             "c_mail" =>[
                 "required",
@@ -42,10 +42,12 @@ class OrderMailController extends Controller
         ]);
 
         if($validator->fails())
-            return abort(404);
+            return response()->json($validator->errors(),404);
 
         $c_mail = $request->input("c_mail");
         $c_name = $request->input("c_name");
+        if($c_name == null)
+            $c_name = "";
         $sh_name = $request->input("sh_name");
         $order_num = $request->input("order_num");
 
