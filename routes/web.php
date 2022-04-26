@@ -49,6 +49,10 @@ Route::get('', function () {
 //Route::get('/email', function() {
 //        return view('mail.test');
 //})->name("regulations");
+Route::prefix('webhook')->group(function(){
+    Route::get('/mail', [\App\Http\Controllers\OrderMailController::class, 'process']);
+});
+
 Route::prefix('account')->middleware(['verified'])->name('account.')->group(function () {
     Route::resource('shelter', ShelterController::class)->middleware("isadmin");
     Route::resource('user', UserController::class)->middleware("isadmin");

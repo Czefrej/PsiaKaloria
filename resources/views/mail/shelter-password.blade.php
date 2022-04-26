@@ -12,6 +12,7 @@
     <p style="margin: 0; font-size: 14px; mso-line-height-alt: 16.8px;"> </p>
     <p style="margin: 0;"><b>Identyfikator konta:</b> {{$id}}</p>
     <p style="margin: 0;"><b>Email:</b> {{$email}}</p>
+    <p style="margin: 0; font-size: 14px; mso-line-height-alt: 16.8px;"> </p>
     <p style="margin: 0;"><b>Hasło:</b> {{$password}}</p>
     <p style="margin: 0; font-size: 14px; mso-line-height-alt: 16.8px;"> </p>
     <p style="margin: 0;"><b>Adres do platformy dla schronisk:</b> <a href="https://app.psiakaloria.pl" style="color: #e60b4c;">app.psiakaloria.pl</a></p>
