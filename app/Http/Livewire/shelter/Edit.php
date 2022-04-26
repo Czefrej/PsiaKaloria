@@ -12,7 +12,7 @@ class Edit extends Component
     protected function rules()
     {
         return [
-            'shelter.name' => 'required|unique:animal_shelters,name,'.$this->shelter->id.'|max:100',
+            'shelter.name' => 'required|max:100',
             'shelter.email' => 'required|email',
             'shelter.postal_code' => array('required','regex:/^[_0-9]{2}-[_0-9]{3}$/'),
             'shelter.phone' => 'required',

@@ -18,7 +18,7 @@ class Create extends Component
     public $active;
 
     protected $rules = [
-        'name' => 'required|unique:animal_shelters,name|max:100',
+        'name' => 'required|max:100',
         'email' => 'required|email',
         'postal' => array('required','regex:/^[_0-9]{2}-[_0-9]{3}$/'),
         'phone' => 'required',
