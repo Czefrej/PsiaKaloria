@@ -53,7 +53,7 @@ session = shopify.Session(shop_url, api_version)
 session = shopify.Session(shop_url, api_version, access_token)
 shopify.ShopifyResource.activate_session(session)
 
-start_date = datetime.datetime.now() - datetime.timedelta(hours=2)
+start_date = datetime.datetime.utcnow()
 end_date = start_date + datetime.timedelta(days=3)
 end_date = end_date.replace(minute=59, hour=23, second=59)
 
