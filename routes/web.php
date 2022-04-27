@@ -51,6 +51,8 @@ Route::get('', function () {
 //})->name("regulations");
 Route::prefix('webhook')->group(function(){
     Route::get('/mail', [\App\Http\Controllers\OrderMailController::class, 'process']);
+
+    Route::get('/print', [\App\Http\Controllers\PrintLabelController::class, 'index']);
 });
 
 Route::prefix('account')->middleware(['verified'])->name('account.')->group(function () {
