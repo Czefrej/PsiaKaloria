@@ -53,6 +53,8 @@ Route::prefix('webhook')->group(function(){
     Route::get('/mail', [\App\Http\Controllers\OrderMailController::class, 'process']);
 
     Route::get('/print', [\App\Http\Controllers\PrintLabelController::class, 'index']);
+
+    Route::get('/print/shelter-label', [\App\Http\Controllers\PrintLabelController::class, 'shelter_label']);
 });
 
 Route::prefix('account')->middleware(['verified'])->name('account.')->group(function () {

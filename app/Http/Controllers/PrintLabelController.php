@@ -42,4 +42,16 @@ class PrintLabelController extends Controller
 
         return response()->json(['message'=>'success']);
     }
+
+    public function shelter_label(Request $request){
+        if ($request->input("API_KEY") != env("MAIL_WEBHOOK_SECRET"))
+            return abort(401);
+
+        $printJob = Printing::newPrintTask()
+            ->printer(69963355)
+            ->file('labels/shelter.pdf')
+            ->send();
+
+        return response()->json(['message'=>'success']);
+    }
 }
