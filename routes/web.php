@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 */
 //Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
 //
+
+
 Route::get('', function () {
     if(!\Illuminate\Support\Facades\Auth::check())
         return redirect('/login');
@@ -46,9 +48,17 @@ Route::get('', function () {
 //});
 //
 
+
 //Route::get('/email', function() {
 //        return view('mail.test');
 //})->name("regulations");
+
+Route::prefix('api')->group(function (){
+    Route::get('/shelters', [
+        \App\Http\Controllers\API\ShelterController::class, 'index'
+    ]);
+});
+
 Route::prefix('webhook')->group(function(){
     Route::get('/mail', [\App\Http\Controllers\OrderMailController::class, 'process']);
 
@@ -61,6 +71,7 @@ Route::prefix('account')->middleware(['verified'])->name('account.')->group(func
     Route::resource('shelter', ShelterController::class)->middleware("isadmin");
     Route::resource('user', UserController::class)->middleware("isadmin");
 
+
     Route::get('/settings', function() {
         return view('account.settings');
     })->name("settings");
@@ -68,6 +79,8 @@ Route::prefix('account')->middleware(['verified'])->name('account.')->group(func
     Route::get('/create-user', function() {
         return view('account.create_account');
     })->name("create-user")->middleware("isadmin");
+
+
 
 //    Route::get('/create-shelter', function() {
 //        return view('account.create_shelter');
