@@ -19,7 +19,10 @@ class Edit extends Component
             'shelter.address' => 'required|unique:animal_shelters,address,'.$this->shelter->id,
             'shelter.city' => 'required',
             'shelter.ukraine'=>'',
-            'shelter.active'=>''
+            'shelter.active'=>'',
+            'shelter.map_latitude' => ['required','regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
+            'shelter.map_longitude' => ['required','regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/'],
+            'shelter.voivodeship' => ['required','in:dolnośląskie,kujawsko-pomorskie,lubelskie,lubuskie,łódzkie,małopolskie,mazowieckie,opolskie,podkarpackie,podlaskie,pomorskie,śląskie,świętokrzyskie,warmińsko-mazurskie,wielkopolskie,zachodniopomorskie']
         ];
     }
 

@@ -13,6 +13,9 @@ class Create extends Component
     public $postal;
     public $city;
     public $address;
+    public $long;
+    public $lat;
+    public $voivodeship;
 
     public $ukraine;
     public $active;
@@ -24,6 +27,9 @@ class Create extends Component
         'phone' => 'required',
         'address' => 'required|unique:animal_shelters,address',
         'city' => 'required',
+        'long' => ['required','regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
+        'lat' => ['required','regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/'],
+        'voivodeship' => ['required', 'in:dolnośląskie,kujawsko-pomorskie,lubelskie,lubuskie,łódzkie,małopolskie,mazowieckie,opolskie,podkarpackie,podlaskie,pomorskie,śląskie,świętokrzyskie,warmińsko-mazurskie,wielkopolskie,zachodniopomorskie']
     ];
 
     public function render()
@@ -51,6 +57,9 @@ class Create extends Component
         $shelter->active = $active;
         $shelter->city = $this->city;
         $shelter->postal_code = $this->postal;
+        $shelter->map_latitude = $this->lat;
+        $shelter->map_longitude = $this->long;
+        $shelter->voivodeship = $this->voivodeship;
         $shelter->save();
 
         session()->flash('message', "Schronisko $this->name zostało dodane do systemu.");
