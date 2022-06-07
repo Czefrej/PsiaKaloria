@@ -82,7 +82,7 @@
                         <option value="małopolskie">małopolskie</option>
                         <option value="mazowieckie">mazowieckie</option>
                         <option value="opolskie">opolskie</option>
-                        <option value=podkarpackie"">podkarpackie</option>
+                        <option value="podkarpackie">podkarpackie</option>
                         <option value="podlaskie">podlaskie</option>
                         <option value="pomorskie">pomorskie</option>
                         <option value="śląskie">śląskie</option>
