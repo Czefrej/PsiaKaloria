@@ -13,7 +13,12 @@ class ShelterController extends Controller
     //
 
     public function index(){
-        $ash = AnimalShelter::select("id","name","active","ukraine","city","address","country","postal_code","email","phone","map_latitude","map_longitude","voivodeship")->where("active",true)->orderBy("voivodeship","desc")->orderBy('city','asc')->get();
+        $ash = AnimalShelter::select("id","name","active","ukraine","city","address","country","postal_code","map_latitude","map_longitude","voivodeship")->where("active",true)->orderBy("voivodeship","desc")->orderBy('city','asc')->get();
+        return response()->json($ash);
+    }
+
+    public function show($id){
+        $ash = AnimalShelter::findOrFail($id,['id', 'name',"active","ukraine","city","address","country","postal_code","map_latitude","map_longitude","voivodeship"]);
         return response()->json($ash);
     }
 }

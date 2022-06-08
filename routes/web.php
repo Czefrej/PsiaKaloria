@@ -57,6 +57,10 @@ Route::prefix('api')->group(function (){
     Route::get('/shelters', [
         \App\Http\Controllers\API\ShelterController::class, 'index'
     ]);
+
+    Route::get('/shelter/{id}',[
+        \App\Http\Controllers\API\ShelterController::class, 'show'
+    ]);
 });
 
 Route::prefix('webhook')->group(function(){
