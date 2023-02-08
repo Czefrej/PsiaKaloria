@@ -4,13 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class OrderItem extends Model
+class OrderProduct extends Model
 {
     use HasFactory;
-    use SoftDeletes;
-    protected $table = "order_items";
+    protected $table = "products_orders";
     protected $primaryKey = "id";
     public $incrementing = true;
     public $timestamps = true;
@@ -24,16 +22,15 @@ class OrderItem extends Model
     }
 
     public static function addProduct(Order $order,Product $product, float $gross_price, int $quantity){
-        $oi = new OrderItem();
-        $oi->gross_price = $gross_price;
-        $oi->quantity = $quantity;
+        $op = new OrderProduct();
+        $op->gross_price = $gross_price;
+        $op->quantity = $quantity;
 
-        $oi->product()->associate($product);
-        $oi->order()->associate($order);
-        $oi->save();
+        $op->product()->associate($product);
+        $op->order()->associate($order);
+        $op->save();
 
-        return $oi;
+        return $op;
 
     }
-
 }

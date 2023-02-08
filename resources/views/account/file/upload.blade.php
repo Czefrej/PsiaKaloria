@@ -12,10 +12,10 @@
                     <div class="title text-left mb-4 d-md-block">
                         <span class="title-leading text-primary mb-2 d-block">&nbsp;</span>
                         <a href="{{route('account.shelter.index')}}" class="text-decoration-none"><img src="{{ asset('images/back_arrow_icon.svg') }}"> <small class="ms-1 text-muted">Wróć do listy schronisk</small></a>
-                        <h2 class="mt-3">Dodaj schronisko</h2>
+                        <h2 class="mt-3">Wgraj raport {{app()->version()}}</h2>
                     </div>
-                    @livewire('shelter.create')
 
+                    @livewire('file.upload')
                 </div>
             </div>
         </div>

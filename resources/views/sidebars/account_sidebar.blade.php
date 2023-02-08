@@ -14,6 +14,13 @@
             @endif
 {{--            <li><a href="{{route("account.purchase-history")}}" @if(Route::current()->getName() == 'account.purchase-history') class="active" @endif>Historia zakupów</a></li>--}}
 {{--            <li><a href="{{route("account.subscriptions")}}" @if(Route::current()->getName() == 'account.subscriptions') class="active" @endif>Moje subskrypcje</a></li>--}}
+
+        </ul>
+        Analiza:
+        <ul class="m-0 p-0">
+            @if(\Illuminate\Support\Facades\Auth::user()->role == "admin")
+                <li><a href="{{route("account.analytics.product.index")}}" @if(str_contains(Route::current()->getName(),'account.analytics.product.index')) class="active" @endif>Produkty</a></li>
+            @endif
         </ul>
     </div>
 </div>

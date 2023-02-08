@@ -16,170 +16,266 @@ class ProductsTableSeeder extends Seeder
     public function run()
     {
 
-        //AS Premium
+        DB::table('tax_groups')->insert([
+            'tax_group'=>'PET_FOOD_WET',
+            'country_code'=>'DE',
+            'percent_rate'=>7,
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+        DB::table('tax_groups')->insert([
+            'tax_group'=>'PET_FOOD_WET',
+            'country_code'=>'PL',
+            'percent_rate'=>8,
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+        DB::table('tax_groups')->insert([
+            'tax_group'=>'PET_FOOD_WET',
+            'country_code'=>'NL',
+            'percent_rate'=>21,
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+        DB::table('tax_groups')->insert([
+            'tax_group'=>'PET_FOOD_WET',
+            'country_code'=>'DK',
+            'percent_rate'=>25,
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+        DB::table('tax_groups')->insert([
+            'tax_group'=>'PET_FOOD_WET',
+            'country_code'=>'SK',
+            'percent_rate'=>10,
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+
+        //PRODUCTS
+
         DB::table('products')->insert([
-            'name'=>'Baton AS Premium z wołowiną - 90% mięsa - Zestaw 10 x 1000g',
-            'slug'=>'as-premium-z-wolowina-zestaw-10x1000g',
-            'variant'=>'wołowina',
-            'ean'=>'5904238002704',
             'sku'=>'as_premium_wol',
-            'description'=>'Lorem ipsum',
-            'category'=>'sausage',
-            'image'=>'/uploads/as_premium_wol.jpg',
-            'brand'=>'AS Premium',
-            'regular_price'=>40.12,
-            'gross_base_price'=>37.90,
-            'baselinker_storage_id' => 4392815,
-            'tax'=>8,
-            'weight'=>10.00,
-            'donation_eligible'=>true,
+            'net_cogs'=>40.12,
+            'net_packaging_price'=>37.90,
+            'weight' => 10,
+            'tax_group'=>'PET_FOOD_WET',
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
 
         DB::table('products')->insert([
-            'name'=>'Baton AS Premium z drobiem i wołowiną - 90% mięsa - Zestaw 10 x 1000g',
-            'slug'=>'as-premium-z-drobiem-i-wolowina-zestaw-10x1000g',
-            'variant'=>'drób i wołowina',
-            'ean'=>'5904238002728',
-            'sku'=>'as_premium_drob',
-            'description'=>'Lorem ipsum',
-            'category'=>'sausage',
-            'image'=>'/uploads/as_premium_drob.jpg',
-            'brand'=>'AS Premium',
-            'regular_price'=>40.12,
-            'gross_base_price'=>37.90,
-            'baselinker_storage_id' => 4392971,
-            'tax'=>8,
-            'weight'=>10.00,
-            'donation_eligible'=>true,
+            'sku'=>'carnimeal_beef_10',
+            'net_cogs'=>40.12,
+            'net_packaging_price'=>37.90,
+            'weight' => 10,
+            'tax_group'=>'PET_FOOD_WET',
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
 
         DB::table('products')->insert([
-            'name'=>'Baton AS Premium z wieprzowiną i wołowiną - 90% mięsa - Zestaw 10 x 1000g',
-            'slug'=>'as-premium-z-wieprzowina-i-wolowina-zestaw-10x1000g',
-            'variant'=>'wieprzowina i wołowina',
-            'ean'=>'5904238002711',
+            'sku'=>'carnimeal_pork_10',
+            'net_cogs'=>40.12,
+            'net_packaging_price'=>37.90,
+            'weight' => 10,
+            'tax_group'=>'PET_FOOD_WET',
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+
+        DB::table('products')->insert([
+            'sku'=>'carnimeal_beef_3',
+            'net_cogs'=>40.12,
+            'net_packaging_price'=>37.90,
+            'weight' => 3,
+            'tax_group'=>'PET_FOOD_WET',
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+
+        DB::table('products')->insert([
+            'sku'=>'carnimeal_pork_3',
+            'net_cogs'=>40.12,
+            'net_packaging_price'=>37.90,
+            'weight' => 3,
+            'tax_group'=>'PET_FOOD_WET',
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+
+        DB::table('products')->insert([
             'sku'=>'as_premium_wieprz',
-            'description'=>'Lorem ipsum',
-            'category'=>'sausage',
-            'image'=>'/uploads/as_premium_wieprz.jpg',
-            'brand'=>'AS Premium',
-            'regular_price'=>40.12,
-            'gross_base_price'=>37.90,
-            'baselinker_storage_id' => 4393060,
-            'tax'=>8,
-            'weight'=>10.00,
-            'donation_eligible'=>true,
-            'created_at'=>now(),
-            'updated_at'=>now()
-        ]);
-
-
-        //AS Deluxe
-        DB::table('products')->insert([
-            'name'=>'Baton AS Deluxe z jagnięciną - 85% mięsa - Zestaw 10 x 1000g',
-            'slug'=>'as-deluxe-z-jagniecina-zestaw-10x1000g',
-            'variant'=>'jagnięcina',
-            'ean'=>'5904238002742',
-            'sku'=>'as_deluxe_jag',
-            'description'=>'Lorem ipsum',
-            'category'=>'sausage',
-            'image'=>'/uploads/as_deluxe_jag.jpg',
-            'brand'=>'AS Deluxe',
-            'regular_price'=>41.12,
-            'gross_base_price'=>39.9,
-            'baselinker_storage_id' => 4393115,
-            'tax'=>8,
-            'weight'=>10.00,
-            'donation_eligible'=>true,
+            'net_cogs'=>40.12,
+            'net_packaging_price'=>37.90,
+            'weight' => 10,
+            'tax_group'=>'PET_FOOD_WET',
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
 
         DB::table('products')->insert([
-            'name'=>'Baton AS Deluxe z jagnięciną i wołowiną - 85% mięsa - Zestaw 10 x 1000g',
-            'slug'=>'as-deluxe-z-jagniecina-i-wolowina-zestaw-10x1000g',
-            'variant'=>'jagnięcina i wołowina',
-            'ean'=>'5904238002759',
-            'sku'=>'as_deluxe_jag_wol',
-            'description'=>'Lorem ipsum',
-            'category'=>'sausage',
-            'image'=>'/uploads/as_deluxe_jag_wol.jpg',
-            'brand'=>'AS Deluxe',
-            'regular_price'=>41.12,
-            'gross_base_price'=>39.9,
-            'baselinker_storage_id' => 4393400,
-            'tax'=>8,
-            'weight'=>10.00,
-            'donation_eligible'=>true,
+            'sku'=>'as_premium_drob',
+            'net_cogs'=>40.12,
+            'net_packaging_price'=>37.90,
+            'weight' => 10,
+            'tax_group'=>'PET_FOOD_WET',
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
 
         DB::table('products')->insert([
-            'name'=>'Baton AS Deluxe z indykiem - 85% mięsa - Zestaw 10 x 1000g',
-            'slug'=>'as-deluxe-z-indykiem-zestaw-10x1000g',
-            'variant'=>'indyk',
-            'ean'=>'5904238002735',
-            'sku'=>'as_deluxe_indyk',
-            'description'=>'Lorem ipsum',
-            'category'=>'sausage',
-            'image'=>'/uploads/as_deluxe_indyk.jpg',
-            'brand'=>'AS Deluxe',
-            'regular_price'=>41.12,
-            'gross_base_price'=>39.9,
-            'baselinker_storage_id' => 4393098,
-            'tax'=>8,
-            'weight'=>10.00,
-            'donation_eligible'=>true,
+            'sku'=>'carnimeal_beef',
+            'net_cogs'=>40.12,
+            'net_packaging_price'=>37.90,
+            'weight' => 10,
+            'tax_group'=>'PET_FOOD_WET',
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
 
-        //AS BARF
+        DB::table('products')->insert([
+            'sku'=>'carnimeal_pork',
+            'net_cogs'=>40.12,
+            'net_packaging_price'=>37.90,
+            'weight' => 10,
+            'tax_group'=>'PET_FOOD_WET',
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
 
         DB::table('products')->insert([
-            'name'=>'AS - Mrożone Mięso Wołowo-Drobiowe Z Kością - Dieta BARF - 10kg',
-            'slug'=>'as-barf-z-wolowina-i-drobiem-zestaw-10x1000g',
-            'variant'=>'drób i wołowina',
-            'ean'=>'5904238002766',
             'sku'=>'as_barf_drob_wol',
-            'description'=>'Lorem ipsum',
-            'category'=>'frozen_food',
-            'image'=>'/uploads/as_barf_drob_wol.jpg',
-            'brand'=>'AS BARF',
-            'regular_price'=>59.71,
-            'gross_base_price'=>55.99,
-            'baselinker_storage_id' => 4397701,
-            'tax'=>8,
-            'weight'=>10.00,
-            'donation_eligible'=>false,
+            'net_cogs'=>40.12,
+            'net_packaging_price'=>37.90,
+            'weight' => 10,
+            'tax_group'=>'PET_FOOD_WET',
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
 
         DB::table('products')->insert([
-            'name'=>'AS - Mrożone Mięso Wołowe - Dieta BARF - 10 kg',
-            'slug'=>'as-barf-z-wolowina-10x1000g',
-            'variant'=>'wołowina',
-            'ean'=>'5904238002773',
             'sku'=>'as_barf_wol',
-            'description'=>'Lorem ipsum',
-            'category'=>'frozen_food',
-            'image'=>'/uploads/as_barf_wol.jpg',
-            'brand'=>'AS BARF',
-            'regular_price'=>74.52,
-            'gross_base_price'=>66.99,
-            'baselinker_storage_id' => 4398101,
-            'tax'=>8,
-            'weight'=>10.00,
-            'donation_eligible'=>false,
+            'net_cogs'=>40.12,
+            'net_packaging_price'=>37.90,
+            'weight' => 10,
+            'tax_group'=>'PET_FOOD_WET',
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
+
+        DB::table('products')->insert([
+            'sku'=>'as_deluxe_indyk',
+            'net_cogs'=>40.12,
+            'net_packaging_price'=>37.90,
+            'weight' => 10,
+            'tax_group'=>'PET_FOOD_WET',
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+
+        DB::table('products')->insert([
+            'sku'=>'as_deluxe_jag',
+            'net_cogs'=>40.12,
+            'net_packaging_price'=>37.90,
+            'weight' => 10,
+            'tax_group'=>'PET_FOOD_WET',
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+
+        DB::table('products')->insert([
+            'sku'=>'as_deluxe_jag_wol',
+            'net_cogs'=>40.12,
+            'net_packaging_price'=>37.90,
+            'weight' => 10,
+            'tax_group'=>'PET_FOOD_WET',
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+
+        DB::table('products')->insert([
+            'sku'=>'carnione_beef_410g_5',
+            'net_cogs'=>40.12,
+            'net_packaging_price'=>37.90,
+            'weight' => 5*0.410,
+            'tax_group'=>'PET_FOOD_WET',
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+
+        DB::table('products')->insert([
+            'sku'=>'carnione_beef_410g',
+            'net_cogs'=>40.12,
+            'net_packaging_price'=>37.90,
+            'weight' => 0.41,
+            'tax_group'=>'PET_FOOD_WET',
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+
+        DB::table('products')->insert([
+            'sku'=>'carnione_deer_410g_5',
+            'net_cogs'=>40.12,
+            'net_packaging_price'=>37.90,
+            'weight' => 5*0.410,
+            'tax_group'=>'PET_FOOD_WET',
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+
+        DB::table('products')->insert([
+            'sku'=>'carnione_deer_410g',
+            'net_cogs'=>40.12,
+            'net_packaging_price'=>37.90,
+            'weight' => 0.41,
+            'tax_group'=>'PET_FOOD_WET',
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+
+        DB::table('products')->insert([
+            'sku'=>'carnione_beef_850g_5',
+            'net_cogs'=>40.12,
+            'net_packaging_price'=>37.90,
+            'weight' => 5*0.850,
+            'tax_group'=>'PET_FOOD_WET',
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+
+        DB::table('products')->insert([
+            'sku'=>'carnione_beef_850g',
+            'net_cogs'=>40.12,
+            'net_packaging_price'=>37.90,
+            'weight' => 0.85,
+            'tax_group'=>'PET_FOOD_WET',
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+
+        DB::table('products')->insert([
+            'sku'=>'carnione_deer_850g_5',
+            'net_cogs'=>40.12,
+            'net_packaging_price'=>37.90,
+            'weight' => 5*0.85,
+            'tax_group'=>'PET_FOOD_WET',
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+
+        DB::table('products')->insert([
+            'sku'=>'carnione_deer_850g',
+            'net_cogs'=>40.12,
+            'net_packaging_price'=>37.90,
+            'weight' => 0.85,
+            'tax_group'=>'PET_FOOD_WET',
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+
+
+
 
     }
 }

@@ -75,6 +75,11 @@ Route::prefix('account')->middleware(['verified'])->name('account.')->group(func
     Route::resource('shelter', ShelterController::class)->middleware("isadmin");
     Route::resource('user', UserController::class)->middleware("isadmin");
 
+    Route::prefix('analytics')->middleware('isadmin')->name('analytics.')->group(function(){
+        Route::resource('product', ProductController::class);
+
+    });
+
 
     Route::get('/settings', function() {
         return view('account.settings');
@@ -83,6 +88,10 @@ Route::prefix('account')->middleware(['verified'])->name('account.')->group(func
     Route::get('/create-user', function() {
         return view('account.create_account');
     })->name("create-user")->middleware("isadmin");
+
+    Route::get('/upload', function() {
+        return view('account.file.upload');
+    })->name("upload-file")->middleware("isadmin");
 
 
 

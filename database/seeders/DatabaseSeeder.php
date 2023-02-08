@@ -15,13 +15,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-//        $this->call([
-//            DeliveryMethodsSeeder::class,
-//            PaymentMethodsSeeder::class,
-//            ProductsTableSeeder::class,
-//            DeliveryPaymentsSeeder::class,
-//            ShelterSeeder::class
-//        ]);
+        $this->call([
+            ProductsTableSeeder::class
+        ]);
 
         DB::table('users')->insert([
             'name' => 'admin',

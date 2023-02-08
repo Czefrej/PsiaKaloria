@@ -14,6 +14,10 @@ class Product extends Model implements Buyable
     public $incrementing = false;
     public $timestamps = true;
 
+    protected $dispatchesEvents = [
+        'updated' => PackageChanged::class
+    ];
+
     public function items(){
         return $this->hasMany("App\Models\OrderItem");
     }
@@ -21,12 +25,6 @@ class Product extends Model implements Buyable
     public function getVariants(){
         $products = Product::where('brand',$this->brand)->get();
         return $products;
-    }
-
-    public function getPrice(){
-        if($this->gross_base_price < $this->regular_price)
-            return $this->gross_base_price;
-        else return $this->regular_price;
     }
 
     public function getBuyableIdentifier($options = null)
