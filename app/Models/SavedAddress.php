@@ -19,12 +19,12 @@ class SavedAddress extends Model
 
     public function user()
     {
-        return $this->belongsTo("App\Models\User", 'user_id');
+        return $this->belongsTo(\App\Models\User::class, 'user_id');
     }
 
     public function orders()
     {
-        return $this->hasMany("App\Models\Order", 'saved_address_id', 'id');
+        return $this->hasMany(\App\Models\Order::class, 'saved_address_id', 'id');
     }
 
     public static function create(User $user, bool $company_purchase, string $invoice_fullname, string $invoice_company, string $invoice_tax_id, string $invoice_address, string $invoice_postal_code, string $invoice_city, string $invoice_country_cca2,

@@ -57,7 +57,7 @@ class CartController extends Controller
 //        }
         $product = Product::findOrFail($request['sku']);
         //Cart::restore($identifier);
-        Cart::add($request->input('sku'), $product->name, $request->input('quantity'), $product->getPrice())->associate('App\Models\Product');
+        Cart::add($request->input('sku'), $product->name, $request->input('quantity'), $product->getPrice())->associate(\App\Models\Product::class);
 //        $cart = Cart::content();
 //        $row_id = "";
 //        $qty = 0;

@@ -28,7 +28,7 @@ class Order extends Model
 
     public function products()
     {
-        return $this->hasMany("App\Models\OrderProduct", 'order_id', 'id');
+        return $this->hasMany(\App\Models\OrderProduct::class, 'order_id', 'id');
     }
 
 //    public function packages(){

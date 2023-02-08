@@ -19,17 +19,17 @@ class DeliveryPaymentAvailability extends Model
 
     public function orders()
     {
-        return $this->hasMany("App\Models\Order", 'delivery_payment_id');
+        return $this->hasMany(\App\Models\Order::class, 'delivery_payment_id');
     }
 
     public function payment()
     {
-        return $this->belongsTo("App\Models\PaymentMethod");
+        return $this->belongsTo(\App\Models\PaymentMethod::class);
     }
 
     public function delivery()
     {
-        return $this->belongsTo('App\Models\DeliveryMethod');
+        return $this->belongsTo(\App\Models\DeliveryMethod::class);
     }
 
     public static function isAvailable(PaymentMethod $paymentMethod, DeliveryMethod $deliveryMethod)

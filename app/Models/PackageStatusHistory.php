@@ -17,7 +17,7 @@ class PackageStatusHistory extends Model
 
     public function package()
     {
-        return $this->belongsTo("App\Models\Package");
+        return $this->belongsTo(\App\Models\Package::class);
     }
 
     public static function appendRecord(Package $package, string $system_code, string $datetime, string $depot_code, string $depot_name, string $country_cca2)

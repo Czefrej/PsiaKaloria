@@ -24,7 +24,7 @@ class Product extends Model implements Buyable
 
     public function items()
     {
-        return $this->hasMany("App\Models\OrderItem");
+        return $this->hasMany(\App\Models\OrderItem::class);
     }
 
     public function getVariants()

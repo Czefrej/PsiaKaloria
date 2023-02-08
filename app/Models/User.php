@@ -48,12 +48,12 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function orders()
     {
-        return $this->hasMany("App\Models\Order");
+        return $this->hasMany(\App\Models\Order::class);
     }
 
     public function savedAddresses()
     {
-        return $this->hasMany("App\Models\SavedAddress");
+        return $this->hasMany(\App\Models\SavedAddress::class);
     }
 
     public static function createTemporary($login, $email)

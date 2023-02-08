@@ -34,7 +34,7 @@ class AddToCart extends Component
         }
 
         if ($qty + $this->quantity <= 99) {
-            Cart::add($this->product->sku, $this->product->name, $this->quantity, $this->product->getPrice(), $this->product->weight)->associate('App\Models\Product');
+            Cart::add($this->product->sku, $this->product->name, $this->quantity, $this->product->getPrice(), $this->product->weight)->associate(\App\Models\Product::class);
             $this->emit('cart_update');
             $this->emit('open_modal');
         } else {

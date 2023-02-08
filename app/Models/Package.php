@@ -24,22 +24,22 @@ class Package extends Model
 
     public function order()
     {
-        return $this->belongsTo("App\Models\Order");
+        return $this->belongsTo(\App\Models\Order::class);
     }
 
     public function history()
     {
-        return $this->hasMany("App\Models\PackageStatusHistory");
+        return $this->hasMany(\App\Models\PackageStatusHistory::class);
     }
 
     public function child_package()
     {
-        return $this->hasOne("App\Models\Package", 'rel_package_id');
+        return $this->hasOne(\App\Models\Package::class, 'rel_package_id');
     }
 
     public function parent_package()
     {
-        return $this->belongsTo("App\Models\Package", 'rel_package_id');
+        return $this->belongsTo(\App\Models\Package::class, 'rel_package_id');
     }
 
     public static function add(Order $order, $tracking_number, $courier_type, Package $rel_package = null)

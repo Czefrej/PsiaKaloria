@@ -19,12 +19,12 @@ class OrderProduct extends Model
 
     public function product()
     {
-        return $this->belongsTo("App\Models\Product", 'sku', 'sku');
+        return $this->belongsTo(\App\Models\Product::class, 'sku', 'sku');
     }
 
     public function order()
     {
-        return $this->belongsTo("App\Models\Order", 'order_id', 'order_id');
+        return $this->belongsTo(\App\Models\Order::class, 'order_id', 'order_id');
     }
 
     public static function addProduct(Order $order, Product $product, float $gross_price, int $quantity)

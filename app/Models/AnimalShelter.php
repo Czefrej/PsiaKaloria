@@ -17,6 +17,6 @@ class AnimalShelter extends Model
 
     public function orders()
     {
-        return $this->hasMany("App\Models\Order");
+        return $this->hasMany(\App\Models\Order::class);
     }
 }
