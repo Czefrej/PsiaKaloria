@@ -9,21 +9,28 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model implements Buyable
 {
     use HasFactory;
-    protected $table = "products";
-    protected $primaryKey = "sku";
+
+    protected $table = 'products';
+
+    protected $primaryKey = 'sku';
+
     public $incrementing = false;
+
     public $timestamps = true;
 
     protected $dispatchesEvents = [
-        'updated' => PackageChanged::class
+        'updated' => PackageChanged::class,
     ];
 
-    public function items(){
+    public function items()
+    {
         return $this->hasMany("App\Models\OrderItem");
     }
 
-    public function getVariants(){
-        $products = Product::where('brand',$this->brand)->get();
+    public function getVariants()
+    {
+        $products = Product::where('brand', $this->brand)->get();
+
         return $products;
     }
 

@@ -3,16 +3,19 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 class OrderInvoice extends Mailable
 {
     use Queueable, SerializesModels;
+
     private $order_num;
+
     private $sh_name;
+
     private $c_name;
+
     private $invoice_link;
 
     /**
@@ -20,7 +23,7 @@ class OrderInvoice extends Mailable
      *
      * @return void
      */
-    public function __construct(String $order_num, String $sh_name, String $c_name, String $invoice_link)
+    public function __construct(string $order_num, string $sh_name, string $c_name, string $invoice_link)
     {
         $this->order_num = $order_num;
         $this->sh_name = $sh_name;
@@ -39,7 +42,7 @@ class OrderInvoice extends Mailable
             'order_num' => $this->order_num,
             'sh_name' => $this->sh_name,
             'c_name' => $this->c_name,
-            'invoice_link'=>$this->invoice_link
+            'invoice_link' => $this->invoice_link,
         ]);
     }
 }

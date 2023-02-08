@@ -6,19 +6,19 @@ use App\Interfaces\DPDRepositoryInterface;
 use App\Models\Package;
 use App\Models\PackageStatusHistory;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 
 class DPDController extends Controller
 {
-    public function __construct(DPDRepositoryInterface $repository){
+    public function __construct(DPDRepositoryInterface $repository)
+    {
         $this->repository = $repository;
     }
 
-    public function update(){
-
+    public function update()
+    {
         $packages = Package::getNotDelivered(['dpd']);
-        foreach ($packages as $p){
+        foreach ($packages as $p) {
             $response = $this->repository->getPackageStatusHistory($p->tracking_number)->getEvents();
             $i = 0;
             $c = 0;
@@ -30,28 +30,31 @@ class DPDController extends Controller
                 $depot_code = $event->getDepot();
                 $depot_name = $event->getDepotName();
                 $country_cca2 = $event->getCountry();
-                $status = Config::get("dpd_mappings.package_status.$business_code.system_status") ?: "unknown";
-                if ($status == "return" && !empty($event->getAdditionalData())) {
+                $status = Config::get("dpd_mappings.package_status.$business_code.system_status") ?: 'unknown';
+                if ($status == 'return' && ! empty($event->getAdditionalData())) {
                     foreach ($event->getAdditionalData() as $additional_data) {
                         $event_additional_data[] = $additional_data->getValue();
                     }
                     $return_package_tracking = $event_additional_data[0];
-                    if (!Package::exists($p->order,$return_package_tracking))
-                        Package::add($p->order,$return_package_tracking,'dpd',$p);
+                    if (! Package::exists($p->order, $return_package_tracking)) {
+                        Package::add($p->order, $return_package_tracking, 'dpd', $p);
+                    }
                 }
-                if(!PackageStatusHistory::exists($p,$date_time)){
-                    PackageStatusHistory::appendRecord($p,$business_code,$date_time,$depot_code,$depot_name,$country_cca2);
+                if (! PackageStatusHistory::exists($p, $date_time)) {
+                    PackageStatusHistory::appendRecord($p, $business_code, $date_time, $depot_code, $depot_name, $country_cca2);
                 }
 
-                if($i == $c){
-                    if($status != "unknown") {
+                if ($i == $c) {
+                    if ($status != 'unknown') {
                         try {
                             $p->updateStatus($status);
                         } catch (\Exception $exception) {
-                            $status = "could_not_resolve";
+                            $status = 'could_not_resolve';
                             $p->updateStatus($status);
                         }
-                    }else $c++;
+                    } else {
+                        $c++;
+                    }
                 }
 
                 $i++;
@@ -59,8 +62,7 @@ class DPDController extends Controller
         }
 
         return response()->json([
-            'status'=>'SUCCESS'
+            'status' => 'SUCCESS',
         ]);
-
     }
 }

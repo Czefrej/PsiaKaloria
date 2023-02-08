@@ -12,8 +12,9 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable, Billable;
 
-    public const EMAIL_UNIQUE = "UNIQUE";
-    public const EMAIL_RECURRENT = "RECURRENT";
+    public const EMAIL_UNIQUE = 'UNIQUE';
+
+    public const EMAIL_RECURRENT = 'RECURRENT';
 
     /**
      * The attributes that are mass assignable.
@@ -45,17 +46,20 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function orders(){
+    public function orders()
+    {
         return $this->hasMany("App\Models\Order");
     }
 
-    public function savedAddresses(){
+    public function savedAddresses()
+    {
         return $this->hasMany("App\Models\SavedAddress");
     }
 
-    public static function createTemporary($login,$email){
-        if($login == null){
-            $login = "TEMP-".substr(md5($email),-6);
+    public static function createTemporary($login, $email)
+    {
+        if ($login == null) {
+            $login = 'TEMP-'.substr(md5($email), -6);
         }
 
         $user = new User();
@@ -66,24 +70,31 @@ class User extends Authenticatable implements MustVerifyEmail
         return $user;
     }
 
-    public static function existsWithID($email){
+    public static function existsWithID($email)
+    {
         $user = User::where('email', $email)->first();
 
-        if($user != null){
+        if ($user != null) {
             return $user;
-        }else return false;
+        } else {
+            return false;
+        }
     }
 
-    public static function isUniqueEmail(string $email){
+    public static function isUniqueEmail(string $email)
+    {
         $user = User::where('email', $email)->first();
 
-        if($user != null){
-            $user = User::where('email', $email)->where('email', 'not like', "%allegromail.pl")->where('password', null)->first();
+        if ($user != null) {
+            $user = User::where('email', $email)->where('email', 'not like', '%allegromail.pl')->where('password', null)->first();
 
-            if($user != null) {
+            if ($user != null) {
                 return User::EMAIL_RECURRENT;
-            }else return false;
-
-        }else return User::EMAIL_UNIQUE;
+            } else {
+                return false;
+            }
+        } else {
+            return User::EMAIL_UNIQUE;
+        }
     }
 }

@@ -13,7 +13,6 @@ class RemoveProductsTable extends Migration
      */
     public function up()
     {
-
         Schema::dropIfExists('products');
     }
 

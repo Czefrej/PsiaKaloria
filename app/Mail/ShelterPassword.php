@@ -3,15 +3,17 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 class ShelterPassword extends Mailable
 {
     use Queueable, SerializesModels;
+
     private $password;
+
     private $id;
+
     private $email;
 
     /**
@@ -19,7 +21,7 @@ class ShelterPassword extends Mailable
      *
      * @return void
      */
-    public function __construct(String $password,int $id, string $email)
+    public function __construct(string $password, int $id, string $email)
     {
         $this->password = $password;
         $this->id = $id;
@@ -33,10 +35,10 @@ class ShelterPassword extends Mailable
      */
     public function build()
     {
-        return $this->from('kontakt@outerbest.pl', 'Psia Kaloria')->subject("Konto do platformy dla schronisk - Psia Kaloria")->view('mail.shelter-password')->with([
+        return $this->from('kontakt@outerbest.pl', 'Psia Kaloria')->subject('Konto do platformy dla schronisk - Psia Kaloria')->view('mail.shelter-password')->with([
             'password' => $this->password,
             'email' => $this->email,
-            'id' => $this->id
+            'id' => $this->id,
         ]);
     }
 }

@@ -13,10 +13,12 @@ class Destroy extends Component
         return view('livewire.analytics.product.destroy');
     }
 
-    public function deleteProduct(){
+    public function deleteProduct()
+    {
         $sku = $this->product->sku;
         $this->product->delete();
         session()->flash('message', "Produkt $sku został usunięty z bazy danych.");
-        return redirect()->route("account.analytics.product.index");
+
+        return redirect()->route('account.analytics.product.index');
     }
 }

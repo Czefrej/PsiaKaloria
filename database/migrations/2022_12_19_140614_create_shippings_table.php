@@ -19,7 +19,7 @@ class CreateShippingsTable extends Migration
             $table->string('tracking_number');
             $table->double('weight');
             $table->double('net_price');
-            $table->enum('type',['paczkomat','dpd','inpost','dpd_pickup','odbior','fba']);
+            $table->enum('type', ['paczkomat', 'dpd', 'inpost', 'dpd_pickup', 'odbior', 'fba']);
             $table->foreign('order_id')->references('order_id')->on('orders')->onDelete('cascade');
             $table->timestamps();
         });

@@ -17,6 +17,6 @@ return [
     'sent' => 'Instrukcje resetu hasła zostały wysłane emailem.',
     'throttled' => 'Spróbuj ponownie za chwilę.',
     'token' => 'Podany token resetujący hasło jest nieprawidłowy. <a class="text-decoration-none text-primary fw-bold" href="/forgot-password">Możesz poprosić o nowy token klikając tutaj.</a>',
-    'user' => "Nie możemy znaleźć użytkownika z tym adresem e-mail."
+    'user' => 'Nie możemy znaleźć użytkownika z tym adresem e-mail.',
 
 ];

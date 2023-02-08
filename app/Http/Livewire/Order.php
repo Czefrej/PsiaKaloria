@@ -6,58 +6,77 @@ use App\Models\AnimalShelter;
 use App\Models\DeliveryMethod;
 use App\Models\DeliveryPaymentAvailability;
 use App\Models\PaymentMethod;
-use App\Models\SavedAddress;
-use App\Models\User;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Hash;
-use Livewire\Component;
 use Illuminate\Validation\Rules;
+use Livewire\Component;
 
 class Order extends Component
 {
     public $donation;
+
     public $subscription;
 
     public $company;
+
     public $name;
+
     public $surname;
+
     public $phone;
+
     public $address;
+
     public $postal;
+
     public $city;
+
     public $country;
+
     public $company_name;
+
     public $tax_id;
+
     public $email;
 
     public $note;
 
     public $shelters;
+
     public $shelter_id;
 
     public $shelter_name;
+
     public $shelter_phone;
+
     public $shelter_city;
+
     public $shelter_address;
+
     public $shelter_country;
+
     public $shelter_postal;
+
     public $dp;
 
     public $register;
+
     public $password;
+
     public $password_confirmation;
 
     public $payment;
+
     public $delivery;
+
     public $delivery_price;
+
     public $price;
 
     public $tax_number;
+
     public $fullname;
+
     public $session;
 
     public $idempotent_id;
@@ -66,21 +85,20 @@ class Order extends Component
 
     public $buy_button;
 
-
     protected $listeners = [
-        'update_payment_method'=>'updatePaymentMethod',
-        'update_delivery_method'=>'updateDeliveryMethod'
+        'update_payment_method' => 'updatePaymentMethod',
+        'update_delivery_method' => 'updateDeliveryMethod',
     ];
 
-    public function fillForm(){
-        $this->name = "Wiktor";
-        $this->surname = "TEST";
-        $this->email = "test@teste.com";
-        $this->phone = "+48507632653";
-        $this->address = "Puławska 99";
-        $this->postal = "24-100";
-        $this->city = "Puławy";
-
+    public function fillForm()
+    {
+        $this->name = 'Wiktor';
+        $this->surname = 'TEST';
+        $this->email = 'test@teste.com';
+        $this->phone = '+48507632653';
+        $this->address = 'Puławska 99';
+        $this->postal = '24-100';
+        $this->city = 'Puławy';
     }
 
     protected function rules()
@@ -100,8 +118,9 @@ class Order extends Component
             'tax_id' => 'required_if:company,true',
             'company_name' => 'required_if:company,true',
         ];
-        if($this->register)
-            $rules['password'] = ['required_if:register,true',Rules\Password::defaults(),'confirmed'];
+        if ($this->register) {
+            $rules['password'] = ['required_if:register,true', Rules\Password::defaults(), 'confirmed'];
+        }
 
         return $rules;
     }
@@ -111,7 +130,8 @@ class Order extends Component
         return view('livewire.order');
     }
 
-    public function mount(){
+    public function mount()
+    {
         $this->idempotent_id = md5(uniqid(rand(), true));
         $this->session = session()->get('pi');
         $this->valid = false;
@@ -122,19 +142,19 @@ class Order extends Component
         $this->shelter_id = $this->shelters->first()->id;
         $this->country = 'PL';
         $this->price = Cart::total();
-        $this->note = "";
+        $this->note = '';
     }
 
-    public function setCompanyPurchase($company_purchase){
+    public function setCompanyPurchase($company_purchase)
+    {
         $this->company = $company_purchase;
-        if($this->company){
+        if ($this->company) {
             $this->fullname = $this->company_name;
             $this->tax_number = $this->tax_id;
-        }else{
-            $this->fullname = $this->name." ".$this->surname;
-            $this->tax_number = "";
+        } else {
+            $this->fullname = $this->name.' '.$this->surname;
+            $this->tax_number = '';
         }
-
     }
 
     public function updated($propertyName)
@@ -143,7 +163,7 @@ class Order extends Component
         $this->buy_button = false;
         try {
             $this->validate();
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             $this->emit('form-invalid');
             $this->validate();
         }
@@ -158,54 +178,56 @@ class Order extends Component
         $this->shelter_address = $shelter->address;
         $this->shelter_name = $shelter->name;
 
-        if($this->company){
+        if ($this->company) {
             $this->fullname = $this->company_name;
             $this->tax_number = $this->tax_id;
-        }else{
-            $this->fullname = $this->name." ".$this->surname;
-            $this->tax_number = "";
+        } else {
+            $this->fullname = $this->name.' '.$this->surname;
+            $this->tax_number = '';
         }
     }
 
-    public function updateDeliveryMethod($method){
+    public function updateDeliveryMethod($method)
+    {
         $this->buy_button = false;
         $this->delivery = DeliveryMethod::findOrFail($method['id']);
         $this->realculateDeliveryPrice();
-
     }
 
-    public function updatePaymentMethod($method){
+    public function updatePaymentMethod($method)
+    {
         $this->payment = PaymentMethod::findOrFail($method['payment_id']);
         $this->realculateDeliveryPrice();
-        if($this->payment->type != 'cod' && $this->payment->type != 'traditional') {
-            $dp = DeliveryPaymentAvailability::isAvailable($this->payment,$this->delivery);
+        if ($this->payment->type != 'cod' && $this->payment->type != 'traditional') {
+            $dp = DeliveryPaymentAvailability::isAvailable($this->payment, $this->delivery);
             $this->dp = $dp->id;
             $this->dispatchBrowserEvent('initPayment', ['dp' => $dp->id, 'user' => 1]);
         }
         $buy_button = true;
-
     }
 
-    public function realculateDeliveryPrice(){
+    public function realculateDeliveryPrice()
+    {
         $this->delivery_price = 0;
         $payment_fee = 0;
-        if($this->payment != null){
+        if ($this->payment != null) {
             $payment_fee = $this->payment->service_fee;
         }
-        if($this->delivery != null) {
-            if (Config::get("shop_config.free_delivery_threshold") - Cart::total() > 0) {
-                $this->delivery_price = ceil(Cart::weight() / $this->delivery['max_package_weight']) * $this->delivery['gross_price_per_package']+$payment_fee;
+        if ($this->delivery != null) {
+            if (Config::get('shop_config.free_delivery_threshold') - Cart::total() > 0) {
+                $this->delivery_price = ceil(Cart::weight() / $this->delivery['max_package_weight']) * $this->delivery['gross_price_per_package'] + $payment_fee;
             }
         }
     }
 
-    public function submit(){
-        if($this->payment == null || $this->delivery == null){
+    public function submit()
+    {
+        if ($this->payment == null || $this->delivery == null) {
             $this->emit('validate');
+
             return false;
         }
+
         return true;
     }
-
-
 }

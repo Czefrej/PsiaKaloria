@@ -8,28 +8,37 @@ use Livewire\Component;
 class Create extends Component
 {
     public $name;
+
     public $email;
+
     public $phone;
+
     public $postal;
+
     public $city;
+
     public $address;
+
     public $long;
+
     public $lat;
+
     public $voivodeship;
 
     public $ukraine;
+
     public $active;
 
     protected $rules = [
         'name' => 'required|max:100',
         'email' => 'required|email',
-        'postal' => array('required','regex:/^[_0-9]{2}-[_0-9]{3}$/'),
+        'postal' => ['required', 'regex:/^[_0-9]{2}-[_0-9]{3}$/'],
         'phone' => 'required',
         'address' => 'required|unique:animal_shelters,address',
         'city' => 'required',
-        'long' => ['required','regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
-        'lat' => ['required','regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/'],
-        'voivodeship' => ['required', 'in:dolnośląskie,kujawsko-pomorskie,lubelskie,lubuskie,łódzkie,małopolskie,mazowieckie,opolskie,podkarpackie,podlaskie,pomorskie,śląskie,świętokrzyskie,warmińsko-mazurskie,wielkopolskie,zachodniopomorskie']
+        'long' => ['required', 'regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
+        'lat' => ['required', 'regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/'],
+        'voivodeship' => ['required', 'in:dolnośląskie,kujawsko-pomorskie,lubelskie,lubuskie,łódzkie,małopolskie,mazowieckie,opolskie,podkarpackie,podlaskie,pomorskie,śląskie,świętokrzyskie,warmińsko-mazurskie,wielkopolskie,zachodniopomorskie'],
     ];
 
     public function render()
@@ -37,19 +46,24 @@ class Create extends Component
         return view('livewire.shelter.create');
     }
 
-    public function submit(){
+    public function submit()
+    {
         $this->validate();
 
-        if ($this->ukraine == null)
+        if ($this->ukraine == null) {
             $ukraine = false;
-        else $ukraine = true;
-        if ($this->active == null)
+        } else {
+            $ukraine = true;
+        }
+        if ($this->active == null) {
             $active = false;
-        else $active = true;
+        } else {
+            $active = true;
+        }
 
         $shelter = new AnimalShelter();
         $shelter->name = $this->name;
-        $shelter->country = "PL";
+        $shelter->country = 'PL';
         $shelter->email = $this->email;
         $shelter->phone = $this->phone;
         $shelter->address = $this->address;
@@ -63,10 +77,7 @@ class Create extends Component
         $shelter->save();
 
         session()->flash('message', "Schronisko $this->name zostało dodane do systemu.");
+
         return redirect()->route('account.shelter.create');
-
-
-
-
     }
 }

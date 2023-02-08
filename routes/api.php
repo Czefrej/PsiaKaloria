@@ -19,10 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('/order', \App\Http\Controllers\OrderController::class)
-    ->middleware("isajax");
+    ->middleware('isajax');
 
-
-
-
-Route::get('/link/{bl_order_id}/{secret}/','App\Http\Controllers\BaselinkerController@link')->whereNumber("bl_order_id")->whereAlphaNumeric("secret");
-Route::get('/test','App\Http\Controllers\BaselinkerController@newOrder');
+Route::get('/link/{bl_order_id}/{secret}/', 'App\Http\Controllers\BaselinkerController@link')->whereNumber('bl_order_id')->whereAlphaNumeric('secret');
+Route::get('/test', 'App\Http\Controllers\BaselinkerController@newOrder');

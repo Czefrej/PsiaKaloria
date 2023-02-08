@@ -2,10 +2,7 @@
 
 namespace App\Listeners;
 
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\App;
-use function Sentry\captureMessage;
 
 class BaselinkerOrderUpdate
 {
@@ -30,25 +27,25 @@ class BaselinkerOrderUpdate
         //
         $order = $event->order;
 
-        if($order->status != $order->getOriginal('status')){
-            if($order->status == "paid"){
+        if ($order->status != $order->getOriginal('status')) {
+            if ($order->status == 'paid') {
                 $order->paid = $order->due;
-                $this->callBaselinkerMethod('setOrderPayment',['order'=>$order, 'payment_done'=>$order->due]);
-            }else
-                $this->callBaselinkerMethod('setOrderStatus',['order'=>$order,'status'=>$order->status]);
-
-        }
-
-        if($order->paid != $order->getOriginal('paid')){
-            $this->callBaselinkerMethod('setOrderPayment',['order'=>$order, 'payment_done'=>$order->paid]);
-            if($order->paid<$order->due && $order->status != 'unpaid'){
-                $this->callBaselinkerMethod('setOrderStatus',['order'=>$order,'status'=>'unpaid']);
+                $this->callBaselinkerMethod('setOrderPayment', ['order' => $order, 'payment_done' => $order->due]);
+            } else {
+                $this->callBaselinkerMethod('setOrderStatus', ['order' => $order, 'status' => $order->status]);
             }
         }
 
+        if ($order->paid != $order->getOriginal('paid')) {
+            $this->callBaselinkerMethod('setOrderPayment', ['order' => $order, 'payment_done' => $order->paid]);
+            if ($order->paid < $order->due && $order->status != 'unpaid') {
+                $this->callBaselinkerMethod('setOrderStatus', ['order' => $order, 'status' => 'unpaid']);
+            }
+        }
     }
 
-    public function callBaselinkerMethod($method,$data){
-        App::call('App\Http\Controllers\BaselinkerController@'.$method,$data);
+    public function callBaselinkerMethod($method, $data)
+    {
+        App::call('App\Http\Controllers\BaselinkerController@'.$method, $data);
     }
 }

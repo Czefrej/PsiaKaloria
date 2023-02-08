@@ -24,7 +24,6 @@ class CreateProductsOrdersTable extends Migration
             $table->foreign('order_id')->references('order_id')->on('orders')->onDelete('cascade');
             $table->foreign('sku')->references('sku')->on('products')->onDelete('cascade');
         });
-
     }
 
     /**

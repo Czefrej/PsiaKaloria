@@ -2,13 +2,10 @@
 
 namespace App\Providers;
 
-use App\Models\Order;
-use App\Models\User;
 use Illuminate\Support\ServiceProvider;
 
 class OrderServiceProvider extends ServiceProvider
 {
-
     /**
      * Register services.
      *
@@ -16,7 +13,6 @@ class OrderServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
     }
 
     /**

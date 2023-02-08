@@ -9,40 +9,49 @@ use Illuminate\Database\Eloquent\Model;
 class Package extends Model
 {
     use HasFactory;
-    protected $table = "packages";
-    protected $primaryKey = "id";
-    public  $incrementing = true;
+
+    protected $table = 'packages';
+
+    protected $primaryKey = 'id';
+
+    public $incrementing = true;
+
     public $timestamps = true;
 
     protected $dispatchesEvents = [
-        'updated' => PackageChanged::class
+        'updated' => PackageChanged::class,
     ];
 
-
-    public function order(){
+    public function order()
+    {
         return $this->belongsTo("App\Models\Order");
     }
 
-    public function history(){
+    public function history()
+    {
         return $this->hasMany("App\Models\PackageStatusHistory");
     }
 
-    public function child_package(){
-        return $this->hasOne("App\Models\Package","rel_package_id");
+    public function child_package()
+    {
+        return $this->hasOne("App\Models\Package", 'rel_package_id');
     }
 
-    public function parent_package(){
-        return $this->belongsTo("App\Models\Package","rel_package_id");
+    public function parent_package()
+    {
+        return $this->belongsTo("App\Models\Package", 'rel_package_id');
     }
 
-    public static function add(Order $order,$tracking_number,$courier_type,Package $rel_package = null){
+    public static function add(Order $order, $tracking_number, $courier_type, Package $rel_package = null)
+    {
         $package = new Package();
         $package->tracking_number = $tracking_number;
         $package->courier = $courier_type;
-        $package->status = "created";
+        $package->status = 'created';
 
-        if($rel_package != null)
+        if ($rel_package != null) {
             $package->parent_package()->associate($rel_package);
+        }
 
         $package->order()->associate($order);
         $package->save();
@@ -50,36 +59,45 @@ class Package extends Model
         return $package;
     }
 
+    public static function exists(Order $order, $tracking_number)
+    {
+        $package = Package::where('order_id', $order->id)->where('tracking_number', $tracking_number)->first();
 
-    public static function exists(Order $order, $tracking_number){
-        $package = Package::where('order_id',$order->id)->where('tracking_number',$tracking_number)->first();
-
-        if($package != null)
+        if ($package != null) {
             return $package;
-        else return false;
+        } else {
+            return false;
+        }
     }
 
-    public static function getNotDelivered(array $courier){
-        $packages = Package::whereNotIn('status',['delivered','return','canceled','could_not_resolve'])->whereIn('courier',$courier)->get();
+    public static function getNotDelivered(array $courier)
+    {
+        $packages = Package::whereNotIn('status', ['delivered', 'return', 'canceled', 'could_not_resolve'])->whereIn('courier', $courier)->get();
+
         return $packages;
     }
 
-    public function updateStatus($status){
-        if($this->status != $status && !empty($status)){
+    public function updateStatus($status)
+    {
+        if ($this->status != $status && ! empty($status)) {
             $this->status = $status;
             $this->save();
         }
+
         return $this;
     }
 
-    public function allPackagesHasTheSameStatus(){
+    public function allPackagesHasTheSameStatus()
+    {
         $target_status = $this->status;
         $packages = $this->order->packages;
 
-        foreach ($packages as $package){
-            if($package->status != $target_status && $package->parent_package == null)
+        foreach ($packages as $package) {
+            if ($package->status != $target_status && $package->parent_package == null) {
                 return false;
+            }
         }
+
         return true;
     }
 }

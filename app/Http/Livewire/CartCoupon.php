@@ -7,10 +7,12 @@ use Livewire\Component;
 class CartCoupon extends Component
 {
     public $code;
+
     public $invalid;
 
-    public function mount(){
-        $this->code = "";
+    public function mount()
+    {
+        $this->code = '';
         $this->invalid = false;
     }
 
@@ -19,7 +21,8 @@ class CartCoupon extends Component
         return view('livewire.cart-coupon');
     }
 
-    public function redeem(){
+    public function redeem()
+    {
         $this->invalid = true;
     }
 }

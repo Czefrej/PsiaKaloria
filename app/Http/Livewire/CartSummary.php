@@ -2,21 +2,24 @@
 
 namespace App\Http\Livewire;
 
-
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Config;
 use Livewire\Component;
 
 class CartSummary extends Component
 {
-    protected $listeners = ['update_summary'=>'updateSummary'];
+    protected $listeners = ['update_summary' => 'updateSummary'];
+
     public $free_delivery;
+
     public $discount;
+
     public $total;
+
     public $subscription = false;
 
-
-    public function mount(){
+    public function mount()
+    {
         $this->total = 0;
         $this->free_delivery = false;
         $this->discount = 0;
@@ -28,29 +31,33 @@ class CartSummary extends Component
         return view('livewire.cart-summary');
     }
 
-    public function updateSummary(){
+    public function updateSummary()
+    {
         $this->total = Cart::total();
-        if($this->total>Config::get("shop_config.free_delivery_threshold")){
+        if ($this->total > Config::get('shop_config.free_delivery_threshold')) {
             $this->free_delivery = true;
-        }else{
+        } else {
             $this->free_delivery = false;
         }
         $this->calculateDiscount();
     }
 
-    public function calculateDiscount(){
-
+    public function calculateDiscount()
+    {
     }
 
-    public function calculateWeight(){
+    public function calculateWeight()
+    {
         Cart::content()->sum('weight');
     }
 
-    public function makeSubscription(){
+    public function makeSubscription()
+    {
         $this->subscription = true;
     }
 
-    public function makeOneTimePurchase(){
+    public function makeOneTimePurchase()
+    {
         $this->subscription = false;
     }
 }

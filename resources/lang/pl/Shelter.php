@@ -1,6 +1,7 @@
 <?php
+
 return [
-    "shelters" => "Twoje schroniska",
-    "edit" => "Ustawienia",
+    'shelters' => 'Twoje schroniska',
+    'edit' => 'Ustawienia',
 
 ];

@@ -16,7 +16,7 @@ class CreateTaxGroupsTable extends Migration
         Schema::create('tax_groups', function (Blueprint $table) {
             $table->id()->index()->autoIncrement();
             $table->string('tax_group');
-            $table->string('country_code',3);
+            $table->string('country_code', 3);
             $table->integer('percent_rate');
             $table->timestamps();
         });

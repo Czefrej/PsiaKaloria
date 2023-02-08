@@ -9,7 +9,6 @@ use App\Listeners\BaselinkerOrderUpdate;
 use App\Listeners\StripeCustomerUpdate;
 use App\Listeners\StripeEventListener;
 use App\Listeners\SyncPackageStatus;
-use Faker\Provider\Base;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -28,17 +27,17 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         PackageChanged::class => [
-            SyncPackageStatus::class
+            SyncPackageStatus::class,
         ],
         OrderCreated::class => [
-            StripeCustomerUpdate::class
+            StripeCustomerUpdate::class,
         ],
         WebhookReceived::class => [
             StripeEventListener::class,
         ],
         OrderUpdating::class => [
-            BaselinkerOrderUpdate::class
-        ]
+            BaselinkerOrderUpdate::class,
+        ],
     ];
 
     /**

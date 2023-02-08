@@ -1,4 +1,5 @@
 <?php
+
 return [
 
     /*
@@ -26,7 +27,7 @@ return [
     'no_mail' => 'Didn\'t receive the verification link?',
     'password' => 'Password',
     'password_confirmation' => 'Confirm password',
-    'register'=> 'Sign up',
+    'register' => 'Sign up',
     'remember_me' => 'Remember me',
     'reset_password' => 'Reset your password',
     'send_again' => 'Send again',
@@ -36,16 +37,15 @@ return [
     'we_sent_you_instructions' => 'Check your inbox. We have sent you password reset instructions.',
     'we_will_send_you_instructions' => 'We will sent you password reset instruction by email.',
 
-    'personal_data'=>'Personal data',
-    'edit'=>'Edit',
-    'delete'=>'Delete',
-    'name_and_surname'=>'Name and surname',
-    'phone_number'=>'Phone number',
+    'personal_data' => 'Personal data',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
+    'name_and_surname' => 'Name and surname',
+    'phone_number' => 'Phone number',
     'account_name' => 'Username',
     'delete_account' => 'Delete your account',
-    'account'=>'Account',
-    'addresses'=>'Saved addresses',
-    'settings'=>'Settings',
-
+    'account' => 'Account',
+    'addresses' => 'Saved addresses',
+    'settings' => 'Settings',
 
 ];

@@ -21,7 +21,6 @@ class CreateUserShelterTable extends Migration
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('shelter_id')->references('id')->on('animal_shelters')->onDelete('cascade');
-
         });
     }
 

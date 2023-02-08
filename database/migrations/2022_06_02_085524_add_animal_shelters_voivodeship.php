@@ -14,10 +14,8 @@ class AddAnimalSheltersVoivodeship extends Migration
     public function up()
     {
         Schema::table('animal_shelters', function (Blueprint $table) {
-            $table->enum('voivodeship',['dolnośląskie','kujawsko-pomorskie','lubelskie','lubuskie'
-                ,'łódzkie','małopolskie','mazowieckie',
-                'opolskie','podkarpackie','podlaskie','pomorskie'
-                ,'śląskie', 'świętokrzyskie', 'warmińsko-mazurskie', 'wielkopolskie', 'zachodniopomorskie'])->nullable();
+            $table->enum('voivodeship', ['dolnośląskie', 'kujawsko-pomorskie', 'lubelskie', 'lubuskie', 'łódzkie', 'małopolskie', 'mazowieckie',
+                'opolskie', 'podkarpackie', 'podlaskie', 'pomorskie', 'śląskie', 'świętokrzyskie', 'warmińsko-mazurskie', 'wielkopolskie', 'zachodniopomorskie', ])->nullable();
         });
     }
 

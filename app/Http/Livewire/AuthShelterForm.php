@@ -3,29 +3,43 @@
 namespace App\Http\Livewire;
 
 use App\Models\AnimalShelter;
-use Livewire\Component;
 use Illuminate\Validation\Rules;
+use Livewire\Component;
 
 class AuthShelterForm extends Component
 {
     public $company;
+
     public $name;
+
     public $surname;
+
     public $phone;
+
     public $address;
+
     public $postal;
+
     public $city;
+
     public $country;
+
     public $company_name;
+
     public $tax_id;
+
     public $password;
+
     public $email;
+
     public $password_confirmation;
+
     public $shelters;
+
     public $shelter_id;
 
     protected $listeners = [
-        'order_submit'=>"submit"
+        'order_submit' => 'submit',
     ];
 
     public function render()
@@ -38,7 +52,7 @@ class AuthShelterForm extends Component
         return [
             'company' => 'required|boolean',
             'register' => 'required',
-            'password' => [Rules\Password::defaults(),'required_if:register,true','confirmed'],
+            'password' => [Rules\Password::defaults(), 'required_if:register,true', 'confirmed'],
             'email' => 'required|email|string|max:255',
             'phone' => 'required',
             'address' => 'required',
@@ -53,7 +67,8 @@ class AuthShelterForm extends Component
         ];
     }
 
-    public function mount(){
+    public function mount()
+    {
         $this->company = false;
         $this->shelters = AnimalShelter::all();
     }

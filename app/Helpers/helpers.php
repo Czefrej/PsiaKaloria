@@ -1,18 +1,20 @@
 <?php
-function getEstimatedDelivery(bool $barf){
+
+function getEstimatedDelivery(bool $barf)
+{
     $weekday = date('w');
-    if ((!$barf and $weekday>0 and $weekday<=5) or ($barf and $weekday>0 and $weekday<=3)){
-        if (date('H')<10) {
+    if ((! $barf and $weekday > 0 and $weekday <= 5) or ($barf and $weekday > 0 and $weekday <= 3)) {
+        if (date('H') < 10) {
             $datetime = new DateTime('today');
-        }else{
-            if($weekday == 5){
+        } else {
+            if ($weekday == 5) {
                 $datetime = new DateTime('today');
                 $datetime->modify('next monday');
-            }else
+            } else {
                 $datetime = new DateTime('tomorrow');
+            }
         }
-
-    }else {
+    } else {
         $datetime = new DateTime('today');
         $datetime->modify('next monday');
     }
@@ -23,30 +25,34 @@ function getEstimatedDelivery(bool $barf){
     return "$delivery_day ($delivery_date)";
 }
 
-function renderStars(int $num_of_stars){
-
-    if($num_of_stars<0)
+function renderStars(int $num_of_stars)
+{
+    if ($num_of_stars < 0) {
         $num_of_stars = 0;
-    elseif($num_of_stars > 5)
+    } elseif ($num_of_stars > 5) {
         $num_of_stars = 5;
+    }
 
     $svg = '<svg xmlns="http://www.w3.org/2000/svg" width="54" height="10" viewBox="0 0 54 10"><g id="Group_38367" data-name="Group 38367" transform="translate(-384 -2649)">';
     $x = 384;
     $y = 2648.509;
 
-    for ($i = 1; $i < 6; $i++){
-        if($i <= $num_of_stars)
-            $svg.='<path id="star_'.$i.'" data-name="star-'.$i.'" d="M9.974,4.27a.536.536,0,0,0-.458-.381L6.63,3.615,5.489.828a.523.523,0,0,0-.977,0L3.37,3.615.483,3.889a.537.537,0,0,0-.457.381.57.57,0,0,0,.155.589l2.182,2L1.72,9.813a.567.567,0,0,0,.207.573.51.51,0,0,0,.584.027L5,8.86l2.489,1.553a.511.511,0,0,0,.584-.027.567.567,0,0,0,.207-.573L7.636,6.856l2.182-2a.571.571,0,0,0,.156-.59Zm0,0" transform="translate('.$x.' '.$y.')" fill="#ffc107"/>';
-        else $svg.='<path id="star_'.$i.'" data-name="star-'.$i.'" d="M2.239,10.492a.515.515,0,0,1-.311-.106.567.567,0,0,1-.207-.573l.643-2.957-2.182-2a.57.57,0,0,1-.156-.589A.537.537,0,0,1,.484,3.89L3.37,3.616,4.512.829a.523.523,0,0,1,.978,0L6.631,3.616l2.886.273a.536.536,0,0,1,.458.381.57.57,0,0,1-.155.589l-2.182,2,.643,2.957a.567.567,0,0,1-.207.573.512.512,0,0,1-.584.027L5,8.861,2.511,10.414a.516.516,0,0,1-.273.079ZM5,8.192a.516.516,0,0,1,.273.079L7.622,9.737,7.015,6.946a.569.569,0,0,1,.168-.54L9.244,4.52,6.518,4.262a.533.533,0,0,1-.442-.336L5,1.3,3.923,3.926a.532.532,0,0,1-.44.335L.757,4.519,2.817,6.4a.568.568,0,0,1,.168.541L2.379,9.736,4.728,8.271A.516.516,0,0,1,5,8.192ZM3.348,3.67h0Zm3.3,0h0Zm0,0" transform="translate('.$x.' '.$y.')" fill="#fb1"/>';
-        $x+=11;
+    for ($i = 1; $i < 6; $i++) {
+        if ($i <= $num_of_stars) {
+            $svg .= '<path id="star_'.$i.'" data-name="star-'.$i.'" d="M9.974,4.27a.536.536,0,0,0-.458-.381L6.63,3.615,5.489.828a.523.523,0,0,0-.977,0L3.37,3.615.483,3.889a.537.537,0,0,0-.457.381.57.57,0,0,0,.155.589l2.182,2L1.72,9.813a.567.567,0,0,0,.207.573.51.51,0,0,0,.584.027L5,8.86l2.489,1.553a.511.511,0,0,0,.584-.027.567.567,0,0,0,.207-.573L7.636,6.856l2.182-2a.571.571,0,0,0,.156-.59Zm0,0" transform="translate('.$x.' '.$y.')" fill="#ffc107"/>';
+        } else {
+            $svg .= '<path id="star_'.$i.'" data-name="star-'.$i.'" d="M2.239,10.492a.515.515,0,0,1-.311-.106.567.567,0,0,1-.207-.573l.643-2.957-2.182-2a.57.57,0,0,1-.156-.589A.537.537,0,0,1,.484,3.89L3.37,3.616,4.512.829a.523.523,0,0,1,.978,0L6.631,3.616l2.886.273a.536.536,0,0,1,.458.381.57.57,0,0,1-.155.589l-2.182,2,.643,2.957a.567.567,0,0,1-.207.573.512.512,0,0,1-.584.027L5,8.861,2.511,10.414a.516.516,0,0,1-.273.079ZM5,8.192a.516.516,0,0,1,.273.079L7.622,9.737,7.015,6.946a.569.569,0,0,1,.168-.54L9.244,4.52,6.518,4.262a.533.533,0,0,1-.442-.336L5,1.3,3.923,3.926a.532.532,0,0,1-.44.335L.757,4.519,2.817,6.4a.568.568,0,0,1,.168.541L2.379,9.736,4.728,8.271A.516.516,0,0,1,5,8.192ZM3.348,3.67h0Zm3.3,0h0Zm0,0" transform="translate('.$x.' '.$y.')" fill="#fb1"/>';
+        }
+        $x += 11;
     }
 
-    $svg.='</g></svg>';
+    $svg .= '</g></svg>';
 
     return $svg;
 }
 
-function renderCart(int $num_of_products){
+function renderCart(int $num_of_products)
+{
     $svg = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="21.231" viewBox="0 0 24 21.231">
   <defs>
     <clipPath id="clip-path">
@@ -59,5 +65,6 @@ function renderCart(int $num_of_products){
     </g>
   </g>
 </svg><span class="cart-counter"><span id="counter">'.$num_of_products.'</span></span>';
+
     return $svg;
 }

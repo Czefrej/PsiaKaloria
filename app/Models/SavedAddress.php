@@ -8,22 +8,29 @@ use Illuminate\Database\Eloquent\Model;
 class SavedAddress extends Model
 {
     use HasFactory;
-    protected $table = "saved_addresses";
-    protected $primaryKey = "id";
+
+    protected $table = 'saved_addresses';
+
+    protected $primaryKey = 'id';
+
     public $incrementing = true;
+
     public $timestamps = true;
 
-    public function user(){
-        return $this->belongsTo("App\Models\User","user_id");
+    public function user()
+    {
+        return $this->belongsTo("App\Models\User", 'user_id');
     }
 
-    public function orders(){
-        return $this->hasMany("App\Models\Order",'saved_address_id','id');
+    public function orders()
+    {
+        return $this->hasMany("App\Models\Order", 'saved_address_id', 'id');
     }
 
-    public static function create(User   $user, bool $company_purchase, String $invoice_fullname, String $invoice_company, String $invoice_tax_id, String $invoice_address, String $invoice_postal_code, String $invoice_city, String $invoice_country_cca2,
-                                  String $delivery_fullname, String $delivery_phone, String $delivery_company, String $delivery_address, String $delivery_postal_code, String $delivery_city, String $delivery_country_cca2,
-                                  String $delivery_point_id, String $delivery_point_name, String $delivery_point_address, String $delivery_point_postal_code, String $delivery_point_city){
+    public static function create(User $user, bool $company_purchase, string $invoice_fullname, string $invoice_company, string $invoice_tax_id, string $invoice_address, string $invoice_postal_code, string $invoice_city, string $invoice_country_cca2,
+                                  string $delivery_fullname, string $delivery_phone, string $delivery_company, string $delivery_address, string $delivery_postal_code, string $delivery_city, string $delivery_country_cca2,
+                                  string $delivery_point_id, string $delivery_point_name, string $delivery_point_address, string $delivery_point_postal_code, string $delivery_point_city)
+    {
         $dp_id = $delivery_point_id;
 
         $invoice_fullname = convertToName($invoice_fullname);
@@ -41,17 +48,16 @@ class SavedAddress extends Model
         $d_city = convertToName($delivery_city);
         $dp_city = convertToName($delivery_point_city);
 
-        throw_if(!cca2Verify($invoice_country_cca2),"Country code is invalid. ('$invoice_country_cca2')");
+        throw_if(! cca2Verify($invoice_country_cca2), "Country code is invalid. ('$invoice_country_cca2')");
 
-        if($invoice_country_cca2 != $delivery_country_cca2){
-            throw_if(!cca2Verify($delivery_country_cca2),"Country code is invalid. ('$delivery_country_cca2')");
+        if ($invoice_country_cca2 != $delivery_country_cca2) {
+            throw_if(! cca2Verify($delivery_country_cca2), "Country code is invalid. ('$delivery_country_cca2')");
         }
 
         $d_country_cca2 = $delivery_country_cca2;
         $d_postal_code = $delivery_postal_code;
         $dp_postal_code = $delivery_point_postal_code;
         $d_company = $delivery_company;
-
 
 //        //ADD GUS API SUPPORT
 //        $company = convertToName($company);
@@ -86,9 +92,10 @@ class SavedAddress extends Model
         return $saved_address;
     }
 
-    public static function exists(User   $user,bool $company_purchase, String $invoice_fullname, String $invoice_company, String $invoice_tax_id, String $invoice_address, String $invoice_postal_code, String $invoice_city, String $invoice_country_cca2,
-                                  String $delivery_fullname, String $delivery_phone, String $delivery_company, String $delivery_address, String $delivery_postal_code, String $delivery_city, String $delivery_country_cca2,
-                                  String $delivery_point_id, String $delivery_point_name, String $delivery_point_address, String $delivery_point_postal_code, String $delivery_point_city){
+    public static function exists(User $user, bool $company_purchase, string $invoice_fullname, string $invoice_company, string $invoice_tax_id, string $invoice_address, string $invoice_postal_code, string $invoice_city, string $invoice_country_cca2,
+                                  string $delivery_fullname, string $delivery_phone, string $delivery_company, string $delivery_address, string $delivery_postal_code, string $delivery_city, string $delivery_country_cca2,
+                                  string $delivery_point_id, string $delivery_point_name, string $delivery_point_address, string $delivery_point_postal_code, string $delivery_point_city)
+    {
         $dp_id = $delivery_point_id;
 
         $invoice_fullname = convertToName($invoice_fullname);
@@ -106,10 +113,10 @@ class SavedAddress extends Model
         $d_city = convertToName($delivery_city);
         $dp_city = convertToName($delivery_point_city);
 
-        throw_if(!cca2Verify($invoice_country_cca2),"Country code is invalid. ('$invoice_country_cca2')");
+        throw_if(! cca2Verify($invoice_country_cca2), "Country code is invalid. ('$invoice_country_cca2')");
 
-        if($invoice_country_cca2 != $delivery_country_cca2){
-            throw_if(!cca2Verify($delivery_country_cca2),"Country code is invalid. ('$delivery_country_cca2')");
+        if ($invoice_country_cca2 != $delivery_country_cca2) {
+            throw_if(! cca2Verify($delivery_country_cca2), "Country code is invalid. ('$delivery_country_cca2')");
         }
 
         $d_country_cca2 = $delivery_country_cca2;
@@ -117,31 +124,32 @@ class SavedAddress extends Model
         $dp_postal_code = $delivery_point_postal_code;
         $d_company = $delivery_company;
 
-        $saved_address = SavedAddress::where('user_id',$user->id)
-            ->where('company_purchase',$company_purchase)
-                ->where('fullname',$invoice_fullname)
-                ->where('company',$invoice_company)
-                ->where('tax_id',$invoice_tax_id)
-                ->where('address',$invoice_address)
-                ->where('postal_code',$invoice_postal_code)
-                ->where('city',$invoice_city)
-                ->where('country',$invoice_country_cca2)
-                ->where('delivery_fullname',$d_fullname)
-                ->where('delivery_phone',$d_phone)
-                ->where('delivery_company',$d_company)
-                ->where('delivery_address',$d_address)
-                ->where('delivery_postal_code',$d_postal_code)
-                ->where('delivery_city',$d_city)
-                ->where('delivery_country',$d_country_cca2)
-                ->where('delivery_point_id',$dp_id)
-                ->where('delivery_point_name',$dp_name)
-                ->where('delivery_point_address',$dp_address)
-                ->where('delivery_point_postal_code',$dp_postal_code)
-                ->where('delivery_point_city',$dp_city)->first();
+        $saved_address = SavedAddress::where('user_id', $user->id)
+            ->where('company_purchase', $company_purchase)
+                ->where('fullname', $invoice_fullname)
+                ->where('company', $invoice_company)
+                ->where('tax_id', $invoice_tax_id)
+                ->where('address', $invoice_address)
+                ->where('postal_code', $invoice_postal_code)
+                ->where('city', $invoice_city)
+                ->where('country', $invoice_country_cca2)
+                ->where('delivery_fullname', $d_fullname)
+                ->where('delivery_phone', $d_phone)
+                ->where('delivery_company', $d_company)
+                ->where('delivery_address', $d_address)
+                ->where('delivery_postal_code', $d_postal_code)
+                ->where('delivery_city', $d_city)
+                ->where('delivery_country', $d_country_cca2)
+                ->where('delivery_point_id', $dp_id)
+                ->where('delivery_point_name', $dp_name)
+                ->where('delivery_point_address', $dp_address)
+                ->where('delivery_point_postal_code', $dp_postal_code)
+                ->where('delivery_point_city', $dp_city)->first();
 
-        if($saved_address != null)
+        if ($saved_address != null) {
             return $saved_address;
-        else return false;
+        } else {
+            return false;
+        }
     }
-
 }

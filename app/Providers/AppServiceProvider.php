@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use DateTime;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -31,15 +30,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Blade::directive('estDeliveryDate',function($expression){
+        Blade::directive('estDeliveryDate', function ($expression) {
             return "<?php echo e(getEstimatedDelivery($expression)); ?>";
         });
 
-        Blade::directive('renderStars',function($expression){
+        Blade::directive('renderStars', function ($expression) {
             return "<?php echo renderStars($expression); ?>";
         });
 
-        Blade::directive('renderCart',function($expression){
+        Blade::directive('renderCart', function ($expression) {
             return "<?php echo renderCart($expression); ?>";
         });
     }

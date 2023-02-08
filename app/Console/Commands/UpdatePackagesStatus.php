@@ -39,15 +39,16 @@ class UpdatePackagesStatus extends Command
     public function handle()
     {
         $result = App::call("App\Http\Controllers\InPostController@update");
-        if($result->status() == 200) {
-            $this->info("Successfully run InPost updating module.");
+        if ($result->status() == 200) {
+            $this->info('Successfully run InPost updating module.');
         }
 
         $result = App::call("App\Http\Controllers\DPDController@update");
 
-        if($result->status() == 200) {
-            $this->info("Successfully run DPD updating module.");
+        if ($result->status() == 200) {
+            $this->info('Successfully run DPD updating module.');
         }
+
         return 0;
     }
 }

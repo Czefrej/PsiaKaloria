@@ -1,4 +1,5 @@
 <?php
+
 return [
 
     /*
@@ -26,7 +27,7 @@ return [
     'no_mail' => 'Brak wiadomości?',
     'password' => 'Hasło',
     'password_confirmation' => 'Powtórz hasło',
-    'register'=> 'Załóż konto',
+    'register' => 'Załóż konto',
     'remember_me' => 'Zapamiętaj mnie',
     'reset_password' => 'Resetuj hasło',
     'send_again' => 'Wyślij ponownie',
@@ -35,10 +36,8 @@ return [
     'thank_you_for_registration' => 'Dziękujemy za rejestrację, na Twój adres e-mail wysłaliśmy wiadomość z prośbą o potwierdzenie.',
     'we_sent_you_instructions' => 'Instrukcje resetu hasła zostały wysłane mailem.',
     'we_will_send_you_instructions' => 'Na podany adres wyślemy Ci instrukcję resetowania hasła.',
-    'personal_data' => "Dane użytkownika",
-    'account_name' => "Nazwa użytkownika",
-    'settings' => "Ustawienia"
-
-
+    'personal_data' => 'Dane użytkownika',
+    'account_name' => 'Nazwa użytkownika',
+    'settings' => 'Ustawienia',
 
 ];

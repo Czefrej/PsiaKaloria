@@ -17,11 +17,9 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if ( Auth::check() && Auth::user()->role != "shelter" )
-        {
+        if (Auth::check() && Auth::user()->role != 'shelter') {
             return $next($request);
-        }else {
-
+        } else {
             return redirect('/account/settings');
         }
     }
