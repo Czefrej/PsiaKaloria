@@ -24,13 +24,13 @@ use Illuminate\Support\Facades\Route;
 //Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
 //
 
-
 Route::get('', function () {
-    if(!\Illuminate\Support\Facades\Auth::check())
+    if (! \Illuminate\Support\Facades\Auth::check()) {
         return redirect('/login');
-    else
+    } else {
         return redirect('/account/settings');
-})->name("home");
+    }
+})->name('home');
 
 //Route::prefix('page')->group(function () {
 //
@@ -48,22 +48,21 @@ Route::get('', function () {
 //});
 //
 
-
 //Route::get('/email', function() {
 //        return view('mail.test');
 //})->name("regulations");
 
-Route::prefix('api')->group(function (){
+Route::prefix('api')->group(function () {
     Route::get('/shelters', [
-        \App\Http\Controllers\API\ShelterController::class, 'index'
+        \App\Http\Controllers\API\ShelterController::class, 'index',
     ]);
 
-    Route::get('/shelter/{id}',[
-        \App\Http\Controllers\API\ShelterController::class, 'show'
+    Route::get('/shelter/{id}', [
+        \App\Http\Controllers\API\ShelterController::class, 'show',
     ]);
 });
 
-Route::prefix('webhook')->group(function(){
+Route::prefix('webhook')->group(function () {
     Route::get('/mail', [\App\Http\Controllers\OrderMailController::class, 'process']);
 
     Route::get('/print', [\App\Http\Controllers\PrintLabelController::class, 'index']);
@@ -72,28 +71,24 @@ Route::prefix('webhook')->group(function(){
 });
 
 Route::prefix('account')->middleware(['verified'])->name('account.')->group(function () {
-    Route::resource('shelter', ShelterController::class)->middleware("isadmin");
-    Route::resource('user', UserController::class)->middleware("isadmin");
+    Route::resource('shelter', ShelterController::class)->middleware('isadmin');
+    Route::resource('user', UserController::class)->middleware('isadmin');
 
-    Route::prefix('analytics')->middleware('isadmin')->name('analytics.')->group(function(){
+    Route::prefix('analytics')->middleware('isadmin')->name('analytics.')->group(function () {
         Route::resource('product', ProductController::class);
-
     });
 
-
-    Route::get('/settings', function() {
+    Route::get('/settings', function () {
         return view('account.settings');
-    })->name("settings");
+    })->name('settings');
 
-    Route::get('/create-user', function() {
+    Route::get('/create-user', function () {
         return view('account.create_account');
-    })->name("create-user")->middleware("isadmin");
+    })->name('create-user')->middleware('isadmin');
 
-    Route::get('/upload', function() {
+    Route::get('/upload', function () {
         return view('account.file.upload');
-    })->name("upload-file")->middleware("isadmin");
-
-
+    })->name('upload-file')->middleware('isadmin');
 
 //    Route::get('/create-shelter', function() {
 //        return view('account.create_shelter');
@@ -105,25 +100,24 @@ Route::prefix('account')->middleware(['verified'])->name('account.')->group(func
 //        return view('account.shelters');
 //    })->name("shelters")->middleware("isadmin");
 
-    Route::get('/purchase-history', function() {
+    Route::get('/purchase-history', function () {
         return view('account.purchase_history');
-    })->name("purchase-history");
+    })->name('purchase-history');
 
-    Route::get('/subscriptions', function() {
+    Route::get('/subscriptions', function () {
         return view('account.subscriptions');
-    })->name("subscriptions");
+    })->name('subscriptions');
 
-    Route::get('/password', function() {
+    Route::get('/password', function () {
         return view('account.password');
     })->name('password');
 
-    Route::get('/edit', function() {
+    Route::get('/edit', function () {
         return view('account.edit');
     })->name('edit');
-
 });
 
-Route::get('/login', function() {
+Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
 
@@ -131,7 +125,7 @@ Route::get('/login', function() {
 //    return view('auth.register');
 //})->name('register');
 
-Route::get('/forgot-password', function() {
+Route::get('/forgot-password', function () {
     return view('auth.forgot_password');
 })->name('forgot-password');
 
@@ -139,7 +133,7 @@ Route::get('/forgot-password', function() {
 //    return view('auth.registration_success');
 //})->name('registration-success');
 
-Route::get('/auth/error-state', function() {
+Route::get('/auth/error-state', function () {
     return view('auth.error_state');
 })->name('error-state');
 

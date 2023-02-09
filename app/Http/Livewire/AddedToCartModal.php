@@ -8,13 +8,15 @@ use Livewire\Component;
 class AddedToCartModal extends Component
 {
     protected $listeners = [
-        'open_modal'=>'openModal'
+        'open_modal' => 'openModal',
     ];
 
     public $dropdown_id;
+
     public $cart;
 
-    public function mount(){
+    public function mount()
+    {
         $this->cart = Cart::content();
     }
 
@@ -23,9 +25,9 @@ class AddedToCartModal extends Component
         return view('livewire.added-to-cart-modal');
     }
 
-    public function openModal(){
+    public function openModal()
+    {
         $this->cart = Cart::content();
         $this->dispatchBrowserEvent('openModal');
     }
-
 }

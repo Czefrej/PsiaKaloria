@@ -16,8 +16,10 @@ class isAjax
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->ajax())
+        if ($request->ajax()) {
             return $next($request);
-        else return response("Unauthorized",403);
+        } else {
+            return response('Unauthorized', 403);
+        }
     }
 }

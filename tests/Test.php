@@ -3,11 +3,9 @@
 namespace Tests;
 
 use App\Models\Order;
-use Tests\TestCase;
 
 class Test extends TestCase
 {
-
     /**
      * A basic test example.
      *

@@ -9,38 +9,43 @@ class CartTable extends Component
 {
     public $quantity = [];
 
-    public function mount(){
+    public function mount()
+    {
         $this->update();
     }
 
     public function render()
     {
         $cart = Cart::content();
-        return view('livewire.cart-table',compact('cart'));
+
+        return view('livewire.cart-table', compact('cart'));
     }
 
-    public function update(){
-        foreach (Cart::content() as $row){
+    public function update()
+    {
+        foreach (Cart::content() as $row) {
             $this->quantity[$row->rowId] = $row->qty;
         }
     }
 
-    public function change($row_id){
+    public function change($row_id)
+    {
         Cart::update($row_id, ['qty' => $this->quantity[$row_id]]);
         $this->emit('recalculate_free_delivery');
         $this->emit('update_summary');
     }
 
-
-    public function increment($row_id){
+    public function increment($row_id)
+    {
         $this->quantity[$row_id] += 1;
         Cart::update($row_id, ['qty' => $this->quantity[$row_id]]);
         $this->emit('recalculate_free_delivery');
         $this->emit('update_summary');
     }
 
-    public function decrement($row_id){
-        if($this->quantity[$row_id] -1 >0){
+    public function decrement($row_id)
+    {
+        if ($this->quantity[$row_id] - 1 > 0) {
             $this->quantity[$row_id] -= 1;
             Cart::update($row_id, ['qty' => $this->quantity[$row_id]]);
         }
@@ -48,7 +53,8 @@ class CartTable extends Component
         $this->emit('update_summary');
     }
 
-    public function remove($row_id){
+    public function remove($row_id)
+    {
         Cart::remove($row_id);
         unset($this->quantity[$row_id]);
         $this->emit('recalculate_free_delivery');

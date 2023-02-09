@@ -39,7 +39,6 @@ class Handler extends ExceptionHandler
                 app('sentry')->captureException($e);
             }
         });
-
     }
 
     public function report(Throwable $exception)

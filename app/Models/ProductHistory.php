@@ -9,8 +9,11 @@ class ProductHistory extends Model
 {
     use HasFactory;
 
-    protected $table = "products_history";
-    protected $primaryKey = "id";
+    protected $table = 'products_history';
+
+    protected $primaryKey = 'id';
+
     public $incrementing = true;
+
     public $timestamps = true;
 }

@@ -53,7 +53,5 @@ class PasswordResetLinkController extends Controller
             ? back()->with('status', __($status))
             : back()->withInput($request->only('email'))
                 ->withErrors(['email' => __($status)]);
-
-
     }
 }

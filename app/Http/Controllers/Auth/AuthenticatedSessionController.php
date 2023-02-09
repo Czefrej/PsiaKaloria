@@ -32,8 +32,9 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        if(!Auth::user()->verified)
+        if (! Auth::user()->verified) {
             return redirect()->route('verification.notice');
+        }
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }

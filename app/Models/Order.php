@@ -4,56 +4,61 @@ namespace App\Models;
 
 use App\Events\OrderCreated;
 use App\Events\OrderUpdating;
-use App\Events\PackageChanged;
 use DateTime;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
 use Illuminate\Support\Facades\App;
 
 class Order extends Model
 {
     use HasFactory;
-    protected $table = "orders";
-    protected $primaryKey = "order_id";
+
+    protected $table = 'orders';
+
+    protected $primaryKey = 'order_id';
+
     public $incrementing = false;
+
     public $timestamps = true;
 
     protected $dispatchesEvents = [
-//        'created' => OrderCreated::class,
-//        'updating' => OrderUpdating::class
+        //        'created' => OrderCreated::class,
+        //        'updating' => OrderUpdating::class
     ];
 
-    public function products(){
-        return $this->hasMany("App\Models\OrderProduct","order_id","id");
+    public function products()
+    {
+        return $this->hasMany(\App\Models\OrderProduct::class, 'order_id', 'id');
     }
 
 //    public function packages(){
 //        return $this->hasMany("App\Models\Package","order_id","id");
 //    }
 
-    public static function create(int $order_id,string $ext_order_id, string $source, string $datetime, string $country_code, string $postal_code,bool $is_smart,int $delivery_net_price,bool $is_cod,string $currency)
+    public static function create(int $order_id, string $ext_order_id, string $source, string $datetime, string $country_code, string $postal_code, bool $is_smart, int $delivery_net_price, bool $is_cod, string $currency)
     {
-            //TODO: VALIDATION
-        if(self::existsWithID($order_id))
-            return false;
-
-        try {
-            $datetime = DateTime::createFromFormat('d.m.Y H:i:s', $datetime)->format('Y-m-d H:i:s');
-        }catch (\Exception $exception){
+        //TODO: VALIDATION
+        if (self::existsWithID($order_id)) {
             return false;
         }
 
-        if(empty($is_smart))
+        try {
+            $datetime = DateTime::createFromFormat('d.m.Y H:i:s', $datetime)->format('Y-m-d H:i:s');
+        } catch (\Exception $exception) {
+            return false;
+        }
+
+        if (empty($is_smart)) {
             $is_smart = 0;
-        else
+        } else {
             $is_smart = 1;
+        }
 
-        if(empty($is_cod))
+        if (empty($is_cod)) {
             $is_cod = 0;
-        else
+        } else {
             $is_cod = 1;
-
+        }
 
         $order = new Order();
         $order->order_id = $order_id;
@@ -75,20 +80,23 @@ class Order extends Model
         return $order;
     }
 
-    public static function existsWithID($id){
+    public static function existsWithID($id)
+    {
         $order = Order::find($id);
-        if($order!=null)
+        if ($order != null) {
             return $order;
-        else return false;
+        } else {
+            return false;
+        }
     }
 
-    public static function updateWithID($id,User $user,SavedAddress $savedAddress, DeliveryPaymentAvailability $deliveryPaymentAvailability, $status,bool $is_donation,string $order_page,float $due,float $paid, string $source)
+    public static function updateWithID($id, User $user, SavedAddress $savedAddress, DeliveryPaymentAvailability $deliveryPaymentAvailability, $status, bool $is_donation, string $order_page, float $due, float $paid, string $source)
     {
-
         $order = Order::find($id);
 
-        if($order == null)
+        if ($order == null) {
             return false;
+        }
 
         $order->status = $status;
         $order->is_donation = $is_donation;
@@ -106,5 +114,4 @@ class Order extends Model
 
         return $order;
     }
-
 }

@@ -8,18 +8,21 @@ use Livewire\Component;
 class Create extends Component
 {
     public $sku;
-    public $weight;
-    public $tax_group;
-    public $net_packaging_price;
-    public $net_cogs;
 
+    public $weight;
+
+    public $tax_group;
+
+    public $net_packaging_price;
+
+    public $net_cogs;
 
     protected $rules = [
         'sku' => 'required|max:100|unique:products,sku',
-        'net_packaging_price' => ['required','numeric'],
-        'net_cogs' => ['required','numeric'],
-        'weight' => ['required','numeric'],
-        'tax_group' => ['required', 'in:PET_FOOD_WET']
+        'net_packaging_price' => ['required', 'numeric'],
+        'net_cogs' => ['required', 'numeric'],
+        'weight' => ['required', 'numeric'],
+        'tax_group' => ['required', 'in:PET_FOOD_WET'],
     ];
 
     public function render()
@@ -27,7 +30,8 @@ class Create extends Component
         return view('livewire.analytics.product.create');
     }
 
-    public function submit(){
+    public function submit()
+    {
         $this->validate();
 
         $product = new Product();
@@ -40,10 +44,7 @@ class Create extends Component
         $product->save();
 
         session()->flash('message', "Produkt $this->sku został dodany do systemu.");
+
         return redirect()->route('account.analytics.product.create');
-
-
-
-
     }
 }

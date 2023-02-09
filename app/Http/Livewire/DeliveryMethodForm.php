@@ -8,10 +8,15 @@ use Livewire\Component;
 class DeliveryMethodForm extends Component
 {
     public $donation;
+
     public $country_cca2;
+
     public $methods;
+
     public $selected;
+
     public $payment_method;
+
     public $valid;
 
     protected $rules = [
@@ -21,10 +26,11 @@ class DeliveryMethodForm extends Component
     protected $listeners = [
         'validate' => 'validation',
         'form-invalid' => 'resetForm',
-        'form-valid' => 'unlock'
+        'form-valid' => 'unlock',
     ];
 
-    public function mount(){
+    public function mount()
+    {
         $this->payment_method = 0;
         $this->update();
     }
@@ -34,35 +40,38 @@ class DeliveryMethodForm extends Component
         return view('livewire.delivery-method-form');
     }
 
-    public function update(){
-
-        $this->methods = DeliveryMethod::where('donation_eligible',$this->donation)
-            ->where('country',$this->country_cca2)->where('active',1)->get();
+    public function update()
+    {
+        $this->methods = DeliveryMethod::where('donation_eligible', $this->donation)
+            ->where('country', $this->country_cca2)->where('active', 1)->get();
     }
 
-    public function selectDelivery($id){
+    public function selectDelivery($id)
+    {
         $this->selected = $id;
         //UNEXPECTED BEHAVIOR? - DELETE THIS.
         //$this->update();
         $this->validate();
         $method = $this->methods->find($id);
-        $this->emit('update_delivery_method',$method);
+        $this->emit('update_delivery_method', $method);
     }
 
-    public function validation(){
+    public function validation()
+    {
         $this->validate();
     }
 
-    public function resetForm(){
+    public function resetForm()
+    {
         $this->selected = null;
         $this->payment_method = 0;
         $this->update();
         $this->valid = false;
     }
 
-    public function unlock(){
+    public function unlock()
+    {
         $this->valid = true;
         $this->selected = null;
     }
-
 }

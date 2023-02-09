@@ -33,49 +33,45 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
-//            'name' => ['required', 'string', 'max:255'],
+            //            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
-//            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            //            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'agreement' => ['accepted']
+            'agreement' => ['accepted'],
         ]);
 
         $uniqueness = User::isUniqueEmail($request->email);
 
-        if($uniqueness === false)
+        if ($uniqueness === false) {
             $request->validate([
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             ]);
+        }
 
-        $name = "PK-".strtoupper(substr(md5($request->email),-6));
+        $name = 'PK-'.strtoupper(substr(md5($request->email), -6));
 
-        if ($uniqueness == USER::EMAIL_RECURRENT){
-            $user = User::where('email',$request->email)->first();
+        if ($uniqueness == USER::EMAIL_RECURRENT) {
+            $user = User::where('email', $request->email)->first();
             $user->password = Hash::make($request->password);
             $user->name = $name;
             $user->save();
-
-        }else{
-
+        } else {
             $user = User::create([
                 'name' => $name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
-
         }
 
         event(new Registered($user));
 
         Auth::login($user);
 
-        if($user->verified){
+        if ($user->verified) {
             return redirect(RouteServiceProvider::HOME);
-        }else{
+        } else {
             return redirect()->route('verification.notice');
         }
-
     }
 }

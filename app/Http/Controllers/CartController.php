@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\Product;
 use Carbon\Carbon;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -42,12 +41,11 @@ class CartController extends Controller
     {
         //
         $request->validate([
-            'quantity'=>['required','numeric'],
-            'sku'=>['required','exists:products,sku']
+            'quantity' => ['required', 'numeric'],
+            'sku' => ['required', 'exists:products,sku'],
         ]);
 //        if (!$request->ajax())
 //            return response("Unauthorized",403);
-
 
 //        if(Auth::check())
 //            $identifier = Auth::user()->name;
@@ -59,14 +57,14 @@ class CartController extends Controller
 //        }
         $product = Product::findOrFail($request['sku']);
         //Cart::restore($identifier);
-        Cart::add($request->input('sku'), $product->name, $request->input('quantity'), $product->getPrice())->associate('App\Models\Product');
+        Cart::add($request->input('sku'), $product->name, $request->input('quantity'), $product->getPrice())->associate(\App\Models\Product::class);
 //        $cart = Cart::content();
 //        $row_id = "";
 //        $qty = 0;
 //        if(($query = $cart->where('id',$product->sku))->count()){
 //            $item = $query->first();
-////            $qty = $item->qty;
-////            $row_id = $item->rowId;
+        ////            $qty = $item->qty;
+        ////            $row_id = $item->rowId;
 //        }
 //
 //
@@ -77,11 +75,9 @@ class CartController extends Controller
 //        }
         //Cart::store($identifier);
 
-
         //return response()->json(['status'=>'success'])->withCookie('cart-id',$identifier,60);
 
-        return redirect('product/as-barf-z-wolowina-i-drobiem-zestaw-10x1000g')->with('message',"OKKKKKKKKKK!");
-
+        return redirect('product/as-barf-z-wolowina-i-drobiem-zestaw-10x1000g')->with('message', 'OKKKKKKKKKK!');
     }
 
     /**

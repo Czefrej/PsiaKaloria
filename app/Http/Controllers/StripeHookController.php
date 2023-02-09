@@ -2,18 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Livewire\shelter\Order;
 use Illuminate\Http\Request;
 use Laravel\Cashier\Events\WebhookReceived;
-use Laravel\Cashier\Http\Controllers\WebhookController;
-use function Sentry\captureMessage;
 
 class StripeHookController
 {
     //
 
-    public function handle(Request $request){
-
+    public function handle(Request $request)
+    {
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         $endpoint_secret = env('STRIPE_ENDPOINT_SECRET');
 
@@ -25,11 +22,11 @@ class StripeHookController
             $event = \Stripe\Webhook::constructEvent(
                 $payload, $sig_header, $endpoint_secret
             );
-        } catch(\UnexpectedValueException $e) {
+        } catch (\UnexpectedValueException $e) {
             return abort(400, $e->getMessage());
-        } catch(\Stripe\Exception\SignatureVerificationException $e) {
+        } catch (\Stripe\Exception\SignatureVerificationException $e) {
             return abort(400, $e->getMessage());
-        } catch (\Exception $e){
+        } catch (\Exception $e) {
             return abort(400, $e->getMessage());
         }
 
@@ -37,6 +34,5 @@ class StripeHookController
         event(new WebhookReceived($payload));
 
         return response()->json($event);
-
     }
 }

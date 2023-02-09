@@ -2,9 +2,6 @@
 
 namespace App\Listeners;
 
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
-
 class StripeCustomerUpdate
 {
     /**
@@ -26,11 +23,11 @@ class StripeCustomerUpdate
     public function handle($event)
     {
         //
-       $order = $event->order;
-       $savedAddress = $order->savedAddress;
-       //dd($order->savedAddress->id);
-       $user = $order->user;
-       //dd($savedAddress);
-       $stripeCustomer = $user->updateStripeCustomer(['address'=>['city'=>$savedAddress->city,'country'=>$savedAddress->country,'postal_code'=>$savedAddress->postal_code,'line1'=>$savedAddress->address],'phone'=>$savedAddress->delivery_phone,'email'=>$user->email,'name'=>trim($savedAddress->fullname.' '.$savedAddress->company)]);
+        $order = $event->order;
+        $savedAddress = $order->savedAddress;
+        //dd($order->savedAddress->id);
+        $user = $order->user;
+        //dd($savedAddress);
+        $stripeCustomer = $user->updateStripeCustomer(['address' => ['city' => $savedAddress->city, 'country' => $savedAddress->country, 'postal_code' => $savedAddress->postal_code, 'line1' => $savedAddress->address], 'phone' => $savedAddress->delivery_phone, 'email' => $user->email, 'name' => trim($savedAddress->fullname.' '.$savedAddress->company)]);
     }
 }

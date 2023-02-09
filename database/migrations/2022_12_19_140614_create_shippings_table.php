@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateShippingsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -19,7 +19,7 @@ class CreateShippingsTable extends Migration
             $table->string('tracking_number');
             $table->double('weight');
             $table->double('net_price');
-            $table->enum('type',['paczkomat','dpd','inpost','dpd_pickup','odbior','fba']);
+            $table->enum('type', ['paczkomat', 'dpd', 'inpost', 'dpd_pickup', 'odbior', 'fba']);
             $table->foreign('order_id')->references('order_id')->on('orders')->onDelete('cascade');
             $table->timestamps();
         });
@@ -34,4 +34,4 @@ class CreateShippingsTable extends Migration
     {
         Schema::dropIfExists('shippings');
     }
-}
+};

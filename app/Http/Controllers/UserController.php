@@ -11,13 +11,15 @@ class UserController extends Controller
     {
         $users = User::all();
         $arr = [];
-        foreach ($users as $user){
-            array_push($arr,[$user->name,$user->email,$user->hasVerifiedEmail(),$user->role]);
+        foreach ($users as $user) {
+            array_push($arr, [$user->name, $user->email, $user->hasVerifiedEmail(), $user->role]);
         }
-        return view('account.user.index')->with(["data"=>$arr]);
+
+        return view('account.user.index')->with(['data' => $arr]);
     }
 
-    public function create(){
+    public function create()
+    {
         return view('account.user.create');
     }
 }

@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
@@ -12,9 +11,13 @@ class PostOrderDiscount extends Mailable
     use Queueable, SerializesModels;
 
     private $order_num;
+
     private $sh_name;
+
     private $c_name;
+
     private $discount;
+
     private $valid_to;
 
     /**
@@ -22,7 +25,7 @@ class PostOrderDiscount extends Mailable
      *
      * @return void
      */
-    public function __construct(String $order_num, String $sh_name, String $c_name,String $discount, String $valid_to, String $order_link)
+    public function __construct(string $order_num, string $sh_name, string $c_name, string $discount, string $valid_to, string $order_link)
     {
         $this->order_num = $order_num;
         $this->sh_name = $sh_name;
@@ -45,7 +48,7 @@ class PostOrderDiscount extends Mailable
             'c_name' => $this->c_name,
             'discount' => $this->discount,
             'valid_to' => $this->valid_to,
-            'order_link' =>$this->order_link
+            'order_link' => $this->order_link,
         ]);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddAnimalSheltersVoivodeship extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,8 @@ class AddAnimalSheltersVoivodeship extends Migration
     public function up()
     {
         Schema::table('animal_shelters', function (Blueprint $table) {
-            $table->enum('voivodeship',['dolnośląskie','kujawsko-pomorskie','lubelskie','lubuskie'
-                ,'łódzkie','małopolskie','mazowieckie',
-                'opolskie','podkarpackie','podlaskie','pomorskie'
-                ,'śląskie', 'świętokrzyskie', 'warmińsko-mazurskie', 'wielkopolskie', 'zachodniopomorskie'])->nullable();
+            $table->enum('voivodeship', ['dolnośląskie', 'kujawsko-pomorskie', 'lubelskie', 'lubuskie', 'łódzkie', 'małopolskie', 'mazowieckie',
+                'opolskie', 'podkarpackie', 'podlaskie', 'pomorskie', 'śląskie', 'świętokrzyskie', 'warmińsko-mazurskie', 'wielkopolskie', 'zachodniopomorskie', ])->nullable();
         });
     }
 
@@ -32,4 +30,4 @@ class AddAnimalSheltersVoivodeship extends Migration
             $table->dropColumn('voivodeship');
         });
     }
-}
+};
