@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
-            $table->string('sku')->unique()->index();
-            $table->decimal('net_cogs',8,2);
-            $table->decimal('net_packaging_price',8,2);
-            $table->decimal('weight',8,2);
-            $table->string('tax_group');
-            $table->timestamps();
+        //
+        Schema::table('shipments', function (Blueprint $table) {
+            $table->integer('package_amount');
         });
     }
 
@@ -30,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::table('shipments', function (Blueprint $table) {
+            $table->dropColumn('package_amount');
+        });
     }
 };

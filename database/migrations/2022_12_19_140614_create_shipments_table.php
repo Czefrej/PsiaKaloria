@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('shippings', function (Blueprint $table) {
+        Schema::create('shipments', function (Blueprint $table) {
             $table->id();
             $table->integer('order_id');
             $table->string('tracking_number');
-            $table->double('weight');
-            $table->double('net_price');
+            $table->decimal('weight',8,2);
+            $table->decimal('net_price',8,2);
             $table->enum('type', ['paczkomat', 'dpd', 'inpost', 'dpd_pickup', 'odbior', 'fba']);
             $table->foreign('order_id')->references('order_id')->on('orders')->onDelete('cascade');
             $table->timestamps();
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shippings');
+        Schema::dropIfExists('shipments');
     }
 };

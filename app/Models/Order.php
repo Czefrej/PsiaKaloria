@@ -31,11 +31,21 @@ class Order extends Model
         return $this->hasMany(\App\Models\OrderProduct::class, 'order_id', 'id');
     }
 
+    public function fees()
+    {
+        return $this->hasMany(\App\Models\Fee::class, 'order_id','order_id');
+    }
+
+    public function shipments()
+    {
+        return $this->hasMany(\App\Models\Shipment::class,'order_id','order_id');
+    }
+
 //    public function packages(){
 //        return $this->hasMany("App\Models\Package","order_id","id");
 //    }
 
-    public static function create(int $order_id, string $ext_order_id, string $source, string $datetime, string $country_code, string $postal_code, bool $is_smart, int $delivery_net_price, bool $is_cod, string $currency)
+    public static function create(int $order_id, string $ext_order_id, string $source, string $datetime, string $country_code, string $postal_code, bool $is_smart, float $delivery_net_price, bool $is_cod, string $currency)
     {
         //TODO: VALIDATION
         if (self::existsWithID($order_id)) {
@@ -88,6 +98,11 @@ class Order extends Model
         } else {
             return false;
         }
+    }
+
+    public static function findByOrderID($ext_order_id){
+        return Order::where('ext_order_id', $ext_order_id)->first();
+
     }
 
     public static function updateWithID($id, User $user, SavedAddress $savedAddress, DeliveryPaymentAvailability $deliveryPaymentAvailability, $status, bool $is_donation, string $order_page, float $due, float $paid, string $source)

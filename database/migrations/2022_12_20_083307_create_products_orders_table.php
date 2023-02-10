@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('order_id');
             $table->string('sku');
             $table->integer('quantity');
-            $table->double('gross_price');
+            $table->decimal('gross_price');
             $table->timestamps();
 
             $table->foreign('order_id')->references('order_id')->on('orders')->onDelete('cascade');

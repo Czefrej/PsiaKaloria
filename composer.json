@@ -11,6 +11,7 @@
         "php": "^8.0",
         "ext-json": "*",
         "bumbummen99/shoppingcart": "dev-refactor-moneyphp",
+        "doctrine/dbal": "^3.6",
         "guzzlehttp/guzzle": "^7.2",
         "hardevine/shoppingcart": "^3.1",
         "laravel/framework": "^9.51",

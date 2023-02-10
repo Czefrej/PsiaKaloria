@@ -10,7 +10,7 @@ use Laravel\Cashier\Billable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory, Notifiable, Billable;
+    use HasFactory, Notifiable;
 
     public const EMAIL_UNIQUE = 'UNIQUE';
 

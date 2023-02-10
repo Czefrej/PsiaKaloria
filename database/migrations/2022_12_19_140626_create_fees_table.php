@@ -14,9 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('fees', function (Blueprint $table) {
-            $table->id();
+            $table->string('id')->primary();
             $table->string('type');
-            $table->double('net_price');
+            $table->boolean('is_charge');
+            $table->decimal('net_price',8,2);
             $table->integer('order_id');
             $table->timestamps();
 

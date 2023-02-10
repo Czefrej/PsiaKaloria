@@ -14,14 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->integer('order_id')->index();
-            $table->string('ext_order_id', 64);
+            $table->integer('order_id')->primary();
+            $table->string('ext_order_id', 64)->index();
             $table->string('source', 32);
             $table->date('date');
             $table->string('country_code', 4);
             $table->string('postal_code');
             $table->boolean('allegro_smart');
-            $table->double('delivery_net_price');
+            $table->decimal('delivery_net_price',8,2);
             $table->boolean('cod');
             $table->enum('currency', ['EUR', 'USD', 'PLN']);
             $table->timestamps();
